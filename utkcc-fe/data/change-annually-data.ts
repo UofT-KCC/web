@@ -5,7 +5,7 @@
 
 /** KCC 시작 연도: 2007년 */
 export const KCC_START_YEAR = 2007;
-export const KCC_TH_NOW = new Date().getFullYear() - KCC_START_YEAR;
+export const KCC_TH_NOW = new Date().getFullYear() - KCC_START_YEAR + (new Date().getMonth() >= 4 ? 1 : 0);
 
 /** 멤버십 가입 링크 */
 export const joinMemberShipLink = 'https://forms.gle/VCSYDbiWNDYbw8rZ7';
@@ -18,8 +18,8 @@ export const subscribeNewsletterLink =
 /** KCC 이메일 */
 export const kccEmail = 'koreancommerce@gmail.com';
 /** 회장 이메일 */
-export const presEmail = 'seohyun.kang@mail.utoronto.ca';
+export const presEmail = 'yuna.lim@mail.utoronto.ca';
 /** 부회장 이메일 */
-export const vicePresEmail = 'suye.han@mail.utoronto.ca';
+export const vicePresEmail = 'eunseojena.lee@mail.utoronto.ca';
 /** 스폰서 관련 이메일 (ER 디렉터) */
-export const erDirectorEmail = 'yujin.shim@mail.utoronto.ca';
+export const erDirectorEmail = 'jeslyn.park@mail.utoronto.ca';
