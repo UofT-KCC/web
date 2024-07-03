@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import localFont from 'next/font/local';
+import { Analytics } from "@vercel/analytics/react"
 import FooterContactInfo from '@/components/footerContactInfo';
 import { getURL } from '@/lib/utils';
 import './globals.css';
@@ -128,6 +129,7 @@ export default function RootLayout({
         <footer id="footer" className="mt-auto">
           <FooterContactInfo />
         </footer>
+        <Analytics />
       </body>
     </html>
   );
