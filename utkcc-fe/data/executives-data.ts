@@ -70,7 +70,7 @@ export const execData: {
   },
   {
     dept: 'academics',
-    position: 'committee',
+    position: 'ee',
     name: '김소람',
     imageSrc: '/assets/images/exec-headshots/김소람.webp',
     program: 'RC - Accounting',
@@ -78,7 +78,7 @@ export const execData: {
   },
   {
     dept: 'academics',
-    position: 'committee',
+    position: 'ee',
     name: '임승미',
     imageSrc: '/assets/images/exec-headshots/임승미.webp',
     program: 'RC - Finance & Economics',
@@ -86,7 +86,7 @@ export const execData: {
   },
   {
     dept: 'academics',
-    position: 'committee',
+    position: 'ee',
     name: '최진민',
     imageSrc: '/assets/images/exec-headshots/최진민.webp',
     program: 'RC - Finance & Economics',
@@ -127,7 +127,7 @@ export const execData: {
   },
   {
     dept: 'marketing - video',
-    position: 'committee',
+    position: 'ee',
     name: '김유진',
     imageSrc: '/assets/images/exec-headshots/김유진.webp',
     program: 'Economics & Statistics',
@@ -135,7 +135,7 @@ export const execData: {
   },
   {
     dept: 'marketing - video',
-    position: 'committee',
+    position: 'ee',
     name: '허지안',
     imageSrc: '/assets/images/exec-headshots/허지안.webp',
     program: 'Architecture',
@@ -159,7 +159,7 @@ export const execData: {
   },
   {
     dept: 'marketing - poster',
-    position: 'committee',
+    position: 'ee',
     name: '강초원',
     imageSrc: '/assets/images/exec-headshots/강초원.webp',
     program: 'Political Science',
@@ -167,7 +167,7 @@ export const execData: {
   },
   {
     dept: 'marketing - poster',
-    position: 'committee',
+    position: 'ee',
     name: '조예은',
     imageSrc: '/assets/images/exec-headshots/조예은.webp',
     program: 'Math & Environmental Science',
@@ -192,7 +192,7 @@ export const execData: {
   },
   {
     dept: 'media',
-    position: 'committee',
+    position: 'ee',
     name: '이은수',
     imageSrc: '/assets/images/exec-headshots/이은수.webp',
     program: 'Biology & Health and Disease',
@@ -217,7 +217,7 @@ export const execData: {
   },
   {
     dept: 'social',
-    position: 'committee',
+    position: 'ee',
     name: '강지석',
     imageSrc: '/assets/images/exec-headshots/강지석.webp',
     program: 'Kinesiology',
@@ -225,7 +225,7 @@ export const execData: {
   },
   {
     dept: 'social',
-    position: 'committee',
+    position: 'ee',
     name: '송지원',
     imageSrc: '/assets/images/exec-headshots/송지원.webp',
     program: 'Rotman Commerce',
@@ -233,7 +233,7 @@ export const execData: {
   },
   {
     dept: 'social',
-    position: 'committee',
+    position: 'ee',
     name: '이기서',
     imageSrc: '/assets/images/exec-headshots/이기서.webp',
     program: 'Economics',
@@ -241,7 +241,7 @@ export const execData: {
   },
   {
     dept: 'social',
-    position: 'committee',
+    position: 'ee',
     name: '전소연',
     imageSrc: '/assets/images/exec-headshots/전소연.webp',
     program: 'Rotman Commerce',
@@ -274,7 +274,7 @@ export const execData: {
   },
   {
     dept: 'finance',
-    position: 'committee',
+    position: 'ee',
     name: '안지영',
     imageSrc: '/assets/images/exec-headshots/안지영.webp',
     program: 'Rotman Commerce',
@@ -299,7 +299,7 @@ export const execData: {
   },
   {
     dept: 'external relations',
-    position: 'committee',
+    position: 'ee',
     name: '최정윤',
     imageSrc: '/assets/images/exec-headshots/최정윤.webp',
     program: 'Political Science',
@@ -307,7 +307,7 @@ export const execData: {
   },
   {
     dept: 'external relations',
-    position: 'committee',
+    position: 'ee',
     name: '최예린',
     imageSrc: '/assets/images/exec-headshots/최예린.webp',
     program: 'Life Science',
