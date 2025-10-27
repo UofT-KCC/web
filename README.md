@@ -7,7 +7,7 @@ This repository contains the source code for the UTKCC official website, created
 - 🎨 [Hyunjun You](https://www.instagram.com/hyunjun2003) — Designer.
 - 🧑‍💻 [@ryubsmile](https://github.com/ryubsmile) — Programming Director.
 - 🧩 [@caelankim](https://github.com/caelankim) — Programming Committee. 
-- 💻 [@mjinap1](https://github.com/mjinap1) — Programming Intern.
+- 💻 [@mijnap1](https://github.com/mjinap1) — Programming Intern.
 ## Documentation (Attention Maintainers-)
 
 This documentation is intended for non-coders who wish to maintain the website with minimal coding.
