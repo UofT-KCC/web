@@ -18,7 +18,7 @@ export const sponsorData: {
     name: 'Kanari',
     exp: 'Contemporary Asian Bar',
     imageSrc: 'assets/images/sponsors/kanari.jpeg',
-    websiteUrl: 'https://www.instagram.com/sinjeon_church_toronto/',
+    websiteUrl: 'https://www.instagram.com/kanari.toronto/',
     locationUrl: 'https://maps.app.goo.gl/FptEr6oN9tXtPhG19',
   },
   {
