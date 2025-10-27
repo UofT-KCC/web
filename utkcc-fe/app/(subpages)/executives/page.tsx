@@ -26,10 +26,11 @@ export default function Executives() {
       pageSlogan={<>UTKCC {KCC_TH_NOW}기 임원진</>}
       pageExp={
         <>
-          UTKCC는 현재 회장단과 {deptList.length - 1}개의 부서로 이루어져
-          있습니다.
-          <span className="my-3 w-full block" />각 부서를 클릭하여 {KCC_TH_NOW}
-          기 임원진들을 확인해보세요.
+          UTKCC는 연도별 기수제로 운영되며, 현재 회장단과 {deptList.length - 1}
+          개의 부서가 함께하고 있습니다.
+          <span className="my-3 w-full block" />
+          {KCC_TH_NOW}기에도 다양한 분야의 학생들이 각 부서에서 활발히 활동하고
+          있으니, 각 부서 탭을 클릭해 {KCC_TH_NOW}기 임원진을 만나보세요!
         </>
       }
     >
