@@ -13,7 +13,7 @@ export const sponsorData: {
   websiteUrl: string;
   locationUrl: string;
 }[] = [
-  // 18th sponsors
+  // 19th sponsors
   {
     name: 'Kanari',
     exp: 'Contemporary Asian Bar',
