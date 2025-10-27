@@ -6,8 +6,9 @@ This repository contains the source code for the UTKCC official website, created
 
 - 🎨 [Hyunjun You](https://www.instagram.com/hyunjun2003) — Designer.
 - 🧑‍💻 [@ryubsmile](https://github.com/ryubsmile) — Programming Director.
-- 🧩 [@caelankim](https://github.com/caelankim) — Programming Committee. 
+- 🧩 [@caelankim](https://github.com/caelankim) — Programming Committee.
 - 💻 [@mijnap1](https://github.com/mijnap1) — Programming Intern.
+
 ## Documentation (Attention Maintainers-)
 
 This documentation is intended for non-coders who wish to maintain the website with minimal coding.
@@ -40,7 +41,7 @@ export const erDirectorEmail = 'jungyoon.uoft@gmail.com';
 Change the text within the single quotation marks to update the emails. For example:
 
 ```typescript
-export const presEmail = 'jeff.ryu@mail.utoronto.ca';
+export const presEmail = "jeff.ryu@mail.utoronto.ca";
 ```
 
 ### Updating Subscription and Recruitment-Related Form Links
@@ -570,8 +571,8 @@ Information of executive members of UTKCC will be stored in the variable `execDa
 
   1. The headshot of each executive is located in `public/assets/images/exec-headshots`.
   2. The format of each picture is in `{name}.webp` with the file size less than 100kb, for optimization purposes.
-  3. For better aesthetics and unity of design, each picture must be cut in 1:1 square ratio of around 700px * 700px.
-  4. The face of each executive must fit inside the center of the 3*3 grid when trimming. 
+  3. For better aesthetics and unity of design, each picture must be cut in 1:1 square ratio of around 700px \* 700px.
+  4. The face of each executive must fit inside the center of the 3\*3 grid when trimming.
 
 ### Updating the Website Itself - **Danger Zone**
 
