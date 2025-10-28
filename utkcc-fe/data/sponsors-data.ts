@@ -17,7 +17,7 @@ export const sponsorData: {
   {
     name: 'Kanari',
     exp: 'Contemporary Asian Bar',
-    imageSrc: 'assets/images/sponsors/kanari.jpeg',
+    imageSrc: '/assets/images/sponsors/kanari.jpg',
     websiteUrl: 'https://www.instagram.com/kanari.toronto/',
     locationUrl: 'https://maps.app.goo.gl/FptEr6oN9tXtPhG19',
   },
