@@ -61,7 +61,7 @@ export const sponsorData: {
     exp: 'Real Crispy, Real Korean Fried Chicken',
     imageSrc: '/assets/images/sponsors/bbqspadina.jpg',
     websiteUrl: 'https://www.instagram.com/bbqchicken_utspadina/',
-    locationUrl: 'https://maps.app.goo.gl/gDD2g7eFbdD64xJk6',
+    locationUrl: 'https://maps.app.goo.gl/ybjaZDHLBZyPeops5',
   },
   {
     name: 'Kream',
