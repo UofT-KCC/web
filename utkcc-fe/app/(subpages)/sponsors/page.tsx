@@ -78,7 +78,6 @@ async function SponsorCell({
           alt="-"
           src={imageSrc}
           fill={true}
-          placeholder="blur"
           blurDataURL={blurImageUrl}
           sizes={'100%'}
           className="aspect-square bg-gray-200 rounded-lg object-cover"
