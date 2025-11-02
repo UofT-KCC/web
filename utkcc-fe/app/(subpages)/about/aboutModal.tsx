@@ -30,42 +30,68 @@ function AboutModal({
         onClick={() => setShowModal(false)}
         className="z-0 absolute bg-transparent w-full h-full top-0 left-0"
       />
-      <div className="z-10 m-4 lg:my-12 lg:mx-48 p-4 lg:p-16 rounded-lg w-full h-fit bg-white flex flex-col gap-3 lg:gap-6 max-h-[80vh]">
+      <div className="z-10 m-4 lg:my-8 lg:mx-28 p-4 lg:p-16 rounded-lg w-full h-fit bg-white flex flex-col gap-3 lg:gap-6 max-h-[80vh]">
         <div className="text-xl font-bold text-kcc-theme">About UTKCC</div>
-        <div className="text-kcc-gray text-xs lg:text-sm flex flex-col gap-3 overflow-auto">
-          <p className="leading-5">
-            올해 {KCC_TH_NOW}기를 맞이하는 토론토 대학교의 UTKCC는 Commerce 또는
-            Economics를 전공하는 학생들로부터 출범하여, {KCC_START_YEAR}년부터
-            현재까지 왕성한 활동을 펼치고 있는 한인학생회입니다. 현재는 다양한
-            기술, 여러 아이디어의 인풋과 네트워킹이 중요한 현 사회에 발 맞추기
-            위하여 상경계 학생은 물론 다양한 전공을 공부하는 학생 임원진들로
-            이루어져 있습니다.
+        <div className="text-kcc-gray sm:hidden lg:flex text-md flex-col gap-3 overflow-auto">
+          <p>
+            토론토 대학교의 UTKCC는 {KCC_START_YEAR}년에 Commerce 및 Economics
+            전공 학생들을 중심으로 설립되어, 현재 {KCC_TH_NOW}기를 맞이한 학교
+            공식 한인 학생회입니다. 창립 이래 꾸준히 활동을 이어오며, 이제는
+            상경계뿐 아니라 다양한 전공과 배경을 가진 학생들이 함께 모여 서로의
+            아이디어와 역량을 나누는 폭넓은 커뮤니티로 발전했습니다.
+          </p>
+          <p>
+            UTKCC는
+            <span className="text-kcc-theme underline underline-offset-4">
+              #Be Part of a Professional Community
+            </span>
+            ,
+            <span className="text-kcc-theme underline underline-offset-4">
+              #Work Hard, Play Hard
+            </span>
+            라는 모토 아래 학업, 진로, 그리고 친목 등 여러 분야에 걸친 이벤트를
+            기획하고 진행합니다. 신입생 환영회, 세미나, 할로윈 파티 등 다양한
+            소셜 이벤트를 통해 학생들이 서로 교류하고, 학교 생활에 활력을 더할
+            수 있는 기회를 제공합니다.
+          </p>
+          <p>
+            또한 지난 {KCC_TH_NOW}년 동안 KCC를 거쳐 국내외 다양한 분야로 진출한
+            선배님들로 구성된 네트워크 KCCA를 중심으로, 학우들이 관심 있는
+            산업의 선배들과 직접 교류할 수 있는 커피챗, 커리어 세미나, 와인 파티
+            등 실질적이고 의미 있는 프로그램을 운영하고 있습니다.
+          </p>
+          <p>
+            KCC는 이처럼 선배들의 경험과 조언을 토대로 특정 분야에 한정되지
+            않고, 다양한 영역에서 미래를 이끌어갈 리더를 양성하는 데 힘쓰고
+            있습니다. 앞으로도 UTKCC는 학업과 커리어, 그리고 인간적인 교류가
+            조화된 커뮤니티로서 여러분의 대학 생활을 한층 더 풍요롭고 의미 있게
+            만들어가겠습니다.
+          </p>
+        </div>
+        <div className="text-kcc-gray text-xs lg:hidden flex flex-col gap-3 overflow-auto">
+          <p className="leading-5 ">
+            토론토대학교의 UTKCC는 {KCC_START_YEAR}년에 상경계 학생들을 중심으로
+            설립되어, 현재 {KCC_TH_NOW}기를 맞이한 학교 공식 한인 학생회입니다.
+            현재는 상경계를 넘어 다양한 전공의 학생들이 함께하며, 변화하는
+            사회에 걸맞은 폭넓은 네트워킹과 지식 공유의 장을 만들어가고
+            있습니다.
           </p>
           <p className="leading-5">
             UTKCC는{' '}
             <span className="text-kcc-theme underline underline-offset-4">
-              #Be Part of a Professional Community
-            </span>
-            ,{' '}
+              #Be Part of a Professional Community,
+            </span>{' '}
             <span className="text-kcc-theme underline underline-offset-4">
               #Work Hard, Play Hard
             </span>{' '}
-            라는 모토를 가지고 학업, 진로, 그리고 친목과 같은 다방면에 초점을 둔
-            이벤트들을 진행하며 서로에게 큰 자산이 되는 가치들과 대학생활에 맞는
-            맞춤형 지원을 제공하는 커뮤니티입니다. 저희 임원진들은 이벤트를 위해
-            머리를 맞대어 고민하고, 기획하며, 학업을 위해 함께 공부하고, 다양한
-            전공의 커리어 고민들을 나누며 새로운 시각을 접하고 배워갑니다.
-          </p>
-          <p className="leading-5">
-            또한, 지난 {KCC_TH_NOW}년이라는 시간 동안 KCC를 거쳐가시고 국내외
-            사회 여러 분야로 진출하신 Alumni분들로 구성된 KCCA 네트워크가
-            형성되었습니다. KCC에 애정을 갖고 계시는 Alumni분들을 통하여 학우
-            여러분들이 관심 있는 산업에 종사하고 계시는 Alumni분들과
-            네트워킹하며 직종과 관련된 정보를 얻을 수 있는 커피챗, 커리어
-            세미나, 와인 파티 등 유익한 이벤트를 제공하고 있습니다. Alumni분들의
-            경험 및 유익한 정보들을 토대로 특정 분야에 국한되지 않고 사회 각
-            분야를 선도할 수 있는 리더를 양성하며, 여러분들의 대학 생활을 더욱
-            더 의미있고 윤활하게 만들 수 있도록 정진하고 있습니다.
+            라는 모토 아래 학업, 진로, 친목 등 다방면의 이벤트를 통해 서로에게
+            도움이 되는 커뮤니티를 지향합니다. 신입생 웰컴 이벤트, 세미나,
+            할로윈 파티 등 다양한 소셜 행사로 즐겁고 의미 있는 대학 생활을 함께
+            만들어갑니다. 또한, 지난 {KCC_TH_NOW}년간 KCC를 거쳐 사회 각계로
+            진출한 선배들이 함께하는 네트워크 KCCA를 통해 커피챗, 커리어 세미나,
+            네트워킹 이벤트 등 실질적인 진로 지원 기회를 제공합니다. KCC는
+            앞으로도 학우들의 성장을 돕고, 서로에게 영감을 주는 커뮤니티로
+            나아가고자 합니다.
           </p>
         </div>
         <div

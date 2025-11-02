@@ -33,7 +33,9 @@ export default function Resources() {
         <div className="my-2 underline underline-offset-2 capitalize">
           Anti-calendar
         </div>
-        <div className="mb-1 text-xs">과목별 꿀팁들은 여기서</div>
+        <div className="mb-1 text-xs">
+          이 수업 들어볼까? 과목별 꿀팁과 추천 강의를 한눈에!
+        </div>
         <div className="flex flex-col w-max mx-auto">
           <Link
             href="/assets/pdf/anti-calendar-freshmen.pdf"
@@ -66,10 +68,10 @@ export default function Resources() {
           />
         </div>
         <div className="my-2 underline underline-offset-2 capitalize">
-          study package
+          Study Package
         </div>
         <div className="mb-1 text-xs">
-          선배들의 팁, 연습문제, 렉처 정리를 한 번에
+          선배들의 팁, 연습문제, 강의 정리를 한번에!
         </div>
         <div className="flex flex-col w-max mx-auto">
           <Link
@@ -90,13 +92,13 @@ export default function Resources() {
       </div>,
     ],
     'social media': [
-      <div key={2} className="text-center">
-        <div className="max-w-[80%] my-5 mx-auto relative aspect-square rounded-xl grid grid-cols-2 gap-6">
+      <div key={2} className="text-center max-h-[40vw]">
+        <div className="my-5 mx-auto relative rounded-xl grid grid-cols-2 lg:grid-cols-4 gap-6">
           <Link
             target="_blank"
             href="https://www.instagram.com/utkcc_/"
             rel="noopener noreferrer"
-            className="aspect-square w-full h-full relative rounded-lg overflow-hidden"
+            className="aspect-square w-full relative rounded-lg overflow-hidden"
           >
             <Image
               alt="Instagram"
@@ -110,7 +112,7 @@ export default function Resources() {
             target="_blank"
             href="https://www.youtube.com/@utkcc3050"
             rel="noopener noreferrer"
-            className="aspect-square w-full h-full relative rounded-lg overflow-hidden"
+            className="aspect-square w-full relative rounded-lg overflow-hidden"
           >
             <Image
               alt="Youtube"
@@ -124,7 +126,7 @@ export default function Resources() {
             target="_blank"
             href="https://www.facebook.com/groups/utkcc/"
             rel="noopener noreferrer"
-            className="aspect-square w-full h-full relative rounded-lg overflow-hidden"
+            className="aspect-square w-full relative rounded-lg overflow-hidden"
           >
             <Image
               alt="Facebook"
@@ -138,7 +140,7 @@ export default function Resources() {
             target="_blank"
             href="https://www.linkedin.com/company/utkcc/mycompany/"
             rel="noopener noreferrer"
-            className="aspect-square w-full h-full relative rounded-lg overflow-hidden"
+            className="aspect-square w-full relative rounded-lg overflow-hidden"
           >
             <Image
               alt="LinkedIn"
@@ -163,10 +165,10 @@ export default function Resources() {
       pageSlogan={<>UTKCC가 제공하는 리소스</>}
       pageExp={
         <>
-          멤버쉽 소지자에 한하여, 60개 이상의 강의 후기를 포함한 안티캘린더와
-          전공 및 교양 수업 대비에 도움이 될 유용한 족보를 배포하고 있습니다.
+          멤버십 소지자에게는 매년 60개 이상의 강의 후기와 전공·교양 수업 대비에
+          유용한 안티캘린더 및 자료집을 제공합니다.
           <span className="my-3 w-full block" />
-          UTKCC의 최신 소식들은 소셜미디어에서 확인해보세요.
+          UTKCC의 최신 소식과 행사 정보를 소셜 미디어에서 확인해보세요!
           <span className="text-center flex justify-center my-2">
             <Link
               className="text-center px-6 py-2 bg-kcc-theme hover:bg-kcc-theme-darker mt-4 text-white text-opacity-90 hover:text-opacity-100 text-sm w-fit rounded-xl"
