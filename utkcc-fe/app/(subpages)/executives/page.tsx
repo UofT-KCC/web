@@ -76,7 +76,7 @@ async function ExecutiveCell({
   intro,
   id,
 }: ExecInfo) {
-  const blurImageUrl = await getBase64(getURL(imageSrc));
+  // const blurImageUrl = await getBase64(getURL(imageSrc));
 
   return (
     <div>
@@ -86,8 +86,8 @@ async function ExecutiveCell({
           src={imageSrc}
           fill={true}
           sizes={'100%'}
-          placeholder="blur"
-          blurDataURL={blurImageUrl}
+          // placeholder="blur"
+          // blurDataURL={blurImageUrl}
           className="bg-gray-200 border-0 rounded-lg aspect-square object-cover"
           key={id}
         />

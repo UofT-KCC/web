@@ -15,7 +15,7 @@ export const deptList: string[] = [
   'social',
   'finance',
   'external relations',
-  'programming'
+  'programming',
 ];
 
 /**
@@ -38,20 +38,20 @@ export const execData: {
   // PRESIDENT
   // =======================
   {
-    dept: 'president',
+    dept: 'presidents',
     position: 'president',
-    name: 'Minseo Kim',
-    imageSrc: '/assets/images/exec-headshots/Minseo_Kim.webp',
-    program: 'RC - Finance & Econ',
-    intro: []
+    name: '김민서',
+    imageSrc: '/assets/images/exec-headshots/김민서.jpg',
+    program: 'RC - Finance & Economics',
+    intro: [],
   },
   {
-    dept: 'president',
+    dept: 'presidents',
     position: 'vice president',
-    name: 'Minseo Kang',
-    imageSrc: '/assets/images/exec-headshots/Minseok_Kang.webp',
-    program: 'Econ & IHRH',
-    intro: []
+    name: '강민서',
+    imageSrc: '/assets/images/exec-headshots/강민서.jpg',
+    program: 'Economics & IRHR',
+    intro: [],
   },
   // =======================
   // ACADEMICS
@@ -59,160 +59,160 @@ export const execData: {
   {
     dept: 'academics',
     position: 'co-director',
-    name: 'Soram Kim',
-    imageSrc: '/assets/images/exec-headshots/Soram_Kim.webp',
+    name: '김소람',
+    imageSrc: '/assets/images/exec-headshots/김소람.jpg',
     program: 'RC - Accounting',
-    intro: []
+    intro: [],
   },
   {
     dept: 'academics',
     position: 'co-director',
-    name: 'Jinmin Choi',
-    imageSrc: '/assets/images/exec-headshots/Jinmin_Choi.webp',
-    program: 'RC - Finance & Econ',
-    intro: []
+    name: '최진민',
+    imageSrc: '/assets/images/exec-headshots/최진민.webp',
+    program: 'RC - Finance & Economics',
+    intro: [],
   },
   {
     dept: 'academics',
     position: 'committee',
-    name: 'Young Mo Lee',
-    imageSrc: '/assets/images/exec-headshots/Young_Mo_Lee.webp',
+    name: '이영모',
+    imageSrc: '/assets/images/exec-headshots/이영모.jpg',
     program: 'RC - Accounting',
-    intro: []
+    intro: [],
   },
   {
     dept: 'academics',
     position: 'committee',
-    name: 'Ben Koo',
-    imageSrc: '/assets/images/exec-headshots/Ben_Koo.webp',
+    name: '구본석',
+    imageSrc: '/assets/images/exec-headshots/구본석.jpg',
     program: 'RC - Management',
-    intro: []
+    intro: [],
   },
   {
     dept: 'academics',
     position: 'committee',
-    name: 'Gaeun Lee',
-    imageSrc: '/assets/images/exec-headshots/Gaeun_Lee.webp',
-    program: 'Rotman Commerce',
-    intro: []
+    name: '이가은',
+    imageSrc: '/assets/images/exec-headshots/이가은.jpg',
+    program: 'RC - Finance and Economics',
+    intro: [],
   },
   {
     dept: 'academics',
     position: 'committee',
-    name: 'Hyunseo Choi',
-    imageSrc: '/assets/images/exec-headshots/Hyunseo_Choi.webp',
-    program: 'Rotman Commerce',
-    intro: []
+    name: '최현서',
+    imageSrc: '/assets/images/exec-headshots/최현서.webp',
+    program: 'RC - Accounting',
+    intro: [],
   },
   {
     dept: 'academics',
     position: 'intern',
-    name: 'Yeyun Hong',
-    imageSrc: '/assets/images/exec-headshots/Yeyun_Hong.webp',
-    program: 'MathPhysSci - Chem & Econ',
-    intro: []
+    name: '홍예윤',
+    imageSrc: '/assets/images/exec-headshots/홍예윤.jpg',
+    program: 'Chemistry & Economics',
+    intro: [],
   },
   {
     dept: 'academics',
     position: 'intern',
-    name: 'Sihyun Kim (Sunny)',
-    imageSrc: '/assets/images/exec-headshots/Sihyun_Kim.webp',
+    name: '김시현',
+    imageSrc: '/assets/images/exec-headshots/김시현.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   {
     dept: 'academics',
     position: 'intern',
-    name: 'Hyejeong Ju',
-    imageSrc: '/assets/images/exec-headshots/Hyejeong_Ju.webp',
+    name: '주혜정',
+    imageSrc: '/assets/images/exec-headshots/주혜정.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   {
     dept: 'academics',
     position: 'intern',
-    name: 'Jimin Kim',
-    imageSrc: '/assets/images/exec-headshots/Jinmin_Kim.webp',
+    name: '김지민',
+    imageSrc: '/assets/images/exec-headshots/김지민.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   // =======================
   // MARKETING - VIDEO
   // =======================
   {
-    dept: 'marketing-video',
+    dept: 'marketing - video',
     position: 'director',
-    name: 'Hasuh Shin',
-    imageSrc: '/assets/images/exec-headshots/Hasuh_Shin.webp',
+    name: '신하서',
+    imageSrc: '/assets/images/exec-headshots/신하서.webp',
     program: 'Architecture',
-    intro: []
+    intro: [],
   },
   {
-    dept: 'marketing-video',
+    dept: 'marketing - video',
     position: 'committee',
-    name: 'Jinseo Kim',
-    imageSrc: '/assets/images/exec-headshots/Jinseo_Kim.webp',
-    program: 'RC - Finance & Econ',
-    intro: []
+    name: '김진서',
+    imageSrc: '/assets/images/exec-headshots/김진서.jpg',
+    program: 'RC - Finance & Economics',
+    intro: [],
   },
   {
-    dept: 'marketing-video',
+    dept: 'marketing - video',
     position: 'intern',
-    name: 'Yesol Kim',
-    imageSrc: '/assets/images/exec-headshots/Yesol_Kim.webp',
+    name: '김예솔',
+    imageSrc: '/assets/images/exec-headshots/김예솔.jpg',
     program: 'Social Sciences',
-    intro: []
+    intro: [],
   },
   {
-    dept: 'marketing-video',
+    dept: 'marketing - video',
     position: 'intern',
-    name: 'Chloe Jung',
-    imageSrc: '/assets/images/exec-headshots/Chloe_Jung.webp',
+    name: '정윤진',
+    imageSrc: '/assets/images/exec-headshots/정윤진.jpg',
     program: 'Social Sciences',
-    intro: []
+    intro: [],
   },
   // =======================
   // MARKETING - POSTER
   // =======================
   {
-    dept: 'marketing-poster',
+    dept: 'marketing - poster',
     position: 'director',
-    name: 'Yeeun Jo',
-    imageSrc: '/assets/images/exec-headshots/Yeeun_Jo.webp',
+    name: '조예은',
+    imageSrc: '/assets/images/exec-headshots/조예은.jpg',
     program: 'Math & Environmental Studies',
-    intro: []
+    intro: [],
   },
   {
-    dept: 'marketing-poster',
+    dept: 'marketing - poster',
     position: 'committee',
-    name: 'Doyeon Kim',
-    imageSrc: '/assets/images/exec-headshots/Doyeon_Kim.webp',
+    name: '김도연',
+    imageSrc: '/assets/images/exec-headshots/김도연.jpg', //TODO: update
     program: 'IRHR',
-    intro: []
+    intro: [],
   },
   {
-    dept: 'marketing-poster',
+    dept: 'marketing - poster',
     position: 'intern',
-    name: 'Claire Kang',
-    imageSrc: '/assets/images/exec-headshots/Claire_Kang.webp',
+    name: '강다연',
+    imageSrc: '/assets/images/exec-headshots/강다연.jpg',
     program: 'Visual Studies',
-    intro: []
+    intro: [],
   },
   {
-    dept: 'marketing-poster',
+    dept: 'marketing - poster',
     position: 'intern',
-    name: 'Minkyung Park',
-    imageSrc: '/assets/images/exec-headshots/Minkyung_Park.webp',
+    name: '박민경',
+    imageSrc: '/assets/images/exec-headshots/박민경.jpg',
     program: 'Social Sciences',
-    intro: []
+    intro: [],
   },
   {
-    dept: 'marketing-poster',
+    dept: 'marketing - poster',
     position: 'intern',
-    name: 'Sooa Hong',
-    imageSrc: '/assets/images/exec-headshots/Sooa_Hong.webp',
+    name: '홍수아',
+    imageSrc: '/assets/images/exec-headshots/홍수아.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   // =======================
   // MEDIA
@@ -220,50 +220,50 @@ export const execData: {
   {
     dept: 'media',
     position: 'director',
-    name: 'Chowon Kang',
-    imageSrc: '/assets/images/exec-headshots/Chowon_Kang.webp',
+    name: '강초원',
+    imageSrc: '/assets/images/exec-headshots/강초원.jpg',
     program: 'Political Science',
-    intro: []
+    intro: [],
   },
   {
     dept: 'media',
     position: 'committee',
-    name: 'Yeonji Lee',
-    imageSrc: '/assets/images/exec-headshots/Yeonji_Lee.webp',
+    name: '이연지',
+    imageSrc: '/assets/images/exec-headshots/이연지.jpg',
     program: 'Life Sciences',
-    intro: []
+    intro: [],
   },
   {
     dept: 'media',
     position: 'intern',
-    name: 'Eunice Moon',
-    imageSrc: '/assets/images/exec-headshots/Eunice_Moon.webp',
+    name: '문서윤',
+    imageSrc: '/assets/images/exec-headshots/문서윤.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   {
     dept: 'media',
     position: 'intern',
-    name: 'Yugyeong (Ella) Cho',
-    imageSrc: '/assets/images/exec-headshots/Yugyeong_Cho.webp',
+    name: '조유경',
+    imageSrc: '/assets/images/exec-headshots/조유경.jpg',
     program: 'Life Sciences',
-    intro: []
+    intro: [],
   },
   {
     dept: 'media',
     position: 'intern',
-    name: 'Seohoo Hwang',
-    imageSrc: '/assets/images/exec-headshots/Seohoo_Hwang.webp',
+    name: '황서후',
+    imageSrc: '/assets/images/exec-headshots/황서후.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   {
     dept: 'media',
     position: 'intern',
-    name: 'Jiho Shin',
-    imageSrc: '/assets/images/exec-headshots/Jiho_Shin.webp',
-    program: 'Physical & Mathematical Sciences',
-    intro: []
+    name: '신지호',
+    imageSrc: '/assets/images/exec-headshots/신지호.jpg',
+    program: 'Mathematical & Physical Sciences',
+    intro: [],
   },
   // =======================
   // FINANCE
@@ -271,34 +271,34 @@ export const execData: {
   {
     dept: 'finance',
     position: 'director',
-    name: 'Seungmin Lim',
-    imageSrc: '/assets/images/exec-headshots/Seungmin_Lim.webp',
-    program: 'RC - Finance & Econ',
-    intro: []
+    name: '임승미',
+    imageSrc: '/assets/images/exec-headshots/임승미.webp',
+    program: 'RC - Finance & Economics',
+    intro: [],
   },
   {
     dept: 'finance',
     position: 'committee',
-    name: 'Elliot Lim',
-    imageSrc: '/assets/images/exec-headshots/Elliot_Lim.webp',
-    program: 'RC - Finance & Econ',
-    intro: []
+    name: '임준서',
+    imageSrc: '/assets/images/exec-headshots/임준서.jpg',
+    program: 'RC - Finance & Economics',
+    intro: [],
   },
   {
     dept: 'finance',
     position: 'intern',
-    name: 'Chaehyun Kim',
-    imageSrc: '/assets/images/exec-headshots/Chaehyun_Kim.webp',
-    program: 'RC - Finance & Econ',
-    intro: []
+    name: '김차현',
+    imageSrc: '/assets/images/exec-headshots/김차현.jpg',
+    program: 'RC - Finance & Economics',
+    intro: [],
   },
   {
     dept: 'finance',
     position: 'intern',
-    name: 'Jimin Yang',
-    imageSrc: '/assets/images/exec-headshots/Jimin_Yang.webp',
-    program: 'Economics and IR',
-    intro: []
+    name: '양지민',
+    imageSrc: '/assets/images/exec-headshots/양지민.jpg',
+    program: 'Economics & IRHR',
+    intro: [],
   },
   // =======================
   // SOCIAL
@@ -306,74 +306,74 @@ export const execData: {
   {
     dept: 'social',
     position: 'director',
-    name: 'Jiwon Song',
-    imageSrc: '/assets/images/exec-headshots/Jiwon_Song.webp',
+    name: '송지원',
+    imageSrc: '/assets/images/exec-headshots/송지원.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   {
     dept: 'social',
     position: 'committee',
-    name: 'Jisu Park',
-    imageSrc: '/assets/images/exec-headshots/Jisu_Park.webp',
-    program: 'Architectural Studies',
-    intro: []
+    name: '박지수',
+    imageSrc: '/assets/images/exec-headshots/박지수.webp',
+    program: 'Architecture',
+    intro: [],
   },
   {
     dept: 'social',
     position: 'committee',
-    name: 'Seohui (Alice) Kim',
-    imageSrc: '/assets/images/exec-headshots/Seohui_Kim.webp',
+    name: '김서희',
+    imageSrc: '/assets/images/exec-headshots/김서희.jpg',
     program: 'Economics',
-    intro: []
+    intro: [],
   },
   {
     dept: 'social',
     position: 'committee',
-    name: 'Erica Yoon',
-    imageSrc: '/assets/images/exec-headshots/Erica_Yoon.webp',
+    name: '윤여경',
+    imageSrc: '/assets/images/exec-headshots/윤여경.webp',
     program: 'Kinesiology and Physical Education',
-    intro: []
+    intro: [],
   },
   {
     dept: 'social',
     position: 'intern',
-    name: 'Julia Yang',
-    imageSrc: '/assets/images/exec-headshots/Julia_Yang.webp',
+    name: '양태인',
+    imageSrc: '/assets/images/exec-headshots/양태인.jpg',
     program: 'Social Sciences',
-    intro: []
+    intro: [],
   },
   {
     dept: 'social',
     position: 'intern',
-    name: 'DaeGeon Lee',
-    imageSrc: '/assets/images/exec-headshots/DaeGeon_Lee.webp',
+    name: '이대건',
+    imageSrc: '/assets/images/exec-headshots/이대건.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   {
     dept: 'social',
     position: 'intern',
-    name: 'Minjun Kim',
-    imageSrc: '/assets/images/exec-headshots/Minjun_Kim.webp',
+    name: '김민준',
+    imageSrc: '/assets/images/exec-headshots/김민준.jpg',
     program: 'Kinesiology',
-    intro: []
+    intro: [],
   },
   {
     dept: 'social',
     position: 'intern',
-    name: 'Noorey Shin',
-    imageSrc: '/assets/images/exec-headshots/Noorey_Shin.webp',
+    name: '신하림',
+    imageSrc: '/assets/images/exec-headshots/신하림.jpg',
     program: 'Linguistics',
-    intro: []
+    intro: [],
   },
   {
     dept: 'social',
     position: 'intern',
-    name: 'Chan Young Lee',
-    imageSrc: '/assets/images/exec-headshots/Chan-Young_Lee.webp',
+    name: '이찬영',
+    imageSrc: '/assets/images/exec-headshots/이찬영.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   // =======================
   // EXTERNAL RELATIONS
@@ -381,50 +381,50 @@ export const execData: {
   {
     dept: 'external relations',
     position: 'director',
-    name: 'Jung Yoon Choi',
-    imageSrc: '/assets/images/exec-headshots/Jung_Yoon_Choi.webp',
+    name: '최정윤',
+    imageSrc: '/assets/images/exec-headshots/최정윤.jpg',
     program: 'Political Science & Environmental Studies',
-    intro: []
+    intro: [],
   },
   {
     dept: 'external relations',
     position: 'committee',
-    name: 'Jungmin Shin',
-    imageSrc: '/assets/images/exec-headshots/Jungmin_Shin.webp',
-    program: 'Statistics & Math',
-    intro: []
+    name: '신정민',
+    imageSrc: '/assets/images/exec-headshots/신정민.jpg',
+    program: 'Statistics & Mathematics',
+    intro: [],
   },
   {
     dept: 'external relations',
     position: 'committee',
-    name: 'Hyunjun You',
-    imageSrc: '/assets/images/exec-headshots/Hyunjun_You.webp',
-    program: 'RC - Finance & Econ',
-    intro: []
+    name: '유현준',
+    imageSrc: '/assets/images/exec-headshots/유현준.jpg',
+    program: 'RC - Finance & Economics',
+    intro: [],
   },
   {
     dept: 'external relations',
     position: 'intern',
-    name: 'Brian Jin',
-    imageSrc: '/assets/images/exec-headshots/Brian_Jin.webp',
+    name: '진하윤',
+    imageSrc: '/assets/images/exec-headshots/진하윤.jpg',
     program: 'Rotman Commerce',
-    intro: []
+    intro: [],
   },
   {
     dept: 'external relations',
     position: 'intern',
-    name: 'Min So Kim',
-    imageSrc: '/assets/images/exec-headshots/Min_So_Kim.webp',
+    name: '김민소',
+    imageSrc: '/assets/images/exec-headshots/김민소.jpg',
     program: 'Life Sciences',
-    intro: []
+    intro: [],
   },
   {
     dept: 'external relations',
     position: 'intern',
-    name: 'Joonhyun Kim',
-    imageSrc: '/assets/images/exec-headshots/Joonhyun_Kim.webp',
+    name: '김준현',
+    imageSrc: '/assets/images/exec-headshots/김준현.jpg',
     program: 'Economics & Political Science',
-    intro: []
+    intro: [],
   },
   // =======================
   // PROGRAMMING
@@ -432,25 +432,25 @@ export const execData: {
   {
     dept: 'programming',
     position: 'director',
-    name: 'Jaehyuk Ryu',
-    imageSrc: '/assets/images/exec-headshots/Jaehyuk_Ryu.webp',
+    name: '류재혁',
+    imageSrc: '/assets/images/exec-headshots/류재혁.jpg',
     program: 'Computer Science & Statistics',
-    intro: []
+    intro: [],
   },
   {
     dept: 'programming',
     position: 'committee',
-    name: 'Caelan Kim',
-    imageSrc: '/assets/images/exec-headshots/Caelan_Kim.webp',
+    name: '김나연',
+    imageSrc: '/assets/images/exec-headshots/김나연.jpg',
     program: 'Computer Science & Statistics',
-    intro: []
+    intro: [],
   },
   {
     dept: 'programming',
     position: 'intern',
-    name: 'Jeehoon (Jamie) Ryu',
-    imageSrc: '/assets/images/exec-headshots/Jeehoon_Ryu.webp',
-    program: 'Math & Physical Sciences',
-    intro: []
-  }
+    name: '류지훈',
+    imageSrc: '/assets/images/exec-headshots/류지훈.jpg',
+    program: 'Mathematical and Physical Sciences',
+    intro: [],
+  },
 ];
