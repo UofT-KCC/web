@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import PageIntro from '@/components/pageIntro';
-import aboutImage from '/public/assets/images/about-image.webp';
+import groupImage from '/public/assets/images/group-photo.jpeg';
 import AboutModalButton from './aboutModal';
 
 export const metadata: Metadata = {
@@ -35,8 +35,8 @@ export default function About() {
       <Image
         alt="about image"
         className="w-fit h-auto lg:max-h-[60vh] object-contain rounded-lg"
-        placeholder="blur"
-        src={aboutImage}
+        // placeholder="blur"
+        src={groupImage}
       />
     </PageIntro>
   );
