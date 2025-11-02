@@ -297,6 +297,14 @@ export const execData: {
   },
   {
     dept: 'finance',
+    position: 'committee',
+    name: '전재민',
+    imageSrc: '/assets/images/exec-headshots/전재민.jpg',
+    program: 'RC - Accounting',
+    intro: [],
+  },
+  {
+    dept: 'finance',
     position: 'intern',
     name: '김차현',
     imageSrc: '/assets/images/exec-headshots/김차현.jpg',
