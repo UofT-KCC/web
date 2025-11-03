@@ -197,7 +197,7 @@ export const execData: {
     dept: 'marketing - poster',
     position: 'committee',
     name: '김도연',
-    imageSrc: '/assets/images/exec-headshots/김도연.jpg', //TODO: update
+    imageSrc: '/assets/images/exec-headshots/김도연.webp',
     program: 'IRHR',
     intro: [],
   },
