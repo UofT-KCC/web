@@ -23,10 +23,10 @@ export const sponsorData: {
   },
   {
     name: '우주분식',
-    exp: 'Woojoo Bunsik - Korean Street Food',
+    exp: 'Woojoo Bunsik - Korean Street Food (3 locations)',
     imageSrc: '/assets/images/sponsors/woojoobunsik.jpg',
     websiteUrl: 'https://www.instagram.com/woojoobunsik/',
-    locationUrl: 'https://maps.app.goo.gl/rz4ZLsD5Sp99Sibc7',
+    locationUrl: 'https://www.google.com/maps/search/Woojoo+Bunsik+/@43.6653493,-79.400924,15.1z?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
   },
   {
     name: 'Seoulicious',
@@ -44,7 +44,7 @@ export const sponsorData: {
   },
   {
     name: '우석포차',
-    exp: 'Korean Street Bar - Late-Night Bites',
+    exp: 'Korean Street Bar - Late-Night Bites (2 locations)',
     imageSrc: '/assets/images/sponsors/wooseok.jpg',
     websiteUrl: 'https://www.instagram.com/woosuk_pocha/',
     locationUrl: 'https://maps.app.goo.gl/AKrbpnyiQw7jqx639',
