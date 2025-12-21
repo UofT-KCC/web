@@ -50,7 +50,7 @@ export default function FooterContactInfo() {
         </div>
 
         <div className="pb-2">
-          © 2021–2025 University of Toronto Korean Commerce Community. All rights
+          © 2023 University of Toronto Korean Commerce Community. All rights
           reserved.
         </div>
       </div>
