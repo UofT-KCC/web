@@ -3,12 +3,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PageIntro from '@/components/pageIntro';
 import MenuBar from '@/components/menubar';
-import antiCalendarImage from '/public/assets/images/resources/anti-calendar.jpeg';
-import studyPackageImage from '/public/assets/images/resources/study-package.jpeg';
-import instagramLogo from '/public/assets/images/media-logo/instagram.png';
-import facebookLogo from '/public/assets/images/media-logo/facebook.png';
-import linkedInLogo from '/public/assets/images/media-logo/linkedIn.png';
-import youtubeLogo from '/public/assets/images/media-logo/youtube.png';
+import antiCalendarImage from '@/public/assets/images/resources/anti-calendar.jpeg';
+import studyPackageImage from '@/public/assets/images/resources/study-package.jpeg';
+import instagramLogo from '@/public/assets/images/media-logo/instagram.png';
+import facebookLogo from '@/public/assets/images/media-logo/facebook.png';
+import linkedInLogo from '@/public/assets/images/media-logo/linkedIn.png';
+import youtubeLogo from '@/public/assets/images/media-logo/youtube.png';
 import { joinMemberShipLink } from '@/data/change-annually-data';
 
 export const metadata: Metadata = {
