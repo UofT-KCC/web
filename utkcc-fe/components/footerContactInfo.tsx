@@ -15,13 +15,14 @@ export default function FooterContactInfo() {
         <div>President: {presEmail}</div>
         <div>Vice-president: {vicePresEmail}</div>
         <div>Sponsor Inquiries: {erDirectorEmail}</div>
+
         <div className="pt-8 pb-2 opacity-30">
           Designed by{' '}
-          <Link href="https://www.instagram.com/hyunjun2003/" target="_blank">
+          <Link href="https://www.instagram.com/hyunjunyou" target="_blank">
             Hyunjun You
           </Link>
           . <br />
-          Created by{' '}
+          Initially developed by{' '}
           <Link href="https://www.instagram.com/ryubsmile" target="_blank">
             Jaehyuk Ryu
           </Link>
@@ -32,11 +33,25 @@ export default function FooterContactInfo() {
           >
             Jingeon Kim
           </Link>{' '}
-          of UTKCC the 17th.
+          (UTKCC 17th). <br />
+          Maintained and updated by UTKCC Programming Team:{' '}
+          <Link href="https://www.instagram.com/ryubsmile" target="_blank">
+            Jaehyuk Ryu
+          </Link>
+          ,{' '}
+          <Link href="https://www.instagram.com/caelannkim" target="_blank">
+            Nayeon Kim
+          </Link>
+          ,{' '}
+          <Link href="https://www.instagram.com/jamieryu._" target="_blank">
+            Jihoon Ryu
+          </Link>
+          .
         </div>
+
         <div className="pb-2">
-          ⓒ 2022. University of Toronto Korean
-          Commerce Community. All Rights Reserved.
+          © 2023 University of Toronto Korean Commerce Community. All rights
+          reserved.
         </div>
       </div>
     </div>
