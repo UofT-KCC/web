@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import PageIntro from '@/components/pageIntro';
-import newsletterImage from '/public/assets/images/newsletter-image.png';
 import { subscribeNewsletterLink } from '@/data/change-annually-data';
 // "/assets/pdf/anti-calendar-freshmen.pdf"
 // pages/pdf-test.tsx
@@ -48,20 +46,13 @@ export default function Newsletter() {
         </>
       }
     >
-      {/* <Image
-        alt="events image"
-        // className="object-contain w-[80vw] h-auto max-h-[40vh] lg:max-h-[60vh] rounded-lg"
-        className="object-contain w-auto max-w-full h-[40vh] lg:h-full lg:max-h-[60vh] rounded-lg"
-        src={newsletterImage}
-        placeholder="blur"
-      /> */}
-      <div className="object-contain w-full h-auto rounded-lg">
-        <PdfViewer fileUrl="/assets/pdf/aug-2025-newsletter.pdf" />
-        {/* <embed
-          src="/assets/pdf/aug-2025-newsletter.pdf"
-          type="application/pdf"
-          className="object-contain w-auto max-w-full h-[40vh] lg:h-full lg:max-h-[60vh] rounded-lg"
-        /> */}
+      {/* Constrain PdfViewer width so rendered canvas is smaller and centered */}
+      <div className="w-full flex justify-center">
+        <div className="w-full max-w-[85%] md:max-w-[75%] lg:max-w-[65%]">
+          <div className="overflow-hidden rounded-lg">
+            <PdfViewer fileUrl="/assets/pdf/aug-2025-newsletter.pdf" />
+          </div>
+        </div>
       </div>
     </PageIntro>
   );
