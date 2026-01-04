@@ -1,17 +1,10 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import PageIntro from '@/components/pageIntro';
-import newsletterImage from '/public/assets/images/newsletter-image.png';
 import { subscribeNewsletterLink } from '@/data/change-annually-data';
+import PdfViewerClient from './pdfViewerClient';
 // "/assets/pdf/anti-calendar-freshmen.pdf"
 // pages/pdf-test.tsx
-import dynamic from 'next/dynamic';
-
-// SSR에서는 pdfjs가 window 객체를 필요로 하니, dynamic import로 처리
-const PdfViewer = dynamic(() => import('@/components/pdfViewer'), {
-  ssr: false,
-});
 
 export const metadata: Metadata = {
   title: 'Newsletter',
@@ -56,7 +49,7 @@ export default function Newsletter() {
         placeholder="blur"
       /> */}
       <div className="object-contain w-full h-auto rounded-lg">
-        <PdfViewer fileUrl="/assets/pdf/aug-2025-newsletter.pdf" />
+        <PdfViewerClient fileUrl="/assets/pdf/aug-2025-newsletter.pdf" />
         {/* <embed
           src="/assets/pdf/aug-2025-newsletter.pdf"
           type="application/pdf"
