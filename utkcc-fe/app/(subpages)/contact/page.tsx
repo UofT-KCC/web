@@ -10,7 +10,7 @@ import {
 } from '@/data/change-annually-data';
 
 import Image from 'next/image';
-import icon3 from 'app/icon3.png';
+import icon3 from '@/app/icon3.png';
 
 export default function ContactPage() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -43,10 +43,9 @@ export default function ContactPage() {
           <h1 className="relative mt-6 text-5xl font-bold leading-tight text-gray-900 sm:text-7xl">
             Say hello to{' '}
             <span className="relative inline-block">
-              <span className="relative z-10 text-kcc-theme">UTKCC</span>
+              <span className="relative z-5 text-kcc-theme">UTKCC</span>
               <span className="pointer-events-none absolute inset-x-[-4px] bottom-1 h-3 rounded-md bg-kcc-theme/10" />
             </span>
-
             <Image
               src={icon3}
               alt="UTKCC logo"
@@ -55,7 +54,8 @@ export default function ContactPage() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-700">
-            행사, 멤버십, 후원 등 UTKCC와 관련해 궁금한 점이 있으신가요? 아래 담당자에게 편하게 문의를 남겨주세요!
+            행사, 멤버십, 후원 등 UTKCC와 관련해 궁금한 점이 있으신가요? 아래
+            담당자에게 편하게 문의를 남겨주세요!
           </p>
         </header>
 
@@ -95,7 +95,8 @@ export default function ContactPage() {
           </div>
 
           <p className="pt-2 text-xs text-gray-500 italic">
-            가능하다면 UofT 이메일을 사용해주세요. 학생 신분 확인에 도움이 됩니다.
+            가능하다면 UofT 이메일을 사용해주세요. 학생 신분 확인에 도움이
+            됩니다.
           </p>
         </div>
       </section>
@@ -110,7 +111,6 @@ export default function ContactPage() {
     </main>
   );
 }
-
 
 type ButtonProps = {
   href: string;
@@ -148,9 +148,7 @@ type ContactCardProps = {
 function ContactCard({ label, email, onCopy }: ContactCardProps) {
   return (
     <div className="rounded-3xl bg-slate-50 px-6 py-6 shadow-md shadow-black/5 transition-transform transition-shadow duration-200 hover:-translate-y-0.5 hover:shadow-md">
-      <p className="text-xs tracking-[0.16em] text-kcc-theme/80">
-        {label}
-      </p>
+      <p className="text-xs tracking-[0.16em] text-kcc-theme/80">{label}</p>
       <p className="mt-2 text-base font-semibold text-gray-900">{email}</p>
       <button
         type="button"

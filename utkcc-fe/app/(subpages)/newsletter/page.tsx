@@ -1,9 +1,7 @@
 'use client';
-import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 import PageIntro from '@/components/pageIntro';
-import newsletterImage from '/public/assets/images/newsletter-image.png';
 import { subscribeNewsletterLink } from '@/data/change-annually-data';
 import dynamic from 'next/dynamic';
 
@@ -62,7 +60,7 @@ export default function Newsletter() {
         </div>
       }
     >
-      <section className="-mt-7 w-full space-y-6">
+      <section className="flex-start md:-mt-7 w-full space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-[11px] uppercase tracking-[0.18em] text-kcc-theme/70">
@@ -109,7 +107,7 @@ export default function Newsletter() {
           </Link>
         </div>
 
-        <div className="w-full rounded-3xl border border-slate-200 bg-white shadow-md shadow-slate-200/70 overflow-auto">
+        <div className="w-full aspect-[1/1.414] rounded-3xl border border-slate-200 bg-white shadow-md shadow-slate-200/70 overflow-auto">
           <PdfViewer fileUrl={fileUrl} page={currentPage} />
         </div>
       </section>
