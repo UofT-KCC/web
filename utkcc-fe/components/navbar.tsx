@@ -85,15 +85,15 @@ export default function NavBar({
             } flex-col lg:flex-row w-fit overflow-y-clip h-min flex-wrap py-10 lg:my-auto px-16 lg:pl-5 gap-8 lg:place-content-around lg:place-items-center 
             text-xl lg:text-sm text-gray-600 lg:font-bold lg:text-kcc-theme`}
           >
-            <Link
-              href="/"
-              className="capitalize w-fit"
-              onClick={() => {
-                setNavActive(false);
-              }}
-            >
-              home
-            </Link>
+          <Link
+            href="/contact"
+            className="capitalize w-fit"
+            onClick={() => {
+              setNavActive(false);
+            }}
+          >
+            contact
+          </Link>
             {subpagesList.map((subpageName, i) => (
               <Link
                 key={i}
@@ -154,8 +154,7 @@ export default function NavBar({
               </Link>
             ))}
             <Link
-              href="#footer"
-              onClick={handleScroll}
+              href="/contact"
               className="capitalize hover:opacity-70"
             >
               contact

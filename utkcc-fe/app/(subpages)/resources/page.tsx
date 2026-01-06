@@ -18,143 +18,211 @@ export const metadata: Metadata = {
 export default function Resources() {
   const resourcesData: { [k: string]: JSX.Element[] } = {
     'anti-calendar': [
-      <div key={0} className="text-center">
-        <div className="max-w-[50%] mt-5 mx-auto relative aspect-square rounded-xl">
-          <Image
-            key={0}
-            alt=""
-            src={antiCalendarImage}
-            fill={true}
-            placeholder="blur"
-            sizes={'100%'}
-            className="aspect-square bg-gray-300 border-0 rounded-lg object-cover"
-          />
-        </div>
-        <div className="my-2 underline underline-offset-2 capitalize">
-          Anti-calendar
-        </div>
-        <div className="mb-1 text-xs">
-          이 수업 들어볼까? 과목별 꿀팁과 추천 강의를 한눈에!
-        </div>
-        <div className="flex flex-col w-max mx-auto">
-          <Link
-            href="/assets/pdf/anti-calendar-freshmen.pdf"
-            target="_blank"
-            className="text-xs rounded-lg bg-gray-300 w-full py-2 px-auto mx-auto my-2 hover:bg-gray-200"
-          >
-            Sample for freshmen
-          </Link>
-          <Link
-            href="/assets/pdf/anti-calendar-upperyears.pdf"
-            target="_blank"
-            className="text-xs rounded-lg bg-gray-300 w-fit py-2 px-5 mx-auto my-2 hover:bg-gray-200"
-          >
-            Sample for upper years
-          </Link>
+      <div
+        key={0}
+        className="mx-auto mt-6 max-w-5xl rounded-3xl bg-white px-10 py-12 shadow-sm shadow-slate-200/70 ring-1 ring-slate-100 sm:px-14 sm:py-14"
+      >
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-center">
+          <div className="relative mx-auto h-60 w-60 shrink-0 overflow-hidden rounded-2xl bg-slate-100 sm:mx-0 sm:h-72 sm:w-72">
+            <Image
+              key={0}
+              alt="UTKCC Anti-calendar"
+              src={antiCalendarImage}
+              fill
+              placeholder="blur"
+              sizes="100%"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div className="flex-1 space-y-4 text-left text-sm leading-relaxed text-gray-700">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-kcc-theme/70">
+                Resource
+              </p>
+              <h2 className="mt-1 text-xl font-semibold text-gray-900">
+                Anti-calendar
+              </h2>
+            </div>
+            <p>
+              이 수업 들어볼까 고민될 때, 과목별 꿀팁과 추천 강의를 한눈에 볼 수 있는
+              UTKCC만의 안티캘린더입니다. 전공·교양 선택에 도움이 되는 솔직한 후기를
+              모아두었어요.
+            </p>
+
+            <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+              <Link
+                href="/assets/pdf/anti-calendar-freshmen.pdf"
+                target="_blank"
+                className="inline-flex flex-1 items-center justify-center rounded-2xl bg-kcc-theme px-6 py-3 text-sm font-medium text-white text-opacity-90 shadow-sm shadow-kcc-theme/30 transition hover:-translate-y-0.5 hover:bg-kcc-theme-darker hover:text-opacity-100 hover:shadow-md"
+              >
+                신입생용 샘플 보기
+              </Link>
+              <Link
+                href="/assets/pdf/anti-calendar-upperyears.pdf"
+                target="_blank"
+                className="inline-flex flex-1 items-center justify-center rounded-2xl bg-slate-100 px-6 py-3 text-sm font-medium text-gray-700 ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:bg-white hover:text-gray-900"
+              >
+                상·고학년용 샘플 보기
+              </Link>
+            </div>
+          </div>
         </div>
       </div>,
     ],
     'study package': [
-      <div key={1} className="text-center">
-        <div className="max-w-[50%] mt-5 mx-auto relative aspect-square rounded-xl">
-          <Image
-            key={1}
-            alt=""
-            src={studyPackageImage}
-            fill={true}
-            placeholder="blur"
-            sizes={'100%'}
-            className="aspect-square bg-gray-200 border-0 rounded-lg object-cover"
-          />
-        </div>
-        <div className="my-2 underline underline-offset-2 capitalize">
-          Study Package
-        </div>
-        <div className="mb-1 text-xs">
-          선배들의 팁, 연습문제, 강의 정리를 한번에!
-        </div>
-        <div className="flex flex-col w-max mx-auto">
-          <Link
-            href="/assets/pdf/eco101-sample.pdf"
-            target="_blank"
-            className="text-xs rounded-lg bg-gray-300 w-full py-2 px-auto mx-auto my-2 hover:bg-gray-200"
-          >
-            Sample for ECO101
-          </Link>
-          <Link
-            href="/assets/pdf/sta130-sample.pdf"
-            target="_blank"
-            className="text-xs rounded-lg bg-gray-300 w-fit py-2 px-5 mx-auto my-2 hover:bg-gray-200"
-          >
-            Sample for STA130
-          </Link>
+      <div
+        key={1}
+        className="mx-auto mt-6 max-w-5xl rounded-3xl bg-white px-10 py-12 shadow-sm shadow-slate-200/70 ring-1 ring-slate-100 sm:px-14 sm:py-14"
+      >
+        <div className="flex flex-col gap-8 sm:flex-row sm:items-center">
+          <div className="relative mx-auto h-60 w-60 shrink-0 overflow-hidden rounded-2xl bg-slate-100 sm:mx-0 sm:h-72 sm:w-72">
+            <Image
+              key={1}
+              alt="UTKCC Study Package"
+              src={studyPackageImage}
+              fill
+              placeholder="blur"
+              sizes="100%"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div className="flex-1 space-y-4 text-left text-sm leading-relaxed text-gray-700">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-kcc-theme/70">
+                Resource
+              </p>
+              <h2 className="mt-1 text-xl font-semibold text-gray-900">
+                Study Package
+              </h2>
+            </div>
+            <p>
+              선배들의 과제 팁, 연습문제, 강의 정리를 한 번에 모아둔 스터디 패키지입니다.
+              시험 대비와 개념 복습에 바로 활용할 수 있는 실전형 자료예요.
+            </p>
+
+            <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+              <Link
+                href="/assets/pdf/eco101-sample.pdf"
+                target="_blank"
+                className="inline-flex flex-1 items-center justify-center rounded-2xl bg-kcc-theme px-6 py-3 text-sm font-medium text-white text-opacity-90 shadow-sm shadow-kcc-theme/30 transition hover:-translate-y-0.5 hover:bg-kcc-theme-darker hover:text-opacity-100 hover:shadow-md"
+              >
+                ECO101 샘플 보기
+              </Link>
+              <Link
+                href="/assets/pdf/sta130-sample.pdf"
+                target="_blank"
+                className="inline-flex flex-1 items-center justify-center rounded-2xl bg-slate-100 px-6 py-3 text-sm font-medium text-gray-700 ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:bg-white hover:text-gray-900"
+              >
+                STA130 샘플 보기
+              </Link>
+            </div>
+          </div>
         </div>
       </div>,
     ],
     'social media': [
-      <div key={2} className="text-center max-h-[40vw]">
-        <div className="my-5 mx-auto relative rounded-xl grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div
+        key={2}
+        className="mx-auto mt-6 max-w-5xl rounded-3xl bg-white px-6 py-8 text-left shadow-sm shadow-slate-200/70 ring-1 ring-slate-100 sm:px-10 sm:py-10"
+      >
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.18em] text-kcc-theme/70">
+              Stay connected
+            </p>
+            <h2 className="mt-1 text-xl font-semibold text-gray-900">
+              UTKCC Social Media
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-gray-700">
+              행사 소식, 모집 공고, 꿀팁 리소스를 가장 빠르게 받아보고 싶다면 UTKCC
+              공식 채널을 팔로우해 주세요.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Link
             target="_blank"
             href="https://www.instagram.com/utkcc_/"
             rel="noopener noreferrer"
-            className="aspect-square w-full relative rounded-lg overflow-hidden"
+            className="group flex flex-col items-center rounded-2xl bg-slate-50 px-4 py-5 text-center shadow-sm shadow-slate-100 transition hover:-translate-y-1 hover:bg-white hover:shadow-md"
           >
-            <Image
-              alt="Instagram"
-              src={instagramLogo}
-              fill={true}
-              placeholder="blur"
-              sizes={'100%'}
-            />
+            <div className="relative mb-3 h-12 w-12 overflow-hidden rounded-full bg-white ring-1 ring-slate-200">
+              <Image
+                alt="Instagram"
+                src={instagramLogo}
+                fill
+                placeholder="blur"
+                sizes="100%"
+                className="object-contain"
+              />
+            </div>
+            <p className="text-xs font-semibold text-gray-900">Instagram</p>
+            <p className="mt-1 text-[11px] text-gray-500">@utkcc_</p>
           </Link>
+
           <Link
             target="_blank"
             href="https://www.youtube.com/@utkcc3050"
             rel="noopener noreferrer"
-            className="aspect-square w-full relative rounded-lg overflow-hidden"
+            className="group flex flex-col items-center rounded-2xl bg-slate-50 px-4 py-5 text-center shadow-sm shadow-slate-100 transition hover:-translate-y-1 hover:bg-white hover:shadow-md"
           >
-            <Image
-              alt="Youtube"
-              src={youtubeLogo}
-              fill={true}
-              placeholder="blur"
-              sizes={'100%'}
-            />
+            <div className="relative mb-3 h-12 w-12 overflow-hidden rounded-full bg-white ring-1 ring-slate-200">
+              <Image
+                alt="YouTube"
+                src={youtubeLogo}
+                fill
+                placeholder="blur"
+                sizes="100%"
+                className="object-contain"
+              />
+            </div>
+            <p className="text-xs font-semibold text-gray-900">YouTube</p>
+            <p className="mt-1 text-[11px] text-gray-500">@utkcc3050</p>
           </Link>
+
           <Link
             target="_blank"
             href="https://www.facebook.com/groups/utkcc/"
             rel="noopener noreferrer"
-            className="aspect-square w-full relative rounded-lg overflow-hidden"
+            className="group flex flex-col items-center rounded-2xl bg-slate-50 px-4 py-5 text-center shadow-sm shadow-slate-100 transition hover:-translate-y-1 hover:bg-white hover:shadow-md"
           >
-            <Image
-              alt="Facebook"
-              src={facebookLogo}
-              fill={true}
-              placeholder="blur"
-              sizes={'100%'}
-            />
+            <div className="relative mb-3 h-12 w-12 overflow-hidden rounded-full bg-white ring-1 ring-slate-200">
+              <Image
+                alt="Facebook"
+                src={facebookLogo}
+                fill
+                placeholder="blur"
+                sizes="100%"
+                className="object-contain"
+              />
+            </div>
+            <p className="text-xs font-semibold text-gray-900">Facebook</p>
+            <p className="mt-1 text-[11px] text-gray-500">UTKCC</p>
           </Link>
+
           <Link
             target="_blank"
             href="https://www.linkedin.com/company/utkcc/mycompany/"
             rel="noopener noreferrer"
-            className="aspect-square w-full relative rounded-lg overflow-hidden"
+            className="group flex flex-col items-center rounded-2xl bg-slate-50 px-4 py-5 text-center shadow-sm shadow-slate-100 transition hover:-translate-y-1 hover:bg-white hover:shadow-md"
           >
-            <Image
-              alt="LinkedIn"
-              src={linkedInLogo}
-              fill={true}
-              placeholder="blur"
-              sizes={'100%'}
-            />
+            <div className="relative mb-3 h-12 w-12 overflow-hidden rounded-full bg-white ring-1 ring-slate-200">
+              <Image
+                alt="LinkedIn"
+                src={linkedInLogo}
+                fill
+                placeholder="blur"
+                sizes="100%"
+                className="object-contain"
+              />
+            </div>
+            <p className="text-xs font-semibold text-gray-900">LinkedIn</p>
+            <p className="mt-1 text-[11px] text-gray-500">UTKCC</p>
           </Link>
         </div>
-        <div className="my-2 underline underline-offset-2 capitalize">
-          social media
-        </div>
-        <div className="text-xs">아이콘을 클릭하여 UTKCC를 만나보세요</div>
       </div>,
     ],
   };
@@ -171,7 +239,7 @@ export default function Resources() {
           UTKCC의 최신 소식과 행사 정보를 소셜 미디어에서 확인해보세요!
           <span className="text-center flex justify-center my-2">
             <Link
-              className="text-center px-6 py-2 bg-kcc-theme hover:bg-kcc-theme-darker mt-4 text-white text-opacity-90 hover:text-opacity-100 text-sm w-fit rounded-xl"
+              className="text-center px-7 py-2.5 bg-kcc-theme hover:bg-kcc-theme-darker mt-4 text-white text-opacity-90 hover:text-opacity-100 text-sm w-fit rounded-full transition shadow-sm hover:shadow-md hover:-translate-y-0.5"
               target="_blank"
               rel="noopener noreferrer"
               href={joinMemberShipLink}
