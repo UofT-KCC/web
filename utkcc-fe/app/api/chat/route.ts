@@ -119,11 +119,17 @@ const PROMPT_LIBRARY: Record<Intent, PromptPack> = {
       '자료/리소스는 어디서 볼 수 있어요?',
       '세미나/행사 자료는 어디에 올라오나요?',
       '커리어 관련 리소스가 있나요?',
+      '시험/스터디 자료(족보)는 어디서 확인해요?',
+      '중간/기말 대비 자료가 있나요?',
+      '소셜 미디어 자료는 어디서 볼 수 있나요?',
     ],
     en: [
       'Where can I find UTKCC resources?',
       'Where are seminar/event materials posted?',
       'Do you have any career-related resources?',
+      'Where can I find past exam/study packages?',
+      'Do you have midterm/final study materials?',
+      'Where can I access social media resources?',
     ],
   },
   newsletter: {
@@ -156,6 +162,7 @@ const PROMPT_LIBRARY: Record<Intent, PromptPack> = {
       '가입은 어떻게 해요?',
       '스폰서십 문의는 어디로 해요?',
       'EO(익명 피드백)는 어디서 제출해요?',
+      '뉴스레터는 어디서 봐요?',
       'Contact는 어디 있어요?',
     ],
     en: [
@@ -163,6 +170,7 @@ const PROMPT_LIBRARY: Record<Intent, PromptPack> = {
       'How do I join UTKCC?',
       'How do I inquire about sponsorship?',
       'Where do I submit EO (anonymous feedback)?',
+      'Where can I read the newsletter?',
       'Where is the Contact page?',
     ],
   },
@@ -240,14 +248,28 @@ function handleCommonQuestions(message: string, lang: Lang) {
   const lower = m.toLowerCase();
 
   // What is UTKCC?
-  const asksUtkccKo = /(utkcc|유티케이씨씨|케이씨씨).*?(뭐야|뭔데|뭐에요|뭔가|무슨)/i.test(m) || /utkcc가\s*뭐/i.test(lower);
+  const asksUtkccKo =
+    /(utkcc|유티케이씨씨|케이씨씨).*?(뭐야|뭔데|뭐에요|뭔가|무슨)/i.test(m) ||
+    /utkcc가\s*뭐/i.test(lower);
   const asksUtkccEn = /(what is|what’s)\s+utkcc\??/i.test(m) || /utkcc\s+meaning/i.test(lower);
+
+  // "What are you?" (bot identity)
+  const asksBotKo =
+    /(너|넌|당신|너희).*?(뭐야|뭔데|뭐에요|누구|정체)/i.test(m) ||
+    /(챗봇|봇|도우미).*?(뭐야|뭔데|누구)/i.test(m);
+  const asksBotEn = /(who are you|what are you|what’s this bot)\??/i.test(lower);
 
   if ((lang === 'ko' && asksUtkccKo) || (lang === 'en' && asksUtkccEn)) {
     const aboutUrl = '/about';
     return lang === 'ko'
       ? `UTKCC는 UofT Korean Commerce Community(한인 커머스/커리어 커뮤니티)예요.\n\n무엇을 찾고 있어요?\n- 이번 학기 이벤트\n- 가입/지원\n- 스폰서십\n- EO(익명 피드백)\n\n관련 페이지: ${aboutUrl}`
       : `UTKCC stands for UofT Korean Commerce Community.\n\nWhat are you looking for?\n- Events\n- Membership / joining\n- Sponsorship\n- EO (anonymous feedback)\n\nRelated page: ${aboutUrl}`;
+  }
+
+  if ((lang === 'ko' && asksBotKo) || (lang === 'en' && asksBotEn)) {
+    return lang === 'ko'
+      ? `안녕하세요! 저는 UTKCC 웹사이트 도우미 Kacy에요 😁\n\nUTKCC 사이트에서 이벤트/가입/스폰서십/EO 같은 정보를 빠르게 찾을 수 있게 도와줄게요.\n\n(도움이 필요하면 help 라고 입력해 주세요.)`
+      : `Hey, I’m your assistant Kacy 😁\n\nI can help you find anything related to the UTKCC website, such as events, membership, sponsorship, and EO (anonymous feedback).\n\n(If you need help, type help.)`;
   }
 
   // What is email?

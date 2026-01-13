@@ -9,8 +9,11 @@ const SYNONYMS: Record<string, string[]> = {
   event: ['event', 'events', '이벤트', '행사', '세미나', 'rsvp', '신청'],
   sponsor: ['sponsor', 'sponsorship', '스폰서', '후원', '파트너', '파트너십'],
   member: ['member', 'membership', 'join', '가입', '지원', '신입생', '회비'],
-  exec: ['exec', 'executive', 'director', '운영진', '회장단', '디렉터'],
+  exec: ['exec', 'executive', 'director', '운영진', '회장단', '임원진', '디렉터'],
   contact: ['contact', '문의', '연락', '메일', 'email', '인스타', 'instagram'],
+  newsletter: ['newsletter', 'news letter', '뉴스레터', '구독', '메일링', '메일링리스트'],
+  social: ['social', 'social media', 'sns', 'instagram', '인스타', '소셜', '소셜미디어'],
+  resource: ['resource', 'resources', '자료', '리소스', '자료실', '족보', '스터디', 'study', 'exam'],
 };
 
 function expandQuery(query: string) {
@@ -34,7 +37,7 @@ function normalize(text: string) {
 function tokenize(text: string) {
   return normalize(text)
     .split(/[^a-z0-9\uAC00-\uD7A3]+/i)
-    .filter(Boolean);
+    .filter((token) => token.length >= 2);
 }
 
 function scoreEntry(entry: KBEntry, query: string, lang: Lang) {
@@ -71,12 +74,13 @@ function scoreEntry(entry: KBEntry, query: string, lang: Lang) {
   return score;
 }
 
-export function retrieveKB(query: string, lang: Lang, topK = 7) {
+export function retrieveKB(query: string, lang: Lang, topK = 7, minScore?: number) {
+  const min = typeof minScore === 'number' ? minScore : lang === 'ko' ? 8 : 6;
   const scored = UTKCC_KB.map((entry) => ({
     entry,
     score: scoreEntry(entry, query, lang),
   }))
-    .filter((x) => x.score > 0)
+    .filter((x) => x.score >= min)
     .sort((a, b) => b.score - a.score);
 
   return scored.slice(0, topK).map((x) => x.entry);
