@@ -1,112 +1,56 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { getDocument, PDFWorker, GlobalWorkerOptions } from 'pdfjs-dist';
-// import workerSrc from 'pdfjs-dist/build/pdf.worker.min?url';
+type Props = {
+  fileUrl: string;
+  page: number;        // 1-indexed
+  totalPages: number;  // 외부에서 관리 (24 같은 값)
+  onPrev: () => void;
+  onNext: () => void;
+  showControls?: boolean;
+};
 
-const workerSrc = require('/public/pdf.worker.min.js').default;
-
-export default function PdfSlider({ fileUrl }: { fileUrl: string }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const renderTaskRef = useRef<any>(null); // 렌더 작업 참조
-
-  const [pdfInstance, setPdfInstance] = useState<any>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [numPages, setNumPages] = useState(0);
-
-  const renderPage = async (pageNum: number) => {
-    if (!pdfInstance || !canvasRef.current || !containerRef.current) return;
-
-    // 이전 렌더 작업 취소 (있으면)
-    if (renderTaskRef.current) {
-      await renderTaskRef.current.cancel();
-      renderTaskRef.current = null;
-    }
-
-    const page = await pdfInstance.getPage(pageNum);
-
-    const containerWidth = containerRef.current.clientWidth;
-    const viewport = page.getViewport({ scale: 1 });
-    const scale = containerWidth / viewport.width;
-    const scaledViewport = page.getViewport({ scale });
-
-    const canvas = canvasRef.current;
-    canvas.width = scaledViewport.width;
-    canvas.height = scaledViewport.height;
-
-    canvas.style.width = '100%';
-    canvas.style.height = 'auto';
-
-    const context = canvas.getContext('2d')!;
-
-    const renderTask = page.render({
-      canvasContext: context,
-      viewport: scaledViewport,
-    });
-    renderTaskRef.current = renderTask;
-
-    try {
-      await renderTask.promise;
-    } catch {}
-
-    renderTaskRef.current = null; // 렌더 완료 후 참조 제거
-  };
-
-  useEffect(() => {
-    const loadPdf = async () => {
-      const worker = new PDFWorker({
-        name: 'pdfjs-worker' as unknown as null,
-        workerSrc,
-      } as any);
-      GlobalWorkerOptions.workerPort = worker.port;
-
-      const pdf = await getDocument({ url: fileUrl, worker }).promise;
-      setPdfInstance(pdf);
-      setNumPages(pdf.numPages);
-
-      renderPage(1);
-    };
-
-    loadPdf();
-  }, [fileUrl]);
-
-  useEffect(() => {
-    if (pdfInstance) {
-      renderPage(currentPage);
-    }
-  }, [currentPage, pdfInstance]);
-
-  const goPrev = () => {
-    setCurrentPage(p => (p > 1 ? p - 1 : p));
-  };
-
-  const goNext = () => {
-    setCurrentPage(p => (p < numPages ? p + 1 : p));
-  };
+/**
+ * pdfjs/react-pdf 없이 "브라우저 내장 PDF 뷰어"로 렌더링.
+ * page 이동은 URL hash(#page=)로 처리.
+ */
+export default function PdfViewer({
+  fileUrl,
+  page,
+  totalPages,
+  onPrev,
+  onNext,
+  showControls = true,
+}: Props) {
+  // Chrome/Safari 모두 대체로 동작: /file.pdf#page=3
+  const viewerUrl = `${fileUrl}#page=${page}`;
 
   return (
-    <div ref={containerRef} style={{ width: '100%', textAlign: 'center' }}>
-      <canvas ref={canvasRef} style={{ border: '1px solid #ccc' }} />
-      <div style={{ marginTop: 10 }}>
-        <button
-          onClick={goPrev}
-          disabled={currentPage === 1}
-          style={{ marginRight: 10 }}
+    <div className="w-full h-full flex flex-col items-center justify-start">
+      <div className="w-full flex-1">
+        {/* object가 가장 안정적. 안 되면 embed로 fallback */}
+        <object
+          key={viewerUrl} // page 바뀔 때 강제 리로드
+          data={viewerUrl}
+          type="application/pdf"
+          className="w-full h-full"
         >
-          ◀ Prev
-        </button>
-        <span>
-          {currentPage} / {numPages}
-        </span>
-        <button
-          onClick={goNext}
-          disabled={currentPage === numPages}
-          style={{ marginLeft: 10 }}
-        >
-          Next ▶
-        </button>
+          <embed src={viewerUrl} type="application/pdf" className="w-full h-full" />
+        </object>
       </div>
+
+      {showControls && (
+        <div className="mt-4 flex items-center justify-center gap-4 text-lg font-semibold">
+          <button type="button" onClick={onPrev}>
+            ◀ Prev
+          </button>
+          <span className="tabular-nums">
+            {page} / {totalPages}
+          </span>
+          <button type="button" onClick={onNext}>
+            Next ▶
+          </button>
+        </div>
+      )}
     </div>
   );
 }
