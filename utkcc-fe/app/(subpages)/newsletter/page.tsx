@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 import PageIntro from '@/components/pageIntro';
@@ -12,7 +13,7 @@ const PdfViewer = dynamic(() => import('@/components/pdfViewer'), {
 
 export default function Newsletter() {
   const TOTAL_PAGES = 22;
-  const fileUrl = '/assets/pdf/aug-2025-newsletter.pdf';
+  const fileUrl = '/assets/pdf/newsletter.pdf';
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -36,16 +37,16 @@ export default function Newsletter() {
       pageExp={
         <div className="space-y-5 text-base leading-relaxed text-gray-700 max-w-2xl">
           <p>
-            바쁜 학업 생활 속에서 놓치고 있던 정보들과 소식들이 있나요? 시험,
-            커리어, 교내외 활동까지, 한 번에 정리해서 받아보세요.
+            바쁜 학업 생활 속에서 놓치고 있던 정보들과 소식들이 있나요? 시험, 커리어,
+            교내외 활동까지, 한 번에 정리해서 받아보세요.
           </p>
           <p>
-            어디선가 들어본 것 같은데 잘 모르겠던 주제들, 혹은 궁금했지만 찾기
-            어려웠던 정보들을 KCC 뉴스레터에 담아 쉽고 재밌게 전해 드립니다.
+            어디선가 들어본 것 같은데 잘 모르겠던 주제들, 혹은 궁금했지만 찾기 어려웠던
+            정보들을 KCC 뉴스레터에 담아 쉽고 재밌게 전해 드립니다.
           </p>
           <p>
-            이메일 구독으로 KCC 월간 뉴스레터를 가장 빠르게 받아보고, 중요한
-            정보들을 놓치지 마세요.
+            이메일 구독으로 KCC 월간 뉴스레터를 가장 빠르게 받아보고, 중요한 정보들을
+            놓치지 마세요.
           </p>
           <div className="flex justify-start pt-2">
             <Link
@@ -59,8 +60,8 @@ export default function Newsletter() {
           </div>
         </div>
       }
-    >
-      <section className="flex-start md:-mt-7 w-full space-y-6">
+    > 
+      <section className="-mt-7 w-full space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-[11px] uppercase tracking-[0.18em] text-kcc-theme/70">
@@ -107,7 +108,7 @@ export default function Newsletter() {
           </Link>
         </div>
 
-        <div className="w-full aspect-[1/1.414] rounded-3xl border border-slate-200 bg-white shadow-md shadow-slate-200/70 overflow-auto">
+        <div className="w-full rounded-3xl border border-slate-200 bg-white shadow-md shadow-slate-200/70 overflow-auto">
           <PdfViewer fileUrl={fileUrl} page={currentPage} />
         </div>
       </section>
