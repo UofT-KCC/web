@@ -55,10 +55,12 @@ export default function ChatWidget() {
         }}
       >
         {open ? '×' : (
-          <ion-icon
-            name="chatbubble-ellipses-outline"
-            style={{ fontSize: 22, transform: 'translateY(-1px)' }}
-          />
+          <div suppressHydrationWarning>
+            <ion-icon
+              name="chatbubble-ellipses-outline"
+              style={{ fontSize: 22, transform: 'translateY(-1px)' }}
+            />
+          </div>
         )}
       </button>
 
