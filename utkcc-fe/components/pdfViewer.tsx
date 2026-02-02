@@ -4,8 +4,7 @@ import { useEffect, useRef } from 'react';
 import { getDocument, PDFWorker, GlobalWorkerOptions } from 'pdfjs-dist';
 // import workerSrc from 'pdfjs-dist/build/pdf.worker.min?url';
 
-// const workerSrc = '/pdf.worker.min.js';
-const workerSrc = require('@/public/pdf.worker.min.js').default;
+const workerSrc = '/pdf.worker.min.js';
 
 export default function PdfSlider({
   fileUrl,
@@ -60,13 +59,9 @@ export default function PdfSlider({
 
   useEffect(() => {
     const loadPdf = async () => {
-      const worker = new PDFWorker({
-        name: 'pdfjs-worker' as unknown as null,
-        workerSrc,
-      } as any);
-      GlobalWorkerOptions.workerPort = worker.port;
+      GlobalWorkerOptions.workerSrc = workerSrc;
 
-      const pdf = await getDocument({ url: fileUrl, worker }).promise;
+      const pdf = await getDocument(fileUrl).promise;
       pdfInstanceRef.current = pdf;
 
       renderPage(page);
