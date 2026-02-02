@@ -12,7 +12,7 @@ const PdfViewer = dynamic(() => import('@/components/pdfViewer'), {
 
 export default function Newsletter() {
   const TOTAL_PAGES = 22;
-  const fileUrl = '/assets/pdf/aug-2025-newsletter.pdf';
+  const fileUrl = '/assets/pdf/newsletter.pdf';
 
   const [currentPage, setCurrentPage] = useState(1);
 
