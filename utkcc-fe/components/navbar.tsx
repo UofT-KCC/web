@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import './navbar.css';
 import { handleScroll } from '@/lib/utils';
-import SmallLogoImage from '/public/assets/images/logo-nav.png';
+import SmallLogoImage from '@/public/assets/images/logo-nav.png';
 import { recruitmentLink } from '@/data/change-annually-data';
 
 export default function NavBar({

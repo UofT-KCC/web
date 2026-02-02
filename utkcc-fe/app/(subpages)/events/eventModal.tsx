@@ -63,10 +63,8 @@ function EventModal({ info, setShowModal }: EventModalProps) {
         onClick={() => setShowModal(false)}
         className="z-0 absolute bg-transparent w-full h-full top-0 left-0"
       />
-      <div className="z-10 m-4 lg:my-8 lg:mx-28 p-4 lg:p-16 rounded-lg w-full h-fit bg-white flex flex-col gap-3 lg:gap-6 max-h-[80vh]">
-        <div className="text-xl font-bold text-kcc-theme capitalize">
-          {info.type}
-        </div>
+      <div className="z-10 m-4 lg:my-12 lg:mx-48 p-4 lg:p-8 rounded-lg w-full h-fit bg-white flex flex-col gap-3">
+        <div className="text-kcc-theme text-sm capitalize">{info.type}</div>
         <div className="text-xl">
           {info.slogan.map((slice, i) => (
             <p key={i} className="block">
@@ -74,7 +72,7 @@ function EventModal({ info, setShowModal }: EventModalProps) {
             </p>
           ))}
         </div>
-        <div className="text-kcc-gray text-md flex-col gap-3 overflow-auto break-keep">
+        <div className="text-kcc-gray text-sm break-keep">
           {info.explanation}
         </div>
         <div

@@ -10,7 +10,7 @@ import {
 } from '@/data/change-annually-data';
 
 import Image from 'next/image';
-import icon3 from 'app/icon3.png';
+import icon3 from '@/app/icon3.png';
 
 export default function ContactPage() {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
