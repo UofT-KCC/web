@@ -1,16 +1,26 @@
-import NavBar from '@/components/navbar';
+'use client';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import type { ReactNode } from 'react';
+import { AnimatePresence, LayoutGroup, motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+
+export default function RecapLayout({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+
   return (
-    <>
-      <header>
-        <NavBar />
-      </header>
-      <main>
-        <div className="flex box-border pt-24 pb-10 lg:py-32 mx-4 lg:mx-32 lg:min-h-screen">
+    <LayoutGroup id="recap">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={pathname}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
+          className="w-full"
+        >
           {children}
-        </div>
-      </main>
-    </>
+        </motion.div>
+      </AnimatePresence>
+    </LayoutGroup>
   );
 }

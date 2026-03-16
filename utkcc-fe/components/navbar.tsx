@@ -76,9 +76,11 @@ export default function NavBar({
               />
             </div>
           </Link>
+
           <div className="lg:hidden w-8 h-8 ml-auto self-center">
             <NavBarMenuButton getter={navActive} setter={setNavActive} />
           </div>
+
           <div
             className={`${
               navActive ? 'flex' : 'hidden lg:flex'
@@ -94,6 +96,8 @@ export default function NavBar({
             >
               home
             </Link>
+
+            {/* 기존 섹션(모바일은 #...) */}
             {subpagesList.map((subpageName, i) => (
               <Link
                 key={i}
@@ -107,6 +111,18 @@ export default function NavBar({
                 {subpageName}
               </Link>
             ))}
+
+            {/* ✅ Recap은 섹션이 아니라 라우트라서 별도로 */}
+            <Link
+              href="/recap/19th"
+              className="capitalize w-fit"
+              onClick={() => {
+                setNavActive(false);
+              }}
+            >
+              recap
+            </Link>
+
             <Link
               href="#footer"
               className="capitalize w-fit"
@@ -117,14 +133,19 @@ export default function NavBar({
             >
               contact
             </Link>
+
             <Link
               href={recruitmentLink}
               className="py-2 px-5 rounded-lg text-white bg-kcc-theme w-fit"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setNavActive(false)}
             >
               Join
             </Link>
           </div>
         </div>
+
         {/* NAVBAR FOR LARGE (lg - xl) VIEWPORT, no menu button. join button added. */}
         <div className={`hidden lg:flex px-4 py-4`}>
           <Link className={`flex w-fit h-full gap-2 items-center`} href="/">
@@ -137,6 +158,7 @@ export default function NavBar({
               />
             </div>
           </Link>
+
           <div
             className={`flex flex-row basis-full my-auto pl-5 gap-8 place-content-around place-items-center 
             text-sm font-bold text-kcc-theme`}
@@ -144,6 +166,8 @@ export default function NavBar({
             <Link href="/" className="capitalize hover:opacity-70">
               home
             </Link>
+
+            {/* 데스크탑은 서브페이지 라우트 */}
             {subpagesList.map((subpageName, i) => (
               <Link
                 key={i}
@@ -153,6 +177,15 @@ export default function NavBar({
                 {subpageName}
               </Link>
             ))}
+
+            {/* Recap 라우트 추가 */}
+            <Link
+              href="/recap/19th"
+              className="capitalize hover:opacity-70"
+            >
+              recap
+            </Link>
+
             <Link
               href="#footer"
               onClick={handleScroll}
@@ -160,9 +193,11 @@ export default function NavBar({
             >
               contact
             </Link>
+
             <Link
               href={recruitmentLink}
               target="_blank"
+              rel="noopener noreferrer"
               className="py-2 px-5 rounded-lg capitalize text-white bg-kcc-theme text-opacity-90 hover:text-opacity-100 hover:bg-kcc-theme-darker"
             >
               join
@@ -170,6 +205,7 @@ export default function NavBar({
           </div>
         </div>
       </nav>
+
       <div
         ref={navbarHiderTarget}
         className={`absolute w-1 bg-transparent opacity-0 -z-10`}

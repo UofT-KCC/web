@@ -1,56 +1,98 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist';
+
+const workerSrc = '/pdf.worker.min.js';
+
 type Props = {
   fileUrl: string;
-  page: number;        // 1-indexed
-  totalPages: number;  // 외부에서 관리 (24 같은 값)
-  onPrev: () => void;
-  onNext: () => void;
-  showControls?: boolean;
+  page: number;
+  onTotalPages?: (n: number) => void;
 };
 
-/**
- * pdfjs/react-pdf 없이 "브라우저 내장 PDF 뷰어"로 렌더링.
- * page 이동은 URL hash(#page=)로 처리.
- */
-export default function PdfViewer({
-  fileUrl,
-  page,
-  totalPages,
-  onPrev,
-  onNext,
-  showControls = true,
-}: Props) {
-  // Chrome/Safari 모두 대체로 동작: /file.pdf#page=3
-  const viewerUrl = `${fileUrl}#page=${page}`;
+export default function PdfViewer({ fileUrl, page, onTotalPages }: Props) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const renderTaskRef = useRef<any>(null);
+  const pdfInstanceRef = useRef<any>(null);
+
+  const renderPage = async (pageNum: number) => {
+    const pdfInstance = pdfInstanceRef.current;
+    if (!pdfInstance || !canvasRef.current || !containerRef.current) return;
+
+    if (renderTaskRef.current) {
+      try {
+        await renderTaskRef.current.cancel();
+      } catch {}
+      renderTaskRef.current = null;
+    }
+
+    const pdfPage = await pdfInstance.getPage(pageNum);
+
+    const containerWidth = containerRef.current.clientWidth || 1;
+    const viewport = pdfPage.getViewport({ scale: 1 });
+    const scale = containerWidth / viewport.width;
+    const scaledViewport = pdfPage.getViewport({ scale });
+
+    const canvas = canvasRef.current;
+    canvas.width = Math.floor(scaledViewport.width);
+    canvas.height = Math.floor(scaledViewport.height);
+
+    canvas.style.width = '100%';
+    canvas.style.height = 'auto';
+
+    const context = canvas.getContext('2d');
+    if (!context) return;
+
+    const renderTask = pdfPage.render({
+      canvasContext: context,
+      viewport: scaledViewport,
+    });
+
+    renderTaskRef.current = renderTask;
+
+    try {
+      await renderTask.promise;
+    } catch {}
+
+    renderTaskRef.current = null;
+  };
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadPdf = async () => {
+      GlobalWorkerOptions.workerSrc = workerSrc;
+
+      const pdf = await getDocument(fileUrl).promise;
+      if (cancelled) return;
+
+      pdfInstanceRef.current = pdf;
+      onTotalPages?.(pdf.numPages);
+
+      const safe = Math.min(Math.max(1, page), pdf.numPages);
+      renderPage(safe);
+    };
+
+    loadPdf();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [fileUrl]);
+
+  useEffect(() => {
+    const pdf = pdfInstanceRef.current;
+    if (!pdf) return;
+
+    const safe = Math.min(Math.max(1, page), pdf.numPages || 1);
+    renderPage(safe);
+  }, [page]);
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-start">
-      <div className="w-full flex-1">
-        {/* object가 가장 안정적. 안 되면 embed로 fallback */}
-        <object
-          key={viewerUrl} // page 바뀔 때 강제 리로드
-          data={viewerUrl}
-          type="application/pdf"
-          className="w-full h-full"
-        >
-          <embed src={viewerUrl} type="application/pdf" className="w-full h-full" />
-        </object>
-      </div>
-
-      {showControls && (
-        <div className="mt-4 flex items-center justify-center gap-4 text-lg font-semibold">
-          <button type="button" onClick={onPrev}>
-            ◀ Prev
-          </button>
-          <span className="tabular-nums">
-            {page} / {totalPages}
-          </span>
-          <button type="button" onClick={onNext}>
-            Next ▶
-          </button>
-        </div>
-      )}
+    <div ref={containerRef} style={{ width: '100%' }}>
+      <canvas ref={canvasRef} style={{ display: 'block' }} />
     </div>
   );
 }

@@ -1,21 +1,28 @@
-import { Metadata } from 'next';
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import PageIntro from '@/components/pageIntro';
 import { subscribeNewsletterLink } from '@/data/change-annually-data';
-// "/assets/pdf/anti-calendar-freshmen.pdf"
-// pages/pdf-test.tsx
 import dynamic from 'next/dynamic';
 
-// SSR에서는 pdfjs가 window 객체를 필요로 하니, dynamic import로 처리
 const PdfViewer = dynamic(() => import('@/components/pdfViewer'), {
   ssr: false,
 });
 
-export const metadata: Metadata = {
-  title: 'Newsletter',
-};
-
 export default function Newsletter() {
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
+  const safePage = Math.min(Math.max(1, page), totalPages);
+
+  useEffect(() => {
+    setPage((p) => Math.min(Math.max(1, p), totalPages));
+  }, [totalPages]);
+
+  const onPrev = () => setPage((p) => Math.max(1, p - 1));
+  const onNext = () => setPage((p) => Math.min(totalPages, p + 1));
+
   return (
     <PageIntro
       pageName="newsletter"
@@ -46,11 +53,35 @@ export default function Newsletter() {
         </>
       }
     >
-      {/* Constrain PdfViewer width so rendered canvas is smaller and centered */}
       <div className="w-full flex justify-center">
         <div className="w-full max-w-[85%] md:max-w-[75%] lg:max-w-[65%]">
           <div className="overflow-hidden rounded-lg">
-            <PdfViewer fileUrl="/assets/pdf/aug-2025-newsletter.pdf" />
+            {/* ✅ 페이지 표시/버튼은 Newsletter 페이지에서 유지 */}
+            <div className="flex items-center justify-between py-3 text-sm text-gray-700">
+              <button
+                type="button"
+                onClick={onPrev}
+                className="px-3 py-1 rounded-md border border-slate-200 hover:bg-slate-50"
+              >
+                ◀ Prev
+              </button>
+              <span className="tabular-nums">
+                {safePage} / {totalPages}
+              </span>
+              <button
+                type="button"
+                onClick={onNext}
+                className="px-3 py-1 rounded-md border border-slate-200 hover:bg-slate-50"
+              >
+                Next ▶
+              </button>
+            </div>
+
+            <PdfViewer
+              fileUrl="/assets/pdf/aug-2025-newsletter.pdf"
+              page={safePage}
+              onTotalPages={setTotalPages}
+            />
           </div>
         </div>
       </div>
