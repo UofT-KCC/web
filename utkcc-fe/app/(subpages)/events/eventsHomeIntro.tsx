@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import eventsImage from '/public/assets/images/events-image.png';
+import eventsImage from 'public/assets/images/events-image.png';
 import Link from 'next/link';
 
 export default function EventsHomeIntro() {

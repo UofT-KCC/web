@@ -2,12 +2,12 @@
 
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import groupImage from '/public/assets/images/utkcc.jpeg';
+import groupImage from 'public/assets/images/utkcc.jpeg';
 
 export default function AboutImage() {
   const [isLightboxMounted, setIsLightboxMounted] = useState(false);
   const [isLightboxVisible, setIsLightboxVisible] = useState(false);
-  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeTimerRef = useRef<number | null>(null);
 
   const openLightbox = () => {
     if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
