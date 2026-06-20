@@ -9,3 +9,69 @@
   --txt-color: rgb(0, 0, 0);
   --theme-gray-color: #767171;
 }
+
+.events-slogan {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12em;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.events-slogan-prefix {
+  color: black;
+}
+
+.events-slogan-rotator {
+  display: grid;
+  min-height: 1.2em;
+  overflow: hidden;
+  padding-right: 0.2em;
+  color: var(--main-theme-color);
+  white-space: nowrap;
+}
+
+.events-slogan-rotator span {
+  grid-area: 1 / 1;
+  opacity: 0;
+  transform: translateY(0.45em);
+  animation: events-slogan-cycle 7.5s ease-in-out infinite;
+}
+
+.events-slogan-rotator span:nth-child(2) {
+  animation-delay: 2.5s;
+}
+
+.events-slogan-rotator span:nth-child(3) {
+  animation-delay: 5s;
+}
+
+@keyframes events-slogan-cycle {
+  0%,
+  12% {
+    opacity: 0;
+    transform: translateY(0.45em);
+  }
+  20%,
+  44% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  52%,
+  100% {
+    opacity: 0;
+    transform: translateY(-0.35em);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .events-slogan-rotator span {
+    animation: none;
+    opacity: 0;
+    transform: none;
+  }
+
+  .events-slogan-rotator span:first-child {
+    opacity: 1;
+  }
+}

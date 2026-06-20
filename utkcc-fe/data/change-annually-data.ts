@@ -21,8 +21,8 @@ export const subscribeNewsletterLink =
 /** KCC 이메일 */
 export const kccEmail = 'koreancommerce@gmail.com';
 /** 회장 이메일 */
-export const presEmail = 'danielkim6778@gmail.com';
+export const presEmail = 'hj.you@mail.utoronto.ca';
 /** 부회장 이메일 */
-export const vicePresEmail = 'laurenkang11@gmail.com';
+export const vicePresEmail = 'em.lee0114@gmail.com';
 /** 스폰서 관련 이메일 (ER 디렉터) */
-export const erDirectorEmail = 'jungyoon.uoft@gmail.com';
+export const erDirectorEmail = 'elliot.lim@mail.utoronto.ca';

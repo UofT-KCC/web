@@ -22,9 +22,13 @@ export default function Sponsors() {
   return (
     <PageIntro
       pageName="sponsors"
-      pageSlogan={<>UTKCC와 함께하는 파트너십</>}
+      pageSlogan={
+        <div className="text-3xl font-bold leading-[1.05] tracking-tight text-black lg:text-6xl">
+          UTKCC와 함께하는 <span className="text-kcc-theme">파트너십</span>
+        </div>
+      }
       pageExp={
-        <div className="space-y-4 text-sm leading-relaxed text-gray-700 max-w-2xl">
+        <div className="max-w-2xl space-y-4 text-sm leading-relaxed text-kcc-gray lg:text-base lg:leading-relaxed">
           <p>
             UTKCC는 토론토에 위치한 다양한 한인 식당 및 로컬 비즈니스와 제휴를 맺고,
             멤버십 소지자분들께 할인, 경품 등의 혜택을 제공하고 있습니다.

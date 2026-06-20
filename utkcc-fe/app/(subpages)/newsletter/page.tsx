@@ -30,13 +30,13 @@ export default function Newsletter() {
     <PageIntro
       pageName="newsletter"
       pageSlogan={
-        <>
-          매달 우리의 새로운 소식을
-          <br /> 당신의 메일함으로
-        </>
+        <div className="text-3xl font-bold leading-[1.08] tracking-tight text-black lg:text-6xl">
+          매달 우리의 새로운 소식을{' '}
+          <span className="text-kcc-theme">메일함으로</span>
+        </div>
       }
       pageExp={
-        <div className="space-y-5 text-base leading-relaxed text-gray-700 max-w-2xl">
+        <div className="max-w-2xl space-y-4 text-sm leading-relaxed text-kcc-gray lg:text-base lg:leading-relaxed">
           <p>
             바쁜 학업 생활 속에서 놓치고 있던 정보들과 소식들이 있나요? 시험, 커리어,
             교내외 활동까지, 한 번에 정리해서 받아보세요.

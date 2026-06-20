@@ -9,13 +9,13 @@
 export const deptList: string[] = [
   'presidents',
   'academics',
-  'marketing - video',
+  'corporate relations',
+  'finance',
+  'information technology',
   'marketing - poster',
+  'marketing - video',
   'media',
   'social',
-  'finance',
-  'external relations',
-  'programming',
 ];
 
 /**
@@ -395,10 +395,10 @@ export const execData: {
     intro: [],
   },
   // =======================
-  // EXTERNAL RELATIONS
+  // CORPORATE RELATIONS
   // =======================
   {
-    dept: 'external relations',
+    dept: 'corporate relations',
     position: 'director',
     name: '최정윤',
     imageSrc: '/assets/images/exec-headshots/최정윤.jpg',
@@ -406,7 +406,7 @@ export const execData: {
     intro: [],
   },
   {
-    dept: 'external relations',
+    dept: 'corporate relations',
     position: 'committee',
     name: '신정민',
     imageSrc: '/assets/images/exec-headshots/신정민.jpg',
@@ -414,7 +414,7 @@ export const execData: {
     intro: [],
   },
   {
-    dept: 'external relations',
+    dept: 'corporate relations',
     position: 'committee',
     name: '유현준',
     imageSrc: '/assets/images/exec-headshots/유현준.jpg',
@@ -422,7 +422,7 @@ export const execData: {
     intro: [],
   },
   {
-    dept: 'external relations',
+    dept: 'corporate relations',
     position: 'intern',
     name: '진하윤',
     imageSrc: '/assets/images/exec-headshots/진하윤.jpg',
@@ -430,7 +430,7 @@ export const execData: {
     intro: [],
   },
   {
-    dept: 'external relations',
+    dept: 'corporate relations',
     position: 'intern',
     name: '김민소',
     imageSrc: '/assets/images/exec-headshots/김민소.jpg',
@@ -438,7 +438,7 @@ export const execData: {
     intro: [],
   },
   {
-    dept: 'external relations',
+    dept: 'corporate relations',
     position: 'intern',
     name: '김준현',
     imageSrc: '/assets/images/exec-headshots/김준현.jpg',
@@ -446,10 +446,10 @@ export const execData: {
     intro: [],
   },
   // =======================
-  // PROGRAMMING
+  // INFORMATION TECHNOLOGY
   // =======================
   {
-    dept: 'programming',
+    dept: 'information technology',
     position: 'director',
     name: '류재혁',
     imageSrc: '/assets/images/exec-headshots/류재혁.jpg',
@@ -457,7 +457,7 @@ export const execData: {
     intro: [],
   },
   {
-    dept: 'programming',
+    dept: 'information technology',
     position: 'committee',
     name: '김나연',
     imageSrc: '/assets/images/exec-headshots/김나연.jpg',
@@ -465,7 +465,7 @@ export const execData: {
     intro: [],
   },
   {
-    dept: 'programming',
+    dept: 'information technology',
     position: 'intern',
     name: '류지훈',
     imageSrc: '/assets/images/exec-headshots/류지훈.jpg',

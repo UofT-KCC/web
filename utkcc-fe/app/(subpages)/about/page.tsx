@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import PageIntro from '@/components/pageIntro';
-import groupImage from '/public/assets/images/group-photo.jpeg';
+import AboutImage from './aboutImage';
 import AboutModalButton from './aboutModal';
 
 export const metadata: Metadata = {
@@ -13,10 +12,10 @@ export default function About() {
     <PageIntro
       pageName="about"
       pageSlogan={
-        <span className="after:content-['토론토_대학교_\A_한인_경영동아리'] whitespace-pre lg:after:content-['UTKCC'] lg:font-bold lg:text-7xl lg:mb-0" />
+        <span className="whitespace-pre text-3xl font-bold leading-tight after:content-['토론토_대학교_\A_한인_경영동아리'] lg:mb-0 lg:text-7xl lg:after:content-['UTKCC']" />
       }
       pageExp={
-        <>
+        <div className="text-sm leading-relaxed text-kcc-gray lg:text-base lg:leading-relaxed">
           UTKCC는 2007년 설립된 토론토대학교 공식 한인 커뮤니티로, 비즈니스,
           네트워킹, 그리고 대학 생활 전반에 관심 있는 한인 학생들이 함께
           성장하는 공간입니다.
@@ -29,15 +28,10 @@ export default function About() {
           사회와의 연결을 강화하고, 한인 학생 커뮤니티의 지속적인 성장을
           이끌어가고 있습니다.
           <AboutModalButton />
-        </>
+        </div>
       }
     >
-      <Image
-        alt="about image"
-        className="w-fit h-auto lg:max-h-[60vh] object-contain rounded-lg"
-        // placeholder="blur"
-        src={groupImage}
-      />
+      <AboutImage />
     </PageIntro>
   );
 }

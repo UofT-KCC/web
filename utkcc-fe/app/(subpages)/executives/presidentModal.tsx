@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface PresidentIntroProps {
   position: string;
@@ -12,12 +12,16 @@ export default function PresidentModalButton(props: PresidentIntroProps) {
 
   return (
     <>
-      <div
+      <button
+        type="button"
         onClick={() => setShowIntro(true)}
-        className="rounded-lg bg-gray-300 px-3 py-1 w-fit text-2xs mt-2 cursor-pointer border border-gray-200 hover:bg-gray-200"
+        className="group mt-3 flex w-fit items-center gap-1 text-[10px] font-bold text-kcc-theme transition-colors duration-200 hover:text-kcc-theme-darker focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 lg:mt-4 lg:text-xs"
       >
-        소개글
-      </div>
+        <span>소개글 보기</span>
+        <span className="transition-transform duration-200 group-hover:translate-x-0.5">
+          →
+        </span>
+      </button>
       {showIntro && <PresidentModal setShowModal={setShowIntro} {...props} />}
     </>
   );
@@ -33,32 +37,56 @@ function PresidentModal({
   intro,
   setShowModal,
 }: PresidentModalProps) {
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setShowModal(false);
+    };
+
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [setShowModal]);
+
   return (
-    <dialog className="fixed top-0 left-0 z-[100] w-screen h-screen p-0 bg-black bg-opacity-50 justify-center items-center flex mx-auto my-auto touch-none">
+    <div
+      className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/35 px-4 py-8 backdrop-blur-md"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`${name} introduction`}
+      onClick={() => setShowModal(false)}
+    >
       <div
-        onClick={() => setShowModal(false)}
-        className="z-0 absolute bg-transparent w-full h-full top-0 left-0"
-      />
-      <div className="z-10 m-4 lg:my-12 lg:mx-48 p-4 lg:p-16 rounded-lg w-full h-fit bg-white flex flex-col gap-3 lg:gap-6">
-        <div className="text-kcc-theme text-sm">
-          <span className="capitalize">{position}</span>
-          {' of UTKCC'}
+        className="relative flex max-h-[82vh] w-full max-w-3xl flex-col overflow-hidden rounded-xl bg-white shadow-[0_24px_70px_rgba(0,0,0,0.2)] ring-1 ring-black/10"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="flex items-start justify-between gap-4 border-b border-gray-100 px-5 py-4 lg:px-8 lg:py-6">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-[0.12em] text-kcc-theme/70">
+              <span className="capitalize">{position}</span> of UTKCC
+            </div>
+            <div className="mt-1 text-xl font-bold text-black">{name}</div>
+          </div>
+          <button
+            type="button"
+            aria-label="Close executive introduction"
+            onClick={() => setShowModal(false)}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-100 text-xl leading-none text-kcc-gray transition-colors duration-200 hover:bg-kcc-theme hover:text-white focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30"
+          >
+            ×
+          </button>
         </div>
-        <div className="text-xl">{name}</div>
-        <div className="text-kcc-gray text-xs lg:text-sm flex flex-col gap-3">
+        <div className="flex flex-col gap-4 overflow-auto px-5 py-5 text-sm leading-7 text-kcc-gray lg:px-8 lg:py-7">
           {intro.map((paragraph, i) => (
             <p key={i} className="break-keep">
               {paragraph}
             </p>
           ))}
         </div>
-        <div
-          onClick={() => setShowModal(false)}
-          className="w-fit self-end underline underline-offset-2 text-kcc-gray hover:opacity-70 text-xs lg:text-sm cursor-pointer"
-        >
-          돌아가기
-        </div>
       </div>
-    </dialog>
+    </div>
   );
 }

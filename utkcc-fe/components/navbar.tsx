@@ -24,6 +24,14 @@ export default function NavBar({
     'newsletter',
   ];
 
+  useEffect(() => {
+    window.dispatchEvent(
+      new CustomEvent('utkcc-mobile-nav-toggle', {
+        detail: { open: navActive },
+      }),
+    );
+  }, [navActive]);
+
   // HANDLE NAVBAR VISIBILITY
   const navbarElementTarget = useRef<HTMLDivElement>(null); // navbar element
   const navbarHiderTarget = useRef<HTMLDivElement>(null); // if this target is visible, hide navbar

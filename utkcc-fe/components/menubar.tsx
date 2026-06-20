@@ -27,12 +27,14 @@ export default function MenuBar({
 
   return (
     <div className="w-full">
-      <div className="w-full flex lg:flex-wrap border-b border-b-kcc-gray text-kcc-gray overflow-x-auto gap-4 pb-2 text-xs whitespace-nowrap justify-items-center">
+      <div className="w-full flex lg:flex-wrap border-b border-b-gray-200 text-kcc-gray overflow-x-auto gap-2 pb-3 text-xs whitespace-nowrap justify-items-center">
         {Object.keys(data).map((d, i) => (
           <div
             key={i}
-            className={`cursor-pointer capitalize ${
-              d === selectedCategory ? 'font-bold text-kcc-theme' : ''
+            className={`cursor-pointer px-2 py-1 capitalize transition-colors duration-200 ${
+              d === selectedCategory
+                ? 'font-bold text-kcc-theme'
+                : 'hover:text-kcc-theme'
             }`}
             onClick={handleMenuChange}
           >
@@ -42,8 +44,9 @@ export default function MenuBar({
       </div>
       <div
         // TODO: more columns to map as objects after interns come in
-        className={`grid ${columnNumber === 1 ? 'grid-cols-1' : 'grid-cols-2'}
-        )} p-5 gap-x-10 gap-y-5`}
+        className={`grid ${
+          columnNumber === 1 ? 'grid-cols-1' : 'grid-cols-2'
+        } gap-x-4 gap-y-8 p-3 sm:gap-x-8 lg:gap-x-10 lg:p-5`}
       >
         {data[selectedCategory]}
       </div>
