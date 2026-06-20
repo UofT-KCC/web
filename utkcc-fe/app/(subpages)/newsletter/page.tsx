@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 import PageIntro from '@/components/pageIntro';
-import newsletterImage from '/public/assets/images/newsletter-image.png';
 import { subscribeNewsletterLink } from '@/data/change-annually-data';
 import dynamic from 'next/dynamic';
 
@@ -13,8 +12,8 @@ const PdfViewer = dynamic(() => import('@/components/pdfViewer'), {
 });
 
 export default function Newsletter() {
-  const TOTAL_PAGES = 22; 
-  const fileUrl = '/assets/pdf/aug-2025-newsletter.pdf';
+  const TOTAL_PAGES = 22;
+  const fileUrl = '/assets/pdf/newsletter.pdf';
 
   const [currentPage, setCurrentPage] = useState(1);
 

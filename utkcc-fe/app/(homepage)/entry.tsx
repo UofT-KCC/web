@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import LogoImage from 'public/assets/images/big-logo.png';
+import LogoImage from '@/public/assets/images/big-logo.png';
 import './entry.css';
 
 /**
