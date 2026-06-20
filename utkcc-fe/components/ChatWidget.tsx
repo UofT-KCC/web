@@ -21,6 +21,8 @@ type Lang = 'ko' | 'en';
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [lang, setLang] = useState<Lang>('ko');
+  const [overFooter, setOverFooter] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
     try {
@@ -38,13 +40,48 @@ export default function ChatWidget() {
     } catch {}
   }, [open, lang]);
 
+  useEffect(() => {
+    const footer = document.getElementById('footer');
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setOverFooter(entry.isIntersecting),
+      { threshold: 0.05 }
+    );
+
+    observer.observe(footer);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleMobileNavToggle = (event: Event) => {
+      const customEvent = event as CustomEvent<{ open: boolean }>;
+      setMobileNavOpen(Boolean(customEvent.detail?.open));
+    };
+
+    window.addEventListener('utkcc-mobile-nav-toggle', handleMobileNavToggle);
+
+    return () => {
+      window.removeEventListener(
+        'utkcc-mobile-nav-toggle',
+        handleMobileNavToggle,
+      );
+    };
+  }, []);
+
+  if (mobileNavOpen) return null;
+
   return (
     <>
       <button
         type="button"
         aria-label={open ? 'Close chat' : 'Open chat'}
         onClick={() => setOpen((v) => !v)}
-        style={styles.fab}
+        style={{
+          ...styles.fab,
+          ...(overFooter ? styles.fabOnFooter : {}),
+        }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = 'translateY(-1px)';
           e.currentTarget.style.filter = 'brightness(1.05)';
@@ -93,5 +130,11 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
     justifyContent: 'center',
     transition: 'transform 140ms ease, box-shadow 140ms ease, filter 140ms ease',
+  },
+  fabOnFooter: {
+    border: '1px solid rgba(255, 255, 255, 0.35)',
+    background: '#0A4EA8',
+    color: 'white',
+    boxShadow: '0 8px 18px rgba(0, 0, 0, 0.12)',
   },
 };

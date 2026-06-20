@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import localFont from 'next/font/local';
 import FooterContactInfo from '@/components/footerContactInfo';
+import FooterVisibility from '@/components/footerVisibility';
 import ChatWidget from '@/components/ChatWidget';
 import { getURL } from '@/lib/utils';
 import './globals.css';
@@ -136,9 +137,9 @@ export default function RootLayout({
         // suppressHydrationWarning={true}
       >
         {children}
-        <footer id="footer" className="mt-auto">
+        <FooterVisibility>
           <FooterContactInfo />
-        </footer>
+        </FooterVisibility>
         <ChatWidget />
       </body>
     </html>

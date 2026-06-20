@@ -4,7 +4,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 type Lang = 'ko' | 'en';
 
-type ChatMsg = {
+export type ChatMsg = {
   id: string;
   role: 'user' | 'assistant';
   content: string;
@@ -157,13 +157,9 @@ export default function ChatWindow({
     };
     window.addEventListener('keydown', onKey);
 
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-
     return () => {
       clearTimeout(t);
       window.removeEventListener('keydown', onKey);
-      document.body.style.overflow = prevOverflow;
     };
   }, [open, onClose]);
 
@@ -247,11 +243,19 @@ export default function ChatWindow({
   if (!open) return null;
 
   return (
-    <div style={styles.panel} role="dialog" aria-label="UTKCC Chatbot">
+    <div className="utkcc-chat-panel" style={styles.panel} role="dialog" aria-label="UTKCC Chatbot">
       <style>{`
         @keyframes utkccChatIn {
           from { opacity: 0; transform: translateY(10px) scale(0.985); }
           to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @media (max-width: 640px) {
+          .utkcc-chat-panel {
+            right: 12px !important;
+            bottom: calc(72px + env(safe-area-inset-bottom)) !important;
+            width: min(360px, calc(100vw - 24px)) !important;
+            height: min(520px, calc(100vh - 160px)) !important;
+          }
         }
       `}</style>
       <div style={styles.header}>

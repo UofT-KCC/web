@@ -126,7 +126,20 @@ export const UTKCC_KB: KBEntry[] = [
     content_en:
       'The list of UTKCC executives and directors is available on the Executives page.',
     url: '/executives',
-    tags: ['executives', 'directors', '회장단'],
+    tags: ['executives', 'directors', '회장단', '임원진', '운영진'],
+  },
+
+  // ===== RESOURCES =====
+  {
+    id: 'resources-social',
+    title_ko: '소셜 미디어 자료',
+    title_en: 'Social media resources',
+    content_ko:
+      'UTKCC 소셜 미디어 자료는 Resources 페이지에서 확인할 수 있어요.',
+    content_en:
+      'UTKCC social media resources are available on the Resources page.',
+    url: '/resources',
+    tags: ['resources', 'social', 'social media', 'sns', '소셜', '소셜미디어', '인스타'],
   },
 
   // ===== CONTACT =====
@@ -140,6 +153,19 @@ export const UTKCC_KB: KBEntry[] = [
       'For official inquiries, please use the Contact page where email and other contact methods are listed.',
     url: '/contact',
     tags: ['contact', 'email', '문의'],
+  },
+
+  // ===== NEWSLETTER =====
+  {
+    id: 'newsletter-overview',
+    title_ko: '뉴스레터 확인/구독',
+    title_en: 'Newsletter access',
+    content_ko:
+      '뉴스레터는 Newsletter 페이지에서 확인할 수 있어요. 구독 링크가 있다면 해당 페이지에서 안내돼요.',
+    content_en:
+      'You can read the newsletter on the Newsletter page. Subscription details are listed there if available.',
+    url: '/newsletter',
+    tags: ['newsletter', '뉴스레터', '구독', 'mailing'],
   },
 
   // ===== GENERAL =====

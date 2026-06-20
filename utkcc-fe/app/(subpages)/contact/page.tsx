@@ -34,23 +34,23 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-white text-gray-900 flex justify-start items-start">
-      <section className="w-full max-w-5xl px-10 py-24 text-left flex flex-col items-start space-y-20">
+      <section className="w-full max-w-5xl px-6 py-10 text-left flex flex-col items-start gap-14 lg:px-10 lg:py-14">
         <header className="w-full flex flex-col items-start text-left">
           <p className="text-xs uppercase tracking-[0.25em] text-kcc-theme/70">
             Contact
           </p>
 
-          <h1 className="relative mt-6 text-5xl font-bold leading-tight text-gray-900 sm:text-7xl">
+          <h1 className="relative z-0 mt-6 text-5xl font-bold leading-tight text-gray-900 sm:text-7xl">
             Say hello to{' '}
             <span className="relative inline-block">
-              <span className="relative z-10 text-kcc-theme">UTKCC</span>
+              <span className="relative text-kcc-theme">UTKCC</span>
               <span className="pointer-events-none absolute inset-x-[-4px] bottom-1 h-3 rounded-md bg-kcc-theme/10" />
             </span>
 
             <Image
               src={icon3}
               alt="UTKCC logo"
-              className="absolute -right-10 top-1/4 w-31 -translate-y-1/2 opacity-30 pointer-events-none select-none"
+              className="absolute -right-10 top-1/4 -z-10 w-31 -translate-y-1/2 opacity-30 pointer-events-none select-none"
             />
           </h1>
 
@@ -59,7 +59,7 @@ export default function ContactPage() {
           </p>
         </header>
 
-        <div className="mt-10 space-y-10">
+        <div className="w-full space-y-12">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-start">
             <PrimaryButton href={`mailto:${kccEmail}`}>
               General inquiries
