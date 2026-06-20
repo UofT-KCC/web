@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import localFont from 'next/font/local';
+import Script from 'next/script';
 import FooterContactInfo from '@/components/footerContactInfo';
 import FooterVisibility from '@/components/footerVisibility';
 import ChatWidget from '@/components/ChatWidget';
@@ -122,20 +123,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={gMarket.className}>
-      <head>
-        <script
-          type="module"
-          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
-        ></script>
-        <script
-          noModule
-          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.js"
-        ></script>
-      </head>
       <body
         className="w-[100dvw] min-h-[100lvh]"
         // suppressHydrationWarning={true}
       >
+        <Script
+          type="module"
+          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.esm.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          noModule
+          src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.js"
+          strategy="afterInteractive"
+        />
         {children}
         <FooterVisibility>
           <FooterContactInfo />

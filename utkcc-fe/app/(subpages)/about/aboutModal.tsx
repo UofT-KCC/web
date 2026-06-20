@@ -29,7 +29,7 @@ function AboutModal({
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [isVisible, setIsVisible] = useState(false);
-  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const closeTimerRef = useRef<number | null>(null);
 
   const closeModal = useCallback(() => {
     setIsVisible(false);
