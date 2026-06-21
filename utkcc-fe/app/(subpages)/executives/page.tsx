@@ -88,7 +88,7 @@ async function ExecutiveCell({
   // const blurImageUrl = await getBase64(getURL(imageSrc));
 
   return (
-    <article className="group overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm shadow-black/[0.04] transition-shadow duration-300 hover:shadow-[0_10px_28px_rgba(0,0,0,0.07)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.045)] transition-shadow duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.075)]">
       <div className="relative aspect-square overflow-hidden bg-gray-100">
         <Image
           alt={`${name} executive headshot`}
@@ -101,9 +101,9 @@ async function ExecutiveCell({
           key={id}
         />
       </div>
-      <div className="p-3 text-left lg:p-5">
+      <div className="flex flex-1 flex-col p-3.5 text-left lg:p-5">
         <div
-          className={`text-[8px] uppercase tracking-[0.1em] lg:text-[11px] lg:tracking-[0.14em] ${getRoleClass(
+          className={`text-[8px] uppercase tracking-[0.12em] lg:text-[11px] lg:tracking-[0.14em] ${getRoleClass(
             position,
           )}`}
         >
@@ -112,7 +112,7 @@ async function ExecutiveCell({
         <div className="mt-1.5 text-base font-bold text-black lg:mt-2 lg:text-xl">
           {name}
         </div>
-        <div className="mt-1 min-h-[1rem] text-[10px] capitalize leading-snug text-kcc-gray/60 lg:min-h-[1.25rem] lg:text-xs">
+        <div className="mt-1 min-h-[2.1rem] text-[10px] capitalize leading-snug text-kcc-gray/60 lg:min-h-[1.25rem] lg:text-xs">
           {program}
         </div>
         {intro !== undefined && intro.length !== 0 && (

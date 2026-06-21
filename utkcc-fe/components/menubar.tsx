@@ -45,8 +45,10 @@ export default function MenuBar({
       <div
         // TODO: more columns to map as objects after interns come in
         className={`grid ${
-          columnNumber === 1 ? 'grid-cols-1' : 'grid-cols-2'
-        } gap-x-4 gap-y-8 p-3 sm:gap-x-8 lg:gap-x-10 lg:p-5`}
+          columnNumber === 1
+            ? 'grid-cols-1 gap-x-4 p-3'
+            : 'grid-cols-2 gap-x-3 px-0 py-4'
+        } gap-y-8 sm:gap-x-8 sm:p-3 lg:gap-x-10 lg:p-5`}
       >
         {data[selectedCategory]}
       </div>
