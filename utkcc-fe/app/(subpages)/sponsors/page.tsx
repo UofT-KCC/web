@@ -24,7 +24,8 @@ export default function Sponsors() {
       pageName="sponsors"
       pageSlogan={
         <div className="text-3xl font-bold leading-[1.05] tracking-tight text-black lg:text-6xl">
-          UTKCC와 함께하는 <span className="text-kcc-theme">파트너십</span>
+          <span className="block lg:inline">UTKCC와 함께하는</span>{' '}
+          <span className="mt-1 inline-block text-kcc-theme lg:mt-0">파트너십</span>
         </div>
       }
       pageExp={

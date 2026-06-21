@@ -232,7 +232,8 @@ export default function Resources() {
       pageName="resources"
       pageSlogan={
         <div className="text-3xl font-bold leading-[1.05] tracking-tight text-black lg:text-6xl">
-          UTKCC가 제공하는 <span className="text-kcc-theme">리소스</span>
+          <span className="block lg:inline">UTKCC가 제공하는</span>{' '}
+          <span className="mt-1 inline-block text-kcc-theme lg:mt-0">리소스</span>
         </div>
       }
       pageExp={

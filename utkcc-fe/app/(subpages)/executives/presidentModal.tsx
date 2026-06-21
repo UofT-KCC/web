@@ -15,7 +15,7 @@ export default function PresidentModalButton(props: PresidentIntroProps) {
       <button
         type="button"
         onClick={() => setShowIntro(true)}
-        className="group mt-3 flex w-fit items-center gap-1 text-[10px] font-bold text-kcc-theme transition-colors duration-200 hover:text-kcc-theme-darker focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 lg:mt-4 lg:text-xs"
+        className="group mt-auto flex w-fit items-center gap-1 pt-3 text-[10px] font-bold text-kcc-theme transition-colors duration-200 hover:text-kcc-theme-darker focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 lg:pt-4 lg:text-xs"
       >
         <span>소개글 보기</span>
         <span className="transition-transform duration-200 group-hover:translate-x-0.5">
