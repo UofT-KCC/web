@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import groupImage from 'public/assets/images/utkcc.jpeg';
+import groupImage from '@/public/assets/images/utkcc.jpeg';
 
 export default function AboutImage() {
   const [isLightboxMounted, setIsLightboxMounted] = useState(false);
