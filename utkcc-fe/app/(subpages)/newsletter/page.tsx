@@ -30,8 +30,8 @@ export default function Newsletter() {
       pageName="newsletter"
       pageSlogan={
         <div className="text-3xl font-bold leading-[1.08] tracking-tight text-black lg:text-6xl">
-          매달 우리의 새로운 소식을{' '}
-          <span className="text-kcc-theme">메일함으로</span>
+          우리의 새 소식을
+          <span className="block whitespace-nowrap text-kcc-theme">메일함으로</span>
         </div>
       }
       pageExp={
@@ -50,7 +50,7 @@ export default function Newsletter() {
           </p>
           <div className="flex justify-start pt-2">
             <Link
-              className="inline-flex items-center rounded-full bg-kcc-theme px-7 py-3 text-sm font-medium text-white text-opacity-90 shadow-sm shadow-kcc-theme/40 transition hover:-translate-y-0.5 hover:bg-kcc-theme-darker hover:text-opacity-100 hover:shadow-md"
+              className="inline-flex w-fit items-center rounded-full bg-kcc-theme px-5 py-2 text-xs font-bold text-white shadow-sm shadow-kcc-theme/40 ring-1 ring-black/5 transition-all duration-300 ease-out hover:bg-white hover:text-kcc-theme hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:ring-kcc-theme/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 active:scale-[0.98] lg:px-7 lg:py-3 lg:text-sm"
               target="_blank"
               rel="noopener noreferrer"
               href={subscribeNewsletterLink}
@@ -60,8 +60,8 @@ export default function Newsletter() {
           </div>
         </div>
       }
-    > 
-      <section className="-mt-7 w-full space-y-6">
+    >
+      <section className="w-full space-y-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
             <p className="text-[11px] uppercase tracking-[0.18em] text-kcc-theme/70">

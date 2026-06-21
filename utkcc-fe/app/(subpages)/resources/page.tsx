@@ -241,9 +241,9 @@ export default function Resources() {
           유용한 안티캘린더 및 자료집을 제공합니다.
           <span className="my-3 w-full block" />
           UTKCC의 최신 소식과 행사 정보를 소셜 미디어에서 확인해보세요!
-          <span className="text-center flex justify-center my-2">
+          <span className="flex justify-start my-2">
             <Link
-              className="text-center px-7 py-2.5 bg-kcc-theme hover:bg-kcc-theme-darker mt-4 text-white text-opacity-90 hover:text-opacity-100 text-sm w-fit rounded-full transition shadow-sm hover:shadow-md hover:-translate-y-0.5"
+              className="mt-4 inline-flex w-fit items-center rounded-full bg-kcc-theme px-5 py-2 text-center text-xs font-bold text-white shadow-sm ring-1 ring-black/5 transition-all duration-300 ease-out hover:bg-white hover:text-kcc-theme hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:ring-kcc-theme/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 active:scale-[0.98] lg:px-7 lg:py-3 lg:text-sm"
               target="_blank"
               rel="noopener noreferrer"
               href={joinMemberShipLink}
