@@ -82,7 +82,7 @@ async function SponsorCell({
   return (
     <div
       key={id}
-      className="mx-auto mt-6 max-w-4xl rounded-3xl bg-white px-6 py-8 text-left shadow-sm shadow-slate-200/70 ring-1 ring-slate-100 sm:px-10 sm:py-10"
+      className="mx-auto mt-6 max-w-5xl rounded-3xl bg-white px-6 py-8 text-left shadow-sm shadow-slate-200/70 ring-1 ring-slate-100 sm:px-10 sm:py-10"
     >
       <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
         <div className="relative mx-auto h-40 w-40 shrink-0 overflow-hidden rounded-2xl bg-slate-100 sm:mx-0 sm:h-48 sm:w-48">

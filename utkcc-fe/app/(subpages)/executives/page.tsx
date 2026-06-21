@@ -26,10 +26,7 @@ export default function Executives() {
       pageSlogan={
         <div>
           <div className="text-2xl font-bold leading-tight text-black lg:text-6xl">
-            UTKCC {KCC_TH_NOW}기 임원진
-          </div>
-          <div className="mt-3 text-sm font-bold text-kcc-theme/75 lg:mt-4 lg:text-lg">
-            {deptList.length}개의 부서가 함께 만들어가는 UTKCC
+            UTKCC {KCC_TH_NOW}기 <span className="text-kcc-theme">임원진</span>
           </div>
         </div>
       }
