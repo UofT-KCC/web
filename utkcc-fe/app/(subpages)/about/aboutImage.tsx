@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import groupImage from '@/public/assets/images/utkcc.jpeg';
+import groupImage from '@/public/assets/images/about-group-photo.png';
 
 export default function AboutImage() {
   const [isLightboxMounted, setIsLightboxMounted] = useState(false);
@@ -45,7 +45,7 @@ export default function AboutImage() {
       <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-100 shadow-sm lg:hidden">
         <Image
           alt="UTKCC group photo"
-          className="object-cover object-[50%_58%]"
+          className="object-cover object-center"
           fill
           sizes="100vw"
           src={groupImage}
@@ -61,7 +61,7 @@ export default function AboutImage() {
       >
         <Image
           alt="UTKCC group photo"
-          className="object-cover object-[50%_58%] transition-transform duration-500 ease-out group-hover:scale-[1.025]"
+          className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.025]"
           fill
           sizes="(min-width: 1024px) 48vw, 100vw"
           src={groupImage}

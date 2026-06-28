@@ -27,8 +27,8 @@ export default function MenuBar({
 
   return (
     <div className="w-full">
-      <div className="menu-scrollbar-hidden w-full overflow-x-auto border-b border-b-gray-200">
-        <div className="flex min-w-max gap-2 pb-3 text-xs font-semibold text-kcc-gray whitespace-nowrap lg:flex-wrap">
+      <div className="menu-scrollbar-hidden w-full overflow-x-auto overflow-y-hidden border-b border-b-gray-200">
+        <div className="flex min-w-max items-center gap-2 pb-3 text-xs font-semibold text-kcc-gray whitespace-nowrap lg:flex-wrap">
           {Object.keys(data).map((d, i) => (
             <button
               type="button"
@@ -36,7 +36,7 @@ export default function MenuBar({
               className={`relative rounded-full px-3 py-2 capitalize transition-all duration-300 ease-out ${
                 d === selectedCategory
                   ? 'bg-kcc-theme/5 text-kcc-theme'
-                  : 'hover:-translate-y-0.5 hover:bg-slate-50 hover:text-kcc-theme'
+                  : 'hover:bg-slate-50 hover:text-kcc-theme'
               }`}
               onClick={() => handleMenuChange(d)}
             >
