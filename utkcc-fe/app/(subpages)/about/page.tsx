@@ -12,7 +12,7 @@ export default function About() {
     <PageIntro
       pageName="about"
       pageSlogan={
-        <span className="whitespace-pre text-3xl font-bold leading-tight after:content-['토론토_대학교_\A_한인_경영동아리'] lg:mb-0 lg:text-7xl lg:after:content-['UTKCC']" />
+        <span className="whitespace-pre text-3xl font-bold leading-tight after:content-['토론토_대학교_\A_한인_경영단체'] lg:mb-0 lg:text-7xl lg:after:content-['UTKCC']" />
       }
       pageExp={
         <div className="text-sm leading-relaxed text-kcc-gray lg:text-base lg:leading-relaxed">

@@ -10,7 +10,7 @@ export default function EventsHomeIntro() {
         events
       </div>
       <div className="my-6 text-2xl font-normal text-black">
-        <div className="events-slogan text-5xl lg:text-7xl">
+        <div className="events-slogan text-5xl lg:text-[clamp(4rem,5vw,4.5rem)]">
           <span className="events-slogan-prefix">때론</span>
           <span className="events-slogan-rotator" aria-hidden="true">
             <span>아카데믹하게</span>

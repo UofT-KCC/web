@@ -23,6 +23,6 @@ export const kccEmail = 'koreancommerce@gmail.com';
 /** 회장 이메일 */
 export const presEmail = 'hj.you@mail.utoronto.ca';
 /** 부회장 이메일 */
-export const vicePresEmail = 'em.lee0114@gmail.com';
+export const vicePresEmail = 'em.lee@mail.utoronto.ca';
 /** 스폰서 관련 이메일 (ER 디렉터) */
-export const erDirectorEmail = 'elliot.lim@mail.utoronto.ca';
+export const erDirectorEmail = 'utkccexternal@gmail.com';
