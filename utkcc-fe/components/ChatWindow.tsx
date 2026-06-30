@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 type Lang = 'ko' | 'en';
 
@@ -29,9 +29,6 @@ export type ChatWindowProps = {
   onLangChange: (lang: Lang) => void;
 
   initialMessages?: ChatMsg[];
-
-  suggestionsKo?: string[];
-  suggestionsEn?: string[];
 
   sources?: SourceLink[];
 
@@ -115,8 +112,6 @@ export default function ChatWindow({
   onClose,
   onLangChange,
   initialMessages,
-  suggestionsKo,
-  suggestionsEn,
   sources,
   onRequestReply,
 }: ChatWindowProps) {
@@ -140,23 +135,6 @@ export default function ChatWindow({
 
   const listRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement | null>(null);
-
-  const suggestions = useMemo(() => {
-    const fallbackKo = [
-      '이번 학기 이벤트는 어디서 확인해요?',
-      'UTKCC 가입/참여는 어떻게 해요?',
-      '후원(스폰서십) 문의는 어디로 하면 돼요?',
-      '회장단/디렉터에게 익명으로 요청할 수 있나요?',
-    ];
-    const fallbackEn = [
-      'Where can I see events this semester?',
-      'How do I join UTKCC?',
-      'How do I ask about sponsorship?',
-      'Can I send anonymous feedback to the execs?',
-    ];
-
-    return lang === 'ko' ? suggestionsKo ?? fallbackKo : suggestionsEn ?? fallbackEn;
-  }, [lang, suggestionsKo, suggestionsEn]);
 
   useEffect(() => {
     if (!open) return;
@@ -339,31 +317,6 @@ export default function ChatWindow({
       </div>
 
       <div ref={listRef} style={styles.body}>
-        {messages.length <= 1 && (
-          <div style={styles.suggestions}>
-            {suggestions.map((s) => (
-              <button
-                key={s}
-                type="button"
-                onClick={() => onSend(s)}
-                style={styles.suggestionBtn}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-1px)';
-                  e.currentTarget.style.background = 'rgba(4, 60, 140, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(4, 60, 140, 0.22)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.background = 'rgba(4, 60, 140, 0.05)';
-                  e.currentTarget.style.borderColor = 'rgba(4, 60, 140, 0.16)';
-                }}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        )}
-
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {messages.map((m) => (
             <div
@@ -556,22 +509,6 @@ const styles: Record<string, React.CSSProperties> = {
     overflowY: 'auto',
     flex: 1,
     background: '#FFFFFF',
-  },
-  suggestions: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: 10,
-    marginBottom: 14,
-  },
-  suggestionBtn: {
-    border: '1px solid rgba(4, 60, 140, 0.16)',
-    background: 'rgba(4, 60, 140, 0.05)',
-    color: '#0B1B3A',
-    borderRadius: 999,
-    padding: '9px 12px',
-    fontSize: 12,
-    cursor: 'pointer',
-    transition: 'transform 140ms ease, background 140ms ease, border-color 140ms ease',
   },
   bubble: {
     padding: '11px 12px',
