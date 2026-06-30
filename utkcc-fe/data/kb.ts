@@ -43,6 +43,39 @@ export const UTKCC_KB: KBEntry[] = [
     url: '/events',
     tags: ['announcement', '공지', 'instagram', 'events'],
   },
+  {
+    id: 'events-academic',
+    title_ko: 'Academic 이벤트',
+    title_en: 'Academic events',
+    content_ko:
+      'Academic 이벤트는 신입생 세미나, 커리어 세미나, 코스 튜토리얼, 버디버디처럼 학교 적응과 수업 이해를 돕는 프로그램이에요.',
+    content_en:
+      'Academic events include freshman seminars, career seminars, course tutorials, and buddy-style mentoring to help students adjust and study better.',
+    url: '/events',
+    tags: ['academic', 'study', 'tutorial', 'freshman', '신입생', '튜토리얼', '버디버디'],
+  },
+  {
+    id: 'events-professional',
+    title_ko: 'Professional 이벤트',
+    title_en: 'Professional events',
+    content_ko:
+      'Professional 이벤트는 커피챗, Alumni 네트워킹, 산업 네트워킹, Case Competition처럼 커리어 탐색과 네트워킹에 초점이 있어요.',
+    content_en:
+      'Professional events focus on career exploration and networking, such as coffee chats, alumni networking, industry networking, and case competitions.',
+    url: '/events',
+    tags: ['professional', 'career', 'coffee chat', 'alumni', 'networking', '커리어', '네트워킹'],
+  },
+  {
+    id: 'events-social',
+    title_ko: 'Social 이벤트',
+    title_en: 'Social events',
+    content_ko:
+      'Social 이벤트는 신입생 세미나, 캠퍼스 투어, 할로윈 파티, MT, 연말 행사처럼 친구를 만들고 커뮤니티에 자연스럽게 들어오는 데 도움을 줘요.',
+    content_en:
+      'Social events help students make friends and join the community through freshman events, campus tours, Halloween parties, MT-style trips, and year-end events.',
+    url: '/events',
+    tags: ['social', 'friends', 'party', 'community', '친구', '소셜', '파티', '엠티'],
+  },
 
   // ===== MEMBERSHIP =====
   {
@@ -66,6 +99,28 @@ export const UTKCC_KB: KBEntry[] = [
       'Membership fees may vary by semester. Please refer to the Join page or official announcements.',
     url: '/join',
     tags: ['fee', '회비', 'membership'],
+  },
+  {
+    id: 'membership-new-students',
+    title_ko: '신입생 참여 안내',
+    title_en: 'New student participation',
+    content_ko:
+      '신입생이라면 먼저 Events에서 관심 있는 프로그램을 확인하고, 멤버십/모집 링크를 통해 참여 또는 지원 여부를 결정하면 좋아요.',
+    content_en:
+      'If you are a new student, start by checking Events, then use the membership or recruitment links depending on whether you want to participate or apply.',
+    url: '/join',
+    tags: ['freshman', 'first year', 'new student', '신입생', '가입', '멤버십'],
+  },
+  {
+    id: 'membership-recruitment',
+    title_ko: '임원/인턴 지원',
+    title_en: 'Executive and intern recruitment',
+    content_ko:
+      'UTKCC 운영에 직접 참여하고 싶다면 일반 멤버십보다 임원/인턴 모집 공지를 확인하는 것이 더 적합해요.',
+    content_en:
+      'If you want to help run UTKCC, check executive or intern recruitment rather than only the general membership path.',
+    url: '/recruitment',
+    tags: ['recruitment', 'intern', 'executive', '지원', '임원', '인턴'],
   },
 
   // ===== EO =====
@@ -115,6 +170,17 @@ export const UTKCC_KB: KBEntry[] = [
     url: '/contact',
     tags: ['sponsorship', 'deck', '자료'],
   },
+  {
+    id: 'sponsors-benefits',
+    title_ko: '멤버십 제휴 혜택',
+    title_en: 'Membership partner benefits',
+    content_ko:
+      'UTKCC는 토론토 한인 식당 및 로컬 비즈니스와 제휴를 맺고, 멤버십 소지자에게 할인이나 경품 같은 혜택을 제공해요.',
+    content_en:
+      'UTKCC partners with Korean restaurants and local businesses in Toronto to offer member benefits such as discounts and giveaways.',
+    url: '/sponsors',
+    tags: ['sponsors', 'partners', 'discount', 'benefits', '제휴', '할인', '혜택'],
+  },
 
   // ===== EXECUTIVES =====
   {
@@ -141,6 +207,28 @@ export const UTKCC_KB: KBEntry[] = [
     url: '/resources',
     tags: ['resources', 'social', 'social media', 'sns', '소셜', '소셜미디어', '인스타'],
   },
+  {
+    id: 'resources-anti-calendar',
+    title_ko: 'Anti-calendar',
+    title_en: 'Anti-calendar',
+    content_ko:
+      'Anti-calendar는 과목별 후기와 추천 강의 정보를 모아 전공·교양 선택을 도와주는 UTKCC 리소스예요.',
+    content_en:
+      'Anti-calendar is a UTKCC resource with course reviews and recommendations to help students choose electives and program courses.',
+    url: '/resources',
+    tags: ['anti-calendar', 'course review', 'courses', '강의 후기', '과목', '수업'],
+  },
+  {
+    id: 'resources-study-package',
+    title_ko: 'Study Package',
+    title_en: 'Study Package',
+    content_ko:
+      'Study Package는 선배들의 과제 팁, 연습문제, 강의 정리 등을 모아 시험 대비와 개념 복습에 활용할 수 있는 자료예요.',
+    content_en:
+      'Study Package collects assignment tips, practice questions, and lecture notes from upper-year students for exam prep and review.',
+    url: '/resources',
+    tags: ['study package', 'exam', 'midterm', 'final', 'eco101', 'sta130', '시험', '중간', '기말', '족보'],
+  },
 
   // ===== CONTACT =====
   {
@@ -153,6 +241,17 @@ export const UTKCC_KB: KBEntry[] = [
       'For official inquiries, please use the Contact page where email and other contact methods are listed.',
     url: '/contact',
     tags: ['contact', 'email', '문의'],
+  },
+  {
+    id: 'contact-routing',
+    title_ko: '문의 목적별 연락',
+    title_en: 'Contact by purpose',
+    content_ko:
+      '일반 문의는 UTKCC 대표 이메일, 스폰서십 문의는 ER Director/스폰서십 이메일로 연락하는 방식이 가장 명확해요.',
+    content_en:
+      'For general questions, use the main UTKCC email. For sponsorships, use the ER Director or sponsorship inquiry contact.',
+    url: '/contact',
+    tags: ['contact', 'email', 'sponsor', '문의', '스폰서십', '연락'],
   },
 
   // ===== NEWSLETTER =====

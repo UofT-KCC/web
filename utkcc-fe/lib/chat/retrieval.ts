@@ -6,14 +6,15 @@ export type Lang = 'ko' | 'en';
 // 관련 검색어
 const SYNONYMS: Record<string, string[]> = {
   eo: ['eo', 'executive office', '익명', '피드백', '건의', '요청', '회장단', '디렉터'],
-  event: ['event', 'events', '이벤트', '행사', '세미나', 'rsvp', '신청'],
-  sponsor: ['sponsor', 'sponsorship', '스폰서', '후원', '파트너', '파트너십'],
-  member: ['member', 'membership', 'join', '가입', '지원', '신입생', '회비'],
-  exec: ['exec', 'executive', 'director', '운영진', '회장단', '임원진', '디렉터'],
+  event: ['event', 'events', '이벤트', '행사', '세미나', 'rsvp', '신청', 'party', '파티', '친구', 'social'],
+  sponsor: ['sponsor', 'sponsorship', '스폰서', '후원', '파트너', '파트너십', 'discount', 'benefit', '할인', '혜택', '제휴'],
+  member: ['member', 'membership', 'join', '가입', '지원', '신입생', '회비', 'first year', 'freshman', 'new student', '처음'],
+  exec: ['exec', 'executive', 'director', '운영진', '회장단', '임원진', '디렉터', 'intern', '인턴'],
   contact: ['contact', '문의', '연락', '메일', 'email', '인스타', 'instagram'],
   newsletter: ['newsletter', 'news letter', '뉴스레터', '구독', '메일링', '메일링리스트'],
   social: ['social', 'social media', 'sns', 'instagram', '인스타', '소셜', '소셜미디어'],
-  resource: ['resource', 'resources', '자료', '리소스', '자료실', '족보', '스터디', 'study', 'exam'],
+  resource: ['resource', 'resources', '자료', '리소스', '자료실', '족보', '스터디', 'study', 'exam', 'midterm', 'final', 'course', '수업', '시험', '중간', '기말'],
+  career: ['career', 'professional', 'coffee chat', 'networking', 'alumni', 'case competition', '커리어', '네트워킹', '커피챗', '선배'],
 };
 
 function expandQuery(query: string) {

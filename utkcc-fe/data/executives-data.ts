@@ -18,6 +18,101 @@ export const deptList: string[] = [
   'social',
 ];
 
+export const deptDescriptions: {
+  [dept: string]: {
+    paragraphs: string[];
+    bullets?: string[];
+  };
+} = {
+  presidents: {
+    paragraphs: [
+      'UTKCC는 연도별 기수제로 운영되며, 현재 회장단과 다양한 전문 부서가 함께 커뮤니티를 이끌어가고 있습니다.',
+      '학업, 커리어, 네트워킹, 소셜 이벤트까지 각자의 역할 안에서 UTKCC의 경험을 만들어가는 20기 임원진을 부서별로 만나보세요.',
+    ],
+  },
+  academics: {
+    paragraphs: [
+      'Academics 부서는 학생들의 학업 성장과 커리어 개발을 지원합니다. 여름방학에는 코스맵, 타임테이블 세션, 족보 제작으로 신입생의 대학 적응을 돕고, 학기 중에는 커리어 세미나와 ECO101·ECO102 튜토리얼을 운영합니다. 또한 커피챗과 와인파티 네트워킹 세션을 통해 진로 탐색과 학생 간 교류의 기회를 제공합니다.',
+    ],
+    bullets: [
+      '와인파티, 커피챗 등 여러 네트워킹 세션 진행',
+      '족보 및 안티캘린더 제작',
+      '튜토리얼 진행',
+    ],
+  },
+  'corporate relations': {
+    paragraphs: [
+      'Corporate Relations 부서는 다양한 기업 및 외부 파트너와의 협업을 통해 UTKCC 멤버들에게 더 많은 기회와 혜택을 제공하는 부서입니다. 스폰서십, 파트너십, 네트워킹, 외부 협력 행사 등을 기획하며 UTKCC의 대외적인 이미지를 만들어가는 역할을 하고 있습니다.',
+    ],
+    bullets: [
+      '교내외 단체들과의 협업 및 친밀한 관계 유지',
+      'KCCA 선배님들과의 소통',
+      '신입생 세미나, SKY 세미나 유치',
+      'UTKCC 멤버십 관리',
+    ],
+  },
+  finance: {
+    paragraphs: [
+      'UTKCC Finance 부서는 동아리의 예산과 비용을 관리하며, 모든 이벤트가 원활하게 운영될 수 있도록 지원하는 부서입니다. 꼼꼼한 기록과 효율적인 예산 운영을 통해 UTKCC 활동의 든든한 기반을 만들어가는 부서입니다.',
+    ],
+    bullets: [
+      'KCC의 1년 활동 버젯팅',
+      '펀딩',
+      '재정 관리',
+      '각종 이벤트 개최 지원',
+    ],
+  },
+  'information technology': {
+    paragraphs: [
+      'UTKCC IT 부서는 웹사이트 운영, 이벤트 페이지 제작, 디지털 시스템 관리 등 동아리의 온라인 경험을 책임지는 부서입니다. 단순히 코딩만 하는 부서가 아니라, 아이디어를 실제 서비스와 디자인으로 구현하며 UTKCC의 활동을 더 편리하고 매력적으로 만들어가고 있습니다.',
+    ],
+    bullets: [
+      'KCC 웹사이트 개발',
+      '주기적 업데이트, 버그 픽스',
+      '단체 내부 업무 자동화',
+    ],
+  },
+  'marketing - poster': {
+    paragraphs: [
+      '마케팅 포스터팀은 KCC의 행사와 콘텐츠를 디자인하며, KCC의 시각적 브랜딩을 담당하는 부서입니다. 포스터와 인스타그램 콘텐츠 제작을 통해 KCC의 이미지와 아이덴티티를 만들어가고 있습니다.',
+    ],
+    bullets: [
+      '동아리/이벤트 홍보 게시물 제작',
+      '전반적인 이미지 브랜딩 (브랜드북 제작/sns 계정 관리/이벤트 홍보)',
+    ],
+  },
+  'marketing - video': {
+    paragraphs: [
+      '마케팅 비디오 부서는 UTKCC 유튜브 & 인스타그램 릴스 컨텐츠 제작과 소셜미디어 채널 운영을 통해 KCC의 홍보를 담당하는 부서입니다.',
+    ],
+    bullets: [
+      'KCC 스폰서십 릴스 / 쇼츠',
+      '이벤트 홍보 영상',
+      'KCC Student VLOG',
+      'Interviews & Info Sessions',
+    ],
+  },
+  media: {
+    paragraphs: [
+      '미디어부서는 KCC의 이야기를 콘텐츠로 만들어 공유하는 것을 담당하고 있습니다. 뉴스레터를 통해 KCC의 활동을 알리고, 도움이 되는 정보를 다양하게 전달합니다.',
+    ],
+    bullets: [
+      '대학 생활, 학업 및 취업 관련 팁, 다양한 분들의 인터뷰, UTKCC 이벤트 소식 등 여러 유익한 정보 리서치 및 뉴스레터 제작',
+      '매달 이메일로 뉴스레터 발행',
+    ],
+  },
+  social: {
+    paragraphs: [
+      '소셜 부서는 다양한 이벤트를 기획하고 운영하며 UTKCC가 외부와 활발하게 교류할 수 있도록 연결하는 역할을 담당합니다. 또한 임원들이 자연스럽게 친해질 수 있는 다양한 활동을 통해 KCC만의 가족같은 분위기를 만들어 갑니다.',
+    ],
+    bullets: [
+      'KCC의 소셜 이벤트 기획, 감독 및 진행 (대동제, 할로윈 이벤트, 번개 등)',
+      '신입생 풀 모집, 구축',
+      'KCC 내부 단합, 친밀감 형성',
+    ],
+  },
+};
+
 /**
  * @warning
  * 수정 O
@@ -35,118 +130,105 @@ export const execData: {
   intro: string[];
 }[] = [
   // =======================
-  // PRESIDENT
+  // PRESIDENTS
   // =======================
   {
     dept: 'presidents',
     position: 'president',
-    name: '김민서',
-    imageSrc: '/assets/images/exec-headshots/김민서.jpg',
-    program: 'RC - Finance & Economics',
-    intro: [
-      `UTKCC 회장으로서, 저는 구성원 모두가 자신만의 색을 마음껏 표현하고 서로의 성장을 응원할 수 있는 문화를 만드는 데 힘쓰고 있습니다.
-서로 다른 배경과 경험을 가진 사람들이 한자리에 모여 진심 어린 대화를 나누고, 함께 도전하며 배우는 공간이 바로 UTKCC라고 믿습니다.
-앞으로도 팀원들과 함께 더 깊이 있는 네트워킹과 다양한 프로그램을 통해 UTKCC를 한층 더 풍성한 커뮤니티로 이끌어가겠습니다.
-함께 만드는 순간들이 누군가의 소중한 전환점이 되기를 바라며, 언제나 열린 자세로 여러분과 소통하겠습니다.`,
-    ],
+    name: '유현준',
+    imageSrc: '/assets/images/exec-headshots/유현준.jpg',
+    program: 'Rotman Commerce - Management',
+    intro: [],
   },
   {
     dept: 'presidents',
     position: 'vice president',
-    name: '강민서',
-    imageSrc: '/assets/images/exec-headshots/강민서.jpg',
-    program: 'Economics & IRHR',
-    intro: [
-      `UTKCC 부회장으로서, 임원들이 함께 성장하고 소중한 인연을 쌓아갈 수 있도록 늘 고민하고 노력하고 있습니다.
-국내외 다양한 네트워킹과 이벤트를 통해 우리 커뮤니티의 폭을 넓히고,
-모두가 편하게 참여하며 서로에게서 배우고 소통할 수 있는 자리들을 더 많이 만들어가고 싶습니다.
-작은 의견에도 귀 기울이며, UTKCC 안에서 각자의 이야기가 빛날 수 있는 환경을 만드는 게 제 목표입니다.
-앞으로도 UTKCC가 프로페셔널하고 의미 있는 커뮤니티로 발전할 수 있도록 최선을 다하겠습니다.`,
-    ],
+    name: '이가은',
+    imageSrc: '/assets/images/exec-headshots/이가은.jpg',
+    program: 'Rotman Commerce - Finance & Economics',
+    intro: [],
   },
+
   // =======================
   // ACADEMICS
   // =======================
   {
     dept: 'academics',
-    position: 'co-director',
-    name: '김소람',
-    imageSrc: '/assets/images/exec-headshots/김소람.jpg',
-    program: 'RC - Accounting',
-    intro: [],
-  },
-  {
-    dept: 'academics',
-    position: 'co-director',
-    name: '최진민',
-    imageSrc: '/assets/images/exec-headshots/최진민.webp',
-    program: 'RC - Finance & Economics',
-    intro: [],
-  },
-  {
-    dept: 'academics',
-    position: 'committee',
-    name: '이영모',
-    imageSrc: '/assets/images/exec-headshots/이영모.jpg',
-    program: 'RC - Accounting',
-    intro: [],
-  },
-  {
-    dept: 'academics',
-    position: 'committee',
+    position: 'director',
     name: '구본석',
     imageSrc: '/assets/images/exec-headshots/구본석.jpg',
-    program: 'RC - Management',
+    program: 'Rotman Commerce - Management',
     intro: [],
   },
   {
     dept: 'academics',
-    position: 'committee',
-    name: '이가은',
-    imageSrc: '/assets/images/exec-headshots/이가은.jpg',
-    program: 'RC - Finance and Economics',
-    intro: [],
-  },
-  {
-    dept: 'academics',
-    position: 'committee',
-    name: '최현서',
-    imageSrc: '/assets/images/exec-headshots/최현서.webp',
-    program: 'RC - Accounting',
-    intro: [],
-  },
-  {
-    dept: 'academics',
-    position: 'intern',
-    name: '홍예윤',
-    imageSrc: '/assets/images/exec-headshots/홍예윤.jpg',
-    program: 'Chemistry & Economics',
-    intro: [],
-  },
-  {
-    dept: 'academics',
-    position: 'intern',
-    name: '김시현',
-    imageSrc: '/assets/images/exec-headshots/김시현.jpg',
-    program: 'Rotman Commerce',
-    intro: [],
-  },
-  {
-    dept: 'academics',
-    position: 'intern',
+    position: 'director',
     name: '주혜정',
     imageSrc: '/assets/images/exec-headshots/주혜정.jpg',
+    program: 'Rotman Commerce - Finance & Economics',
+    intro: [],
+  },
+  {
+    dept: 'academics',
+    position: 'committee',
+    name: '김지민',
+    imageSrc: '/assets/images/exec-headshots/김지민.jpg',
+    program: 'Rotman Commerce - Finance & Economics',
+    intro: [],
+  },
+  {
+    dept: 'academics',
+    position: 'committee',
+    name: '홍예윤',
+    imageSrc: '/assets/images/exec-headshots/홍예윤.jpg',
+    program: 'Chemistry & Immunology',
+    intro: [],
+  },
+  {
+    dept: 'academics',
+    position: 'committee',
+    name: '이대건',
+    imageSrc: '/assets/images/exec-headshots/이대건.jpg',
     program: 'Rotman Commerce',
     intro: [],
   },
   {
     dept: 'academics',
-    position: 'intern',
-    name: '김지민',
-    imageSrc: '/assets/images/exec-headshots/김지민.jpg',
-    program: 'Rotman Commerce',
+    position: 'committee',
+    name: '김강인',
+    imageSrc: '/assets/images/exec-headshots/김강인.jpg',
+    program: 'Economics',
     intro: [],
   },
+
+  // =======================
+  // MARKETING - POSTER
+  // =======================
+  {
+    dept: 'marketing - poster',
+    position: 'director',
+    name: '박민경',
+    imageSrc: '/assets/images/exec-headshots/박민경.jpg',
+    program: 'Social Science',
+    intro: [],
+  },
+  {
+    dept: 'marketing - poster',
+    position: 'committee',
+    name: '강다연',
+    imageSrc: '/assets/images/exec-headshots/강다연.jpg',
+    program: 'Economics',
+    intro: [],
+  },
+  {
+    dept: 'marketing - poster',
+    position: 'committee',
+    name: '최호승',
+    imageSrc: '/assets/images/exec-headshots/최호승.jpg',
+    program: 'Kinesiology',
+    intro: [],
+  },
+
   // =======================
   // MARKETING - VIDEO
   // =======================
@@ -161,186 +243,62 @@ export const execData: {
   {
     dept: 'marketing - video',
     position: 'committee',
-    name: '김진서',
-    imageSrc: '/assets/images/exec-headshots/김진서.jpg',
-    program: 'RC - Finance & Economics',
-    intro: [],
-  },
-  {
-    dept: 'marketing - video',
-    position: 'intern',
     name: '김예솔',
     imageSrc: '/assets/images/exec-headshots/김예솔.jpg',
-    program: 'Social Sciences',
+    program: 'Economics',
     intro: [],
   },
   {
     dept: 'marketing - video',
-    position: 'intern',
+    position: 'committee',
     name: '정윤진',
     imageSrc: '/assets/images/exec-headshots/정윤진.jpg',
-    program: 'Social Sciences',
-    intro: [],
-  },
-  // =======================
-  // MARKETING - POSTER
-  // =======================
-  {
-    dept: 'marketing - poster',
-    position: 'director',
-    name: '조예은',
-    imageSrc: '/assets/images/exec-headshots/조예은.jpg',
-    program: 'Math & Environmental Studies',
+    program: 'Economics & Statistics',
     intro: [],
   },
   {
-    dept: 'marketing - poster',
+    dept: 'marketing - video',
     position: 'committee',
-    name: '김도연',
-    imageSrc: '/assets/images/exec-headshots/김도연.webp',
-    program: 'IRHR',
+    name: '주재은',
+    imageSrc: '/assets/images/exec-headshots/주재은.jpg',
+    program: 'Mathematics & Statistics',
     intro: [],
   },
-  {
-    dept: 'marketing - poster',
-    position: 'intern',
-    name: '강다연',
-    imageSrc: '/assets/images/exec-headshots/강다연.jpg',
-    program: 'Visual Studies',
-    intro: [],
-  },
-  {
-    dept: 'marketing - poster',
-    position: 'intern',
-    name: '박민경',
-    imageSrc: '/assets/images/exec-headshots/박민경.jpg',
-    program: 'Social Sciences',
-    intro: [],
-  },
-  {
-    dept: 'marketing - poster',
-    position: 'intern',
-    name: '홍수아',
-    imageSrc: '/assets/images/exec-headshots/홍수아.jpg',
-    program: 'Rotman Commerce',
-    intro: [],
-  },
+
   // =======================
   // MEDIA
   // =======================
   {
     dept: 'media',
     position: 'director',
-    name: '강초원',
-    imageSrc: '/assets/images/exec-headshots/강초원.jpg',
-    program: 'Political Science',
-    intro: [],
-  },
-  {
-    dept: 'media',
-    position: 'committee',
     name: '이연지',
     imageSrc: '/assets/images/exec-headshots/이연지.jpg',
-    program: 'Life Sciences',
+    program: 'Human Biology & Physiology',
     intro: [],
   },
   {
     dept: 'media',
-    position: 'intern',
-    name: '문서윤',
-    imageSrc: '/assets/images/exec-headshots/문서윤.jpg',
-    program: 'Rotman Commerce',
-    intro: [],
-  },
-  {
-    dept: 'media',
-    position: 'intern',
-    name: '조유경',
-    imageSrc: '/assets/images/exec-headshots/조유경.jpg',
-    program: 'Life Sciences',
-    intro: [],
-  },
-  {
-    dept: 'media',
-    position: 'intern',
-    name: '황서후',
-    imageSrc: '/assets/images/exec-headshots/황서후.jpg',
-    program: 'Rotman Commerce',
-    intro: [],
-  },
-  {
-    dept: 'media',
-    position: 'intern',
-    name: '신지호',
-    imageSrc: '/assets/images/exec-headshots/신지호.jpg',
-    program: 'Mathematical & Physical Sciences',
-    intro: [],
-  },
-  // =======================
-  // FINANCE
-  // =======================
-  {
-    dept: 'finance',
-    position: 'director',
-    name: '임승미',
-    imageSrc: '/assets/images/exec-headshots/임승미.webp',
-    program: 'RC - Finance & Economics',
-    intro: [],
-  },
-  {
-    dept: 'finance',
     position: 'committee',
-    name: '임준서',
-    imageSrc: '/assets/images/exec-headshots/임준서.jpg',
-    program: 'RC - Finance & Economics',
+    name: '배진주',
+    imageSrc: '/assets/images/exec-headshots/배진주.jpg',
+    program: 'Rotman Commerce - Accounting',
     intro: [],
   },
   {
-    dept: 'finance',
+    dept: 'media',
     position: 'committee',
-    name: '전재민',
-    imageSrc: '/assets/images/exec-headshots/전재민.jpg',
-    program: 'RC - Accounting',
+    name: '조희원',
+    imageSrc: '/assets/images/exec-headshots/조희원.jpg',
+    program: 'Mathematics & Economics',
     intro: [],
   },
-  {
-    dept: 'finance',
-    position: 'intern',
-    name: '김차현',
-    imageSrc: '/assets/images/exec-headshots/김차현.jpg',
-    program: 'RC - Finance & Economics',
-    intro: [],
-  },
-  {
-    dept: 'finance',
-    position: 'intern',
-    name: '양지민',
-    imageSrc: '/assets/images/exec-headshots/양지민.jpg',
-    program: 'Economics & IRHR',
-    intro: [],
-  },
+
   // =======================
   // SOCIAL
   // =======================
   {
     dept: 'social',
     position: 'director',
-    name: '송지원',
-    imageSrc: '/assets/images/exec-headshots/송지원.jpg',
-    program: 'Rotman Commerce',
-    intro: [],
-  },
-  {
-    dept: 'social',
-    position: 'committee',
-    name: '박지수',
-    imageSrc: '/assets/images/exec-headshots/박지수.webp',
-    program: 'Architecture',
-    intro: [],
-  },
-  {
-    dept: 'social',
-    position: 'committee',
     name: '김서희',
     imageSrc: '/assets/images/exec-headshots/김서희.jpg',
     program: 'Economics',
@@ -349,81 +307,50 @@ export const execData: {
   {
     dept: 'social',
     position: 'committee',
-    name: '윤여경',
-    imageSrc: '/assets/images/exec-headshots/윤여경.webp',
-    program: 'Kinesiology and Physical Education',
-    intro: [],
-  },
-  {
-    dept: 'social',
-    position: 'intern',
-    name: '양태인',
-    imageSrc: '/assets/images/exec-headshots/양태인.jpg',
-    program: 'Social Sciences',
-    intro: [],
-  },
-  {
-    dept: 'social',
-    position: 'intern',
-    name: '이대건',
-    imageSrc: '/assets/images/exec-headshots/이대건.jpg',
-    program: 'Rotman Commerce',
-    intro: [],
-  },
-  {
-    dept: 'social',
-    position: 'intern',
-    name: '김민준',
-    imageSrc: '/assets/images/exec-headshots/김민준.jpg',
-    program: 'Kinesiology',
-    intro: [],
-  },
-  {
-    dept: 'social',
-    position: 'intern',
-    name: '신하림',
-    imageSrc: '/assets/images/exec-headshots/신하림.jpg',
-    program: 'Linguistics',
-    intro: [],
-  },
-  {
-    dept: 'social',
-    position: 'intern',
     name: '이찬영',
     imageSrc: '/assets/images/exec-headshots/이찬영.jpg',
-    program: 'Rotman Commerce',
+    program: 'Rotman Commerce - Finance & Economics',
     intro: [],
   },
+  {
+    dept: 'social',
+    position: 'committee',
+    name: '김준현',
+    imageSrc: '/assets/images/exec-headshots/김준현.jpg',
+    program: 'Economics & Political Science',
+    intro: [],
+  },
+  {
+    dept: 'social',
+    position: 'committee',
+    name: '김시현',
+    imageSrc: '/assets/images/exec-headshots/김시현.jpg',
+    program: 'Rotman Commerce - Management',
+    intro: [],
+  },
+  {
+    dept: 'social',
+    position: 'committee',
+    name: '백선주',
+    imageSrc: '/assets/images/exec-headshots/백선주.jpg',
+    program: 'Architecture',
+    intro: [],
+  },
+
   // =======================
   // CORPORATE RELATIONS
   // =======================
   {
     dept: 'corporate relations',
     position: 'director',
-    name: '최정윤',
-    imageSrc: '/assets/images/exec-headshots/최정윤.jpg',
-    program: 'Political Science & Environmental Studies',
+    name: '임준서',
+    imageSrc: '/assets/images/exec-headshots/임준서.jpg',
+    program: 'Rotman Commerce - Finance & Economics',
     intro: [],
   },
   {
     dept: 'corporate relations',
-    position: 'committee',
-    name: '신정민',
-    imageSrc: '/assets/images/exec-headshots/신정민.jpg',
-    program: 'Statistics & Mathematics',
-    intro: [],
-  },
-  {
-    dept: 'corporate relations',
-    position: 'committee',
-    name: '유현준',
-    imageSrc: '/assets/images/exec-headshots/유현준.jpg',
-    program: 'RC - Finance & Economics',
-    intro: [],
-  },
-  {
-    dept: 'corporate relations',
-    position: 'intern',
+    position: 'director',
     name: '진하윤',
     imageSrc: '/assets/images/exec-headshots/진하윤.jpg',
     program: 'Rotman Commerce',
@@ -431,45 +358,82 @@ export const execData: {
   },
   {
     dept: 'corporate relations',
-    position: 'intern',
-    name: '김민소',
-    imageSrc: '/assets/images/exec-headshots/김민소.jpg',
-    program: 'Life Sciences',
+    position: 'committee',
+    name: '신하림',
+    imageSrc: '/assets/images/exec-headshots/신하림.jpg',
+    program: 'Linguistics',
     intro: [],
   },
   {
     dept: 'corporate relations',
-    position: 'intern',
-    name: '김준현',
-    imageSrc: '/assets/images/exec-headshots/김준현.jpg',
-    program: 'Economics & Political Science',
+    position: 'committee',
+    name: '김유민',
+    imageSrc: '/assets/images/exec-headshots/김유민.jpg',
+    program: 'Political Science, Statistics & Digital Humanities',
     intro: [],
   },
+  {
+    dept: 'corporate relations',
+    position: 'committee',
+    name: '권유현',
+    imageSrc: '/assets/images/exec-headshots/권유현.jpg',
+    program: 'Rotman Commerce - Management',
+    intro: [],
+  },
+  {
+    dept: 'corporate relations',
+    position: 'committee',
+    name: '조재영',
+    imageSrc: '/assets/images/exec-headshots/조재영.jpg',
+    program: 'Biological Chemistry',
+    intro: [],
+  },
+
+  // =======================
+  // FINANCE
+  // =======================
+  {
+    dept: 'finance',
+    position: 'director',
+    name: '전재민',
+    imageSrc: '/assets/images/exec-headshots/전재민.jpg',
+    program: 'Rotman Commerce - Accounting',
+    intro: [],
+  },
+  {
+    dept: 'finance',
+    position: 'committee',
+    name: '양지민',
+    imageSrc: '/assets/images/exec-headshots/양지민.jpg',
+    program: 'Finance & Economics',
+    intro: [],
+  },
+  {
+    dept: 'finance',
+    position: 'committee',
+    name: '문서윤',
+    imageSrc: '/assets/images/exec-headshots/문서윤.jpg',
+    program: 'Rotman Commerce - Accounting',
+    intro: [],
+  },
+
   // =======================
   // INFORMATION TECHNOLOGY
   // =======================
   {
     dept: 'information technology',
     position: 'director',
-    name: '류재혁',
-    imageSrc: '/assets/images/exec-headshots/류재혁.jpg',
-    program: 'Computer Science & Statistics',
+    name: '류지훈',
+    imageSrc: '/assets/images/exec-headshots/류지훈.jpg',
+    program: 'Computer Science & Mathematics',
     intro: [],
   },
   {
     dept: 'information technology',
     position: 'committee',
-    name: '김나연',
-    imageSrc: '/assets/images/exec-headshots/김나연.jpg',
-    program: 'Computer Science & Statistics',
-    intro: [],
-  },
-  {
-    dept: 'information technology',
-    position: 'intern',
-    name: '류지훈',
-    imageSrc: '/assets/images/exec-headshots/류지훈.jpg',
-    program: 'Mathematical and Physical Sciences',
+    name: '신지호',
+    imageSrc: '/assets/images/exec-headshots/신지호.jpg',
+    program: 'Actuarial Science & Statistics',
     intro: [],
   },
 ];

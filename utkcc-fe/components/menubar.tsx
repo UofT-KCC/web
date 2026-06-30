@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useMenuSelection } from './menuSelectionContext';
 
 /**
  * Creates a menu bar with the following:
@@ -16,7 +16,8 @@ export default function MenuBar({
   columnNumber: number;
   data: { [k: string]: JSX.Element[] };
 }) {
-  const [selectedCategory, setSelectedCategory] = useState(defaultLabel);
+  const { selectedCategory, setSelectedCategory } =
+    useMenuSelection(defaultLabel);
 
   const handleMenuChange = (category: string) => {
     setSelectedCategory(category);

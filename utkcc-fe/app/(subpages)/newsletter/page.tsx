@@ -48,7 +48,7 @@ export default function Newsletter() {
             이메일 구독으로 KCC 월간 뉴스레터를 가장 빠르게 받아보고, 중요한 정보들을
             놓치지 마세요.
           </p>
-          <div className="flex justify-start pt-2">
+          <div className="flex justify-center pt-2 lg:justify-start">
             <Link
               className="inline-flex w-fit items-center rounded-full bg-kcc-theme px-5 py-2 text-xs font-bold text-white shadow-sm shadow-kcc-theme/40 ring-1 ring-black/5 transition-all duration-300 ease-out hover:bg-white hover:text-kcc-theme hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:ring-kcc-theme/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 active:scale-[0.98] lg:px-7 lg:py-3 lg:text-sm"
               target="_blank"
