@@ -40,10 +40,21 @@ export const handleScroll = (
 };
 
 const IS_SERVER = typeof window === 'undefined';
+const DEFAULT_BASE_URL = 'https://utkcc.org';
+
+function normalizeBaseURL(url?: string) {
+  if (!url) return DEFAULT_BASE_URL;
+  return /^https?:\/\//i.test(url) ? url : `https://${url}`;
+}
+
 /** get the current base URL */
 export function getURL(path: string) {
   const baseURL = IS_SERVER
-    ? process.env.NEXT_PUBLIC_BASE_URL
+    ? normalizeBaseURL(
+        process.env.NEXT_PUBLIC_BASE_URL ||
+          process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+          process.env.VERCEL_URL,
+      )
     : window.location.origin;
   return new URL(path, baseURL).toString();
 }
