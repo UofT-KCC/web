@@ -61,8 +61,20 @@ type Intent =
 
 type PromptPack = { ko: string[]; en: string[] };
 
-const AI_MODEL = process.env.CHAT_AI_MODEL || 'gpt-5.4-nano';
-const AI_ENABLED = process.env.CHAT_AI_ENABLED === 'true';
+const DEFAULT_AI_MODEL = 'gpt-4.1-nano';
+const AI_MODEL_ALIASES: Record<string, string> = {
+  'gpt-5.4-nano': DEFAULT_AI_MODEL,
+  'gpt-5.4-mini': 'gpt-4.1-mini',
+};
+
+function normalizeAiModel(model?: string) {
+  const value = model?.trim();
+  if (!value) return DEFAULT_AI_MODEL;
+  return AI_MODEL_ALIASES[value] ?? value;
+}
+
+const AI_MODEL = normalizeAiModel(process.env.CHAT_AI_MODEL);
+const AI_ENABLED = process.env.CHAT_AI_ENABLED !== 'false';
 const AI_MAX_OUTPUT_TOKENS = Number(process.env.CHAT_AI_MAX_OUTPUT_TOKENS || 420);
 const AI_MONTHLY_BUDGET_CAD = Number(
   process.env.CHAT_AI_MONTHLY_BUDGET_CAD ||
@@ -73,8 +85,8 @@ const AI_CAD_PER_USD = Number(process.env.CHAT_AI_CAD_PER_USD || 1.5);
 const AI_SOFT_REQUEST_LIMIT = Number(process.env.CHAT_AI_MONTHLY_REQUEST_LIMIT || 3500);
 
 const ESTIMATED_PRICING_USD_PER_1M: Record<string, { input: number; output: number }> = {
-  'gpt-5.4-nano': { input: 0.2, output: 1.25 },
-  'gpt-5.4-mini': { input: 0.75, output: 4.5 },
+  'gpt-4.1-nano': { input: 0.1, output: 0.4 },
+  'gpt-4.1-mini': { input: 0.4, output: 1.6 },
 };
 
 type AiBudgetState = {
@@ -417,7 +429,7 @@ function canUseAi() {
 }
 
 function estimateCostUsd(inputTokens = 0, outputTokens = 0) {
-  const pricing = ESTIMATED_PRICING_USD_PER_1M[AI_MODEL] ?? ESTIMATED_PRICING_USD_PER_1M['gpt-5.4-nano'];
+  const pricing = ESTIMATED_PRICING_USD_PER_1M[AI_MODEL] ?? ESTIMATED_PRICING_USD_PER_1M[DEFAULT_AI_MODEL];
   return (inputTokens / 1_000_000) * pricing.input + (outputTokens / 1_000_000) * pricing.output;
 }
 
