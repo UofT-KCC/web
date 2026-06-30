@@ -428,6 +428,26 @@ function canUseAi() {
   return state.requests < AI_SOFT_REQUEST_LIMIT && state.estimatedCostCad < AI_MONTHLY_BUDGET_CAD;
 }
 
+function getAiDebugState() {
+  const state = getAiBudgetState();
+  const hasOpenAiKey = Boolean(process.env.OPENAI_API_KEY);
+  const withinRequestLimit = state.requests < AI_SOFT_REQUEST_LIMIT;
+  const withinBudget = state.estimatedCostCad < AI_MONTHLY_BUDGET_CAD;
+
+  return {
+    aiEnabled: AI_ENABLED,
+    hasOpenAiKey,
+    model: AI_MODEL,
+    requests: state.requests,
+    requestLimit: AI_SOFT_REQUEST_LIMIT,
+    estimatedCostCad: Number(state.estimatedCostCad.toFixed(6)),
+    budgetCad: AI_MONTHLY_BUDGET_CAD,
+    withinRequestLimit,
+    withinBudget,
+    canUseAi: AI_ENABLED && hasOpenAiKey && withinRequestLimit && withinBudget,
+  };
+}
+
 function estimateCostUsd(inputTokens = 0, outputTokens = 0) {
   const pricing = ESTIMATED_PRICING_USD_PER_1M[AI_MODEL] ?? ESTIMATED_PRICING_USD_PER_1M[DEFAULT_AI_MODEL];
   return (inputTokens / 1_000_000) * pricing.input + (outputTokens / 1_000_000) * pricing.output;
@@ -825,6 +845,15 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    if (message === '__utkcc_ai_debug__') {
+      return NextResponse.json({
+        answer: JSON.stringify(getAiDebugState(), null, 2),
+        sources: [],
+        suggestions: [],
+      });
+    }
+
     if (/^help$/i.test(message.trim())) {
       const effectiveQueryForHelp = buildEffectiveQuery('help', history);
       const kbHelpMatches = retrieveKB(effectiveQueryForHelp, lang, 3);
