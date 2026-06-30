@@ -16,6 +16,12 @@ type SourceLink = {
   url: string;
 };
 
+type ReplyPayload = {
+  answer: string;
+  sources?: SourceLink[];
+  suggestions?: string[];
+};
+
 export type ChatWindowProps = {
   open: boolean;
   lang: Lang;
@@ -29,7 +35,11 @@ export type ChatWindowProps = {
 
   sources?: SourceLink[];
 
-  onRequestReply?: (args: { message: string; lang: Lang }) => Promise<{ answer: string; sources?: SourceLink[] }>;
+  onRequestReply?: (args: {
+    message: string;
+    lang: Lang;
+    history: Pick<ChatMsg, 'role' | 'content'>[];
+  }) => Promise<ReplyPayload>;
 };
 
 function uid() {
@@ -113,6 +123,7 @@ export default function ChatWindow({
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [localSources, setLocalSources] = useState<SourceLink[] | undefined>(sources);
+  const [followUps, setFollowUps] = useState<string[]>([]);
 
   const [messages, setMessages] = useState<ChatMsg[]>(() => {
     if (initialMessages?.length) return initialMessages;
@@ -187,12 +198,17 @@ export default function ChatWindow({
           ? `“${userText}”`
           : `“${userText}”`,
       sources: undefined,
+      suggestions: undefined,
     };
   }
 
-  async function defaultRequestReply(args: { message: string; lang: Lang }) {
+  async function defaultRequestReply(args: {
+    message: string;
+    lang: Lang;
+    history: Pick<ChatMsg, 'role' | 'content'>[];
+  }) {
     try {
-      return await postJson<{ answer: string; sources?: SourceLink[] }>('/api/chat', args);
+      return await postJson<ReplyPayload>('/api/chat', args);
     } catch {
       return await placeholderReply(args.message, args.lang);
     }
@@ -209,9 +225,14 @@ export default function ChatWindow({
 
     if (detectedLang !== lang) onLangChange(detectedLang);
 
+    const history = messages
+      .slice(-8)
+      .map(({ role, content }) => ({ role, content }));
+
     pushMessage({ role: 'user', content: t });
     setInput('');
     setLocalSources(undefined);
+    setFollowUps([]);
 
     setIsTyping(true);
 
@@ -220,9 +241,10 @@ export default function ChatWindow({
     const responder = onRequestReply ?? defaultRequestReply;
 
     try {
-      const res = await responder({ message: t, lang: detectedLang });
+      const res = await responder({ message: t, lang: detectedLang, history });
       pushMessage({ role: 'assistant', content: res.answer });
       setLocalSources(res.sources);
+      setFollowUps(res.suggestions?.slice(0, 3) ?? []);
     } catch {
       pushMessage({
         role: 'assistant',
@@ -252,9 +274,9 @@ export default function ChatWindow({
         @media (max-width: 640px) {
           .utkcc-chat-panel {
             right: 12px !important;
-            bottom: calc(72px + env(safe-area-inset-bottom)) !important;
+            bottom: calc(96px + env(safe-area-inset-bottom)) !important;
             width: min(360px, calc(100vw - 24px)) !important;
-            height: min(520px, calc(100vh - 160px)) !important;
+            height: min(520px, calc(100vh - 184px - env(safe-area-inset-bottom))) !important;
           }
         }
       `}</style>
@@ -375,6 +397,29 @@ export default function ChatWindow({
                   </a>
                 ))}
               </div>
+            </div>
+          )}
+
+          {!isTyping && followUps.length > 0 && (
+            <div style={styles.followUps}>
+              {followUps.map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => onSend(s)}
+                  style={styles.followUpBtn}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                    e.currentTarget.style.background = 'rgba(4, 60, 140, 0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.background = 'rgba(4, 60, 140, 0.04)';
+                  }}
+                >
+                  {s}
+                </button>
+              ))}
             </div>
           )}
         </div>
@@ -572,6 +617,23 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 12,
     color: UTKCC_BLUE,
     textDecoration: 'underline',
+  },
+  followUps: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 2,
+  },
+  followUpBtn: {
+    border: '1px solid rgba(4, 60, 140, 0.16)',
+    background: 'rgba(4, 60, 140, 0.04)',
+    color: UTKCC_BLUE,
+    borderRadius: 999,
+    padding: '8px 10px',
+    fontSize: 11,
+    fontWeight: 700,
+    cursor: 'pointer',
+    transition: 'transform 140ms ease, background 140ms ease',
   },
   footer: {
     padding: 12,

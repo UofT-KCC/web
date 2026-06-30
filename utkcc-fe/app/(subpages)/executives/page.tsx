@@ -5,8 +5,14 @@ import PageIntro from '@/components/pageIntro';
 import MenuBar from '@/components/menubar';
 import { getURL } from '@/lib/utils';
 import PresidentModalButton from './presidentModal';
-import { deptList, execData } from '@/data/executives-data';
+import {
+  deptDescriptions,
+  deptList,
+  execData,
+} from '@/data/executives-data';
 import { KCC_TH_NOW } from '@/data/change-annually-data';
+import { MenuSelectionProvider } from '@/components/menuSelectionContext';
+import ExecutiveDeptDescription from './executiveDeptDescription';
 
 export const metadata: Metadata = {
   title: 'Executives',
@@ -21,27 +27,31 @@ export default function Executives() {
   );
 
   return (
-    <PageIntro
-      pageName="executives"
-      pageSlogan={
-        <div>
-          <div className="text-2xl font-bold leading-tight text-black lg:text-6xl">
-            UTKCC {KCC_TH_NOW}기 <span className="text-kcc-theme">임원진</span>
+    <MenuSelectionProvider defaultLabel={deptList[0]}>
+      <PageIntro
+        pageName="executives"
+        pageSlogan={
+          <div>
+            <div className="text-2xl font-bold leading-tight text-black lg:text-6xl">
+              UTKCC {KCC_TH_NOW}기{' '}
+              <span className="text-kcc-theme">임원진</span>
+            </div>
           </div>
-        </div>
-      }
-      pageExp={
-        <div className="text-sm leading-relaxed text-kcc-gray lg:text-base lg:leading-relaxed">
-          UTKCC는 연도별 기수제로 운영되며, 현재 회장단과 다양한 전문 부서가
-          함께 커뮤니티를 이끌어가고 있습니다.
-          <span className="my-3 w-full block" />
-          학업, 커리어, 네트워킹, 소셜 이벤트까지 각자의 역할 안에서 UTKCC의
-          경험을 만들어가는 {KCC_TH_NOW}기 임원진을 부서별로 만나보세요.
-        </div>
-      }
-    >
-      <MenuBar defaultLabel={deptList[0]} columnNumber={2} data={deptContent} />
-    </PageIntro>
+        }
+        pageExp={
+          <ExecutiveDeptDescription
+            defaultLabel={deptList[0]}
+            descriptions={deptDescriptions}
+          />
+        }
+      >
+        <MenuBar
+          defaultLabel={deptList[0]}
+          columnNumber={2}
+          data={deptContent}
+        />
+      </PageIntro>
+    </MenuSelectionProvider>
   );
 }
 
@@ -87,16 +97,23 @@ async function ExecutiveCell({
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.045)] transition-shadow duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.075)]">
       <div className="relative aspect-square overflow-hidden bg-gray-100">
-        <Image
-          alt={`${name} executive headshot`}
-          src={imageSrc}
-          fill={true}
-          sizes={'100%'}
-          // placeholder="blur"
-          // blurDataURL={blurImageUrl}
-          className="border-0 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
-          key={id}
-        />
+        {imageSrc ? (
+          <Image
+            alt={`${name} executive headshot`}
+            src={imageSrc}
+            fill={true}
+            sizes={'100%'}
+            // placeholder="blur"
+            // blurDataURL={blurImageUrl}
+            className="border-0 object-cover transition-transform duration-500 ease-out group-hover:scale-[1.025]"
+            key={id}
+          />
+        ) : (
+          <div
+            aria-label={`${name} executive headshot placeholder`}
+            className="h-full w-full bg-gray-50"
+          />
+        )}
       </div>
       <div className="flex flex-1 flex-col p-3.5 text-left lg:p-5">
         <div
