@@ -76,6 +76,116 @@ export const UTKCC_KB: KBEntry[] = [
     url: '/events',
     tags: ['social', 'friends', 'party', 'community', '친구', '소셜', '파티', '엠티'],
   },
+  {
+    id: 'freshman-seminar-2026-overview',
+    title_ko: 'UTKCC Freshman Seminar 2026 개요',
+    title_en: 'UTKCC Freshman Seminar 2026 overview',
+    content_ko:
+      'UTKCC Freshman Seminar 2026은 신입생들이 UTKCC 팀과 다른 신입생을 만나고, 캠퍼스 생활 팁을 배우며, UTKCC 커뮤니티를 시작할 수 있도록 돕는 무료 행사예요. 주최는 University of Toronto Korean Community Club(UTKCC)이고, 참여 대상은 신입생이에요.',
+    content_en:
+      'UTKCC Freshman Seminar 2026 is a free event for new students to meet the UTKCC team, connect with other freshmen, learn campus survival tips, and start their UTKCC community chapter. It is organized by the University of Toronto Korean Community Club (UTKCC), and new students can join.',
+    url: '/events',
+    tags: ['freshman seminar 2026', 'freshman', 'seminar', 'new students', '신입생 세미나', '신입생', '세미나', '무료'],
+  },
+  {
+    id: 'freshman-seminar-2026-city-route',
+    title_ko: '신입생 세미나 도시 선택과 비행 경로',
+    title_en: 'Freshman seminar city selection and flight route',
+    content_ko:
+      '웹사이트에서는 사용자가 이름을 입력한 뒤 세미나 도시를 Seoul 또는 Toronto 중에서 선택해요. Seoul을 선택하면 비행 경로는 Toronto → Seoul이고, Toronto를 선택하면 비행 경로는 Seoul → Toronto예요.',
+    content_en:
+      'On the website, users enter their name first, then choose either Seoul or Toronto as the seminar city. If the user selects Seoul, the route is Toronto → Seoul. If the user selects Toronto, the route is Seoul → Toronto.',
+    url: '/events',
+    tags: ['freshman seminar 2026', 'route', 'city', 'seoul', 'toronto', 'flight', 'airplane', '도시', '서울', '토론토', '비행', '경로'],
+  },
+  {
+    id: 'freshman-seminar-2026-seoul',
+    title_ko: '서울 신입생 세미나 일정 및 장소',
+    title_en: 'Seoul freshman seminar date and location',
+    content_ko:
+      '서울 신입생 세미나는 2026년 7월 11일 토요일 오후 3시부터 6시까지(KST) 3시간 동안 진행돼요. 장소는 연세대학교 백양관 S208호(Baekyang Hall S208)이고, 길찾기 링크는 https://kko.to/IlnmU2PcdE 예요.',
+    content_en:
+      'The Seoul freshman seminar is on Saturday, July 11, 2026, from 3:00 PM to 6:00 PM KST for 3 hours. The location is Baekyang Hall S208 at Yonsei University, and the directions link is https://kko.to/IlnmU2PcdE.',
+    url: 'https://kko.to/IlnmU2PcdE',
+    tags: ['freshman seminar 2026', 'seoul', 'yonsei', 'baekyang hall', 's208', 'date', 'time', 'location', '서울', '연세대학교', '백양관', '장소', '일정'],
+  },
+  {
+    id: 'freshman-seminar-2026-seoul-afterparty',
+    title_ko: '서울 신입생 세미나 애프터파티',
+    title_en: 'Seoul freshman seminar afterparty',
+    content_ko:
+      '서울 세미나 애프터파티 장소는 현명포차(Hyunmyeong Pocha)예요. 음식/음료 그룹으로 진행되며 미성년자도 참여할 수 있어요. 길찾기 링크는 https://kko.to/bEmvarGx3s 예요.',
+    content_en:
+      'The Seoul afterparty venue is Hyunmyeong Pocha. It will have food and drink groups, and minors are allowed. The directions link is https://kko.to/bEmvarGx3s.',
+    url: 'https://kko.to/bEmvarGx3s',
+    tags: ['freshman seminar 2026', 'seoul', 'afterparty', 'hyunmyeong pocha', 'minor', 'food', 'drink', '서울', '애프터파티', '현명포차', '미성년자'],
+  },
+  {
+    id: 'freshman-seminar-2026-toronto',
+    title_ko: '토론토 신입생 세미나 일정 및 장소',
+    title_en: 'Toronto freshman seminar date and location',
+    content_ko:
+      '토론토 신입생 세미나는 2026년 7월 11일 토요일 오후 3시부터 6시까지(EDT) 3시간 동안 진행돼요. 장소는 University of Toronto의 Toronto · Room TBA로 아직 확정 전이고, 길찾기와 애프터파티도 TBA예요.',
+    content_en:
+      'The Toronto freshman seminar is on Saturday, July 11, 2026, from 3:00 PM to 6:00 PM EDT for 3 hours. The location is Toronto · Room TBA at the University of Toronto, and directions and afterparty details are still TBA.',
+    url: '/events',
+    tags: ['freshman seminar 2026', 'toronto', 'uoft', 'university of toronto', 'room tba', 'date', 'time', 'location', '토론토', '장소', '일정', '미정'],
+  },
+  {
+    id: 'freshman-seminar-2026-program-note',
+    title_ko: '신입생 세미나 프로그램 시간 주의사항',
+    title_en: 'Freshman seminar program timing note',
+    content_ko:
+      '현재 웹사이트 프로그램 패널에는 6:00 Boarding, 6:20 Seminar, 7:15 Mixer로 표시되어 있어요. 다만 메인 행사 시간은 3:00 PM - 6:00 PM으로 등록되어 있으므로, 정확한 세부 타임라인이 필요하면 UTKCC 공식 공지로 확인해야 해요.',
+    content_en:
+      'The current website program panel says 6:00 Boarding, 6:20 Seminar, and 7:15 Mixer. However, the main event time is listed as 3:00 PM - 6:00 PM, so exact timeline questions should be confirmed through official UTKCC announcements.',
+    url: '/events',
+    tags: ['freshman seminar 2026', 'program', 'timeline', 'boarding', 'seminar', 'mixer', 'schedule', '프로그램', '타임라인', '일정'],
+  },
+  {
+    id: 'freshman-seminar-2026-faq',
+    title_ko: '신입생 세미나 FAQ',
+    title_en: 'Freshman seminar FAQ',
+    content_ko:
+      '신입생 세미나는 별도 준비물이 필요 없고, 본인과 궁금한 질문, 캠퍼스 생활에 대해 알고 싶은 내용을 가져오면 돼요. 복장은 캐주얼이고 참가비는 무료이며, 참여 대상은 신입생이에요.',
+    content_en:
+      'No preparation is required for the freshman seminar. Bring yourself, questions, and anything you want to learn about campus life. Dress code is casual, cost is free, and the event is for new students.',
+    url: '/events',
+    tags: ['freshman seminar 2026', 'faq', 'preparation', 'bring', 'dress code', 'cost', 'free', 'new students', '준비물', '복장', '비용', '무료', '신입생'],
+  },
+  {
+    id: 'freshman-seminar-2026-checkin',
+    title_ko: '신입생 세미나 체크인',
+    title_en: 'Freshman seminar check-in',
+    content_ko:
+      '체크인은 행사장 앞 이벤트 데스크에서 진행돼요. 참가자는 이름 또는 QR 코드를 UTKCC 스태프에게 보여주면 돼요. 웹사이트 체크인 문구는 “Your boarding pass is ready.”이고, UI에는 Seat: UTKCC-031, Status: Ready, Gate: Freshman Seminar가 표시돼요.',
+    content_en:
+      'Check-in happens at the event desk. Guests should show their name or QR code to UTKCC staff at the front desk. The website check-in copy says “Your boarding pass is ready.” UI labels include Seat: UTKCC-031, Status: Ready, and Gate: Freshman Seminar.',
+    url: '/events',
+    tags: ['freshman seminar 2026', 'check-in', 'checkin', 'qr', 'boarding pass', 'seat', 'gate', 'scanner', '체크인', '큐알', 'QR', '보딩패스', '스캐너'],
+  },
+  {
+    id: 'freshman-seminar-2026-website-features',
+    title_ko: '신입생 세미나 웹사이트 기능',
+    title_en: 'Freshman seminar website features',
+    content_ko:
+      '신입생 세미나 웹사이트는 비행기 기내 화면 초대장 컨셉이에요. 영어와 한국어를 지원하고, 사용자가 이름을 입력한 뒤 Seoul 또는 Toronto를 선택하면 도시별 행사 정보, 경로, 시간대, 장소, 애프터파티, 날씨가 바뀌어요. 라이브 참가자 카운터, 밝기 조절, 전원/재시작 플로우, 체크인용 스캐너 페이지도 있어요.',
+    content_en:
+      'The freshman seminar website uses an airplane in-flight screen invitation concept. It supports English and Korean. Users enter their name, choose Seoul or Toronto, and then event info, route, timezone, location, afterparty, and weather update by city. It also has a live attendee counter, brightness dimmer, power/restart flow, and a scanner page for check-in workflows.',
+    url: '/events',
+    tags: ['freshman seminar 2026', 'website', 'airplane', 'in-flight', 'language', 'weather', 'scanner', 'brightness', 'attendee counter', '웹사이트', '비행기', '언어', '날씨', '스캐너'],
+  },
+  {
+    id: 'freshman-seminar-2026-weather-contact',
+    title_ko: '신입생 세미나 날씨와 연락처',
+    title_en: 'Freshman seminar weather and contact',
+    content_ko:
+      '웹사이트 날씨는 Seoul 선택 시 서울 날씨, Toronto 선택 시 토론토 날씨를 사용해요. 실시간 날씨가 안 될 때 기본값은 서울 24°C Partly Cloudy, 토론토 23°C Partly Cloudy예요. 공식 연락 채널은 웹사이트 https://www.utkcc.org/ 와 인스타그램 https://www.instagram.com/utkcc_/ (@utkcc_)이고, 담당 팀은 UTKCC Execs예요.',
+    content_en:
+      'The website uses Seoul weather for the Seoul selection and Toronto weather for the Toronto selection. If live weather is unavailable, the fallback is 24°C Partly Cloudy for Seoul and 23°C Partly Cloudy for Toronto. Official channels are https://www.utkcc.org/ and Instagram https://www.instagram.com/utkcc_/ (@utkcc_), and the team is UTKCC Execs.',
+    url: 'https://www.instagram.com/utkcc_/',
+    tags: ['freshman seminar 2026', 'weather', 'contact', 'instagram', 'utkcc execs', 'seoul', 'toronto', '날씨', '연락', '인스타', '서울', '토론토'],
+  },
 
   // ===== MEMBERSHIP =====
   {
