@@ -77,6 +77,69 @@
   }
 }
 
+@keyframes sponsor-marquee-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes course-map-stack-cycle {
+  0%,
+  27% {
+    z-index: 3;
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+
+  33%,
+  60% {
+    z-index: 1;
+    opacity: 0.68;
+    transform: translate3d(-30px, 22px, 0) rotate(-3.2deg) scale(0.92);
+  }
+
+  66%,
+  93% {
+    z-index: 2;
+    opacity: 0.86;
+    transform: translate3d(30px, 13px, 0) rotate(3.2deg) scale(0.96);
+  }
+
+  100% {
+    z-index: 3;
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+.course-map-sheet-stack {
+  animation: course-map-stack-cycle 12s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  will-change: opacity, transform;
+}
+
+.course-map-sheet-2 {
+  z-index: 2;
+  opacity: 0.86;
+  transform: translate3d(30px, 13px, 0) rotate(3.2deg) scale(0.96);
+  animation-delay: 4s;
+}
+
+.course-map-sheet-3 {
+  z-index: 1;
+  opacity: 0.68;
+  transform: translate3d(-30px, 22px, 0) rotate(-3.2deg) scale(0.92);
+  animation-delay: 8s;
+}
+
+.sponsor-marquee-track {
+  animation: sponsor-marquee-left 48s linear infinite;
+  will-change: transform;
+}
+
 .menu-scrollbar-hidden {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -95,5 +158,39 @@
 
   .events-slogan-rotator span:first-child {
     opacity: 1;
+  }
+
+  .sponsor-marquee {
+    overflow-x: auto;
+  }
+
+  .sponsor-marquee-track {
+    animation: none;
+    transform: none;
+  }
+
+  .sponsor-marquee-copy {
+    display: none;
+  }
+
+  .course-map-sheet-stack {
+    animation: none;
+  }
+
+  .course-map-sheet-1 {
+    z-index: 3;
+    opacity: 1;
+  }
+
+  .course-map-sheet-2 {
+    z-index: 2;
+    opacity: 0.86;
+    transform: translate(30px, 13px) rotate(3.2deg) scale(0.96);
+  }
+
+  .course-map-sheet-3 {
+    z-index: 1;
+    opacity: 0.68;
+    transform: translate(-30px, 22px) rotate(-3.2deg) scale(0.92);
   }
 }

@@ -51,25 +51,49 @@ function hasLatinLetters(text: string) {
   return /[A-Za-z]/.test(text);
 }
 
-function renderBoldInline(text: string) {
+function trimUrlPunctuation(url: string) {
+  const match = url.match(/^(.*?)([.,!?;:]*)$/);
+  return {
+    url: match?.[1] ?? url,
+    trailing: match?.[2] ?? '',
+  };
+}
+
+function renderRichInline(text: string) {
   const parts: React.ReactNode[] = [];
-  const re = /\*\*(.+?)\*\*/g;
+  const re = /(\*\*(.+?)\*\*|\[([^\]]+)\]\s*\((https?:\/\/[^\s)]+)\)|(https?:\/\/[^\s<]+))/g;
   let lastIndex = 0;
   let match: RegExpExecArray | null;
 
   while ((match = re.exec(text)) !== null) {
-    const [full, inner] = match;
+    const [full, , boldText, linkLabel, markdownUrl, bareUrl] = match;
     const start = match.index;
 
     if (start > lastIndex) {
       parts.push(text.slice(lastIndex, start));
     }
 
-    parts.push(
-      <strong key={`b-${start}`} style={{ fontWeight: 800 }}>
-        {inner}
-      </strong>
-    );
+    if (boldText) {
+      parts.push(
+        <strong key={`b-${start}`} style={{ fontWeight: 800 }}>
+          {boldText}
+        </strong>
+      );
+    } else {
+      const parsed = trimUrlPunctuation(markdownUrl ?? bareUrl);
+      parts.push(
+        <a
+          key={`a-${start}`}
+          href={parsed.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.messageLink}
+        >
+          {linkLabel ?? parsed.url}
+        </a>
+      );
+      if (parsed.trailing) parts.push(parsed.trailing);
+    }
 
     lastIndex = start + full.length;
   }
@@ -81,11 +105,12 @@ function renderBoldInline(text: string) {
   return parts;
 }
 
-function renderWithBoldAndNewlines(text: string) {
-  const lines = String(text ?? '').split('\n');
+function renderMessageContent(text: string) {
+  const normalized = String(text ?? '').replace(/\]\s*\n\s*\(/g, '](');
+  const lines = normalized.split('\n');
   return lines.map((line, idx) => (
     <React.Fragment key={idx}>
-      {renderBoldInline(line)}
+      {renderRichInline(line)}
       {idx < lines.length - 1 ? <br /> : null}
     </React.Fragment>
   ));
@@ -323,14 +348,7 @@ export default function ChatWindow({
               key={m.id}
               style={{ ...styles.bubble, ...(m.role === 'user' ? styles.bubbleUser : styles.bubbleBot) }}
             >
-              {m.role === 'assistant'
-                ? renderWithBoldAndNewlines(m.content)
-                : m.content.split('\n').map((line, idx) => (
-                    <React.Fragment key={idx}>
-                      {line}
-                      <br />
-                    </React.Fragment>
-                  ))}
+              {renderMessageContent(m.content)}
             </div>
           ))}
 
@@ -345,7 +363,13 @@ export default function ChatWindow({
               <div style={styles.sourcesTitle}>{lang === 'ko' ? '관련 링크' : 'Relevant links'}</div>
               <div style={styles.sourcesList}>
                 {localSources.map((s) => (
-                  <a key={`${s.title}-${s.url}`} href={s.url} style={styles.sourceLink}>
+                  <a
+                    key={`${s.title}-${s.url}`}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={styles.sourceLink}
+                  >
                     {s.title}
                   </a>
                 ))}
@@ -516,6 +540,9 @@ const styles: Record<string, React.CSSProperties> = {
     lineHeight: 1.45,
     fontSize: 13,
     whiteSpace: 'pre-wrap',
+    overflowWrap: 'anywhere',
+    wordBreak: 'break-word',
+    minWidth: 0,
   },
   bubbleBot: {
     alignSelf: 'flex-start',
@@ -554,6 +581,16 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: 12,
     color: UTKCC_BLUE,
     textDecoration: 'underline',
+    overflowWrap: 'anywhere',
+    wordBreak: 'break-word',
+  },
+  messageLink: {
+    color: 'inherit',
+    fontWeight: 800,
+    textDecoration: 'underline',
+    textUnderlineOffset: 2,
+    overflowWrap: 'anywhere',
+    wordBreak: 'break-word',
   },
   followUps: {
     display: 'flex',
