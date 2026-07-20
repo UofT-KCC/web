@@ -1,115 +1,157 @@
-'use client';
 import Image from 'next/image';
-import { useState } from 'react';
 import Link from 'next/link';
 import PageIntro from '@/components/pageIntro';
-import { subscribeNewsletterLink } from '@/data/change-annually-data';
-import dynamic from 'next/dynamic';
 
-// SSR에서는 pdfjs가 window 객체를 필요로 하니, dynamic import로 처리
-const PdfViewer = dynamic(() => import('@/components/pdfViewer'), {
-  ssr: false,
-});
+const instagramLink = 'https://www.instagram.com/utkccmedia/';
+
+function InstagramIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-none" stroke="currentColor" strokeWidth="1.8">
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function ArrowUpRightIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-none" stroke="currentColor" strokeWidth="1.7">
+      <path d="M5 15 15 5M7 5h8v8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function BookmarkIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none" stroke="currentColor" strokeWidth="1.7">
+      <path d="M6.5 4.5h11v16L12 17l-5.5 3.5v-16Z" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 export default function Newsletter() {
-  const TOTAL_PAGES = 22;
-  const fileUrl = '/assets/pdf/newsletter.pdf';
-
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const goPrev = () => {
-    setCurrentPage(prev => (prev <= 1 ? TOTAL_PAGES : prev - 1));
-  };
-
-  const goNext = () => {
-    setCurrentPage(prev => (prev >= TOTAL_PAGES ? 1 : prev + 1));
-  };
-
   return (
     <PageIntro
       pageName="newsletter"
       pageSlogan={
         <div className="text-3xl font-bold leading-[1.08] tracking-tight text-black lg:text-6xl">
           우리의 새 소식을
-          <span className="block whitespace-nowrap text-kcc-theme">메일함으로</span>
+          <span className="block whitespace-nowrap text-kcc-theme">피드에서 만나요</span>
         </div>
       }
       pageExp={
         <div className="max-w-2xl space-y-4 text-sm leading-relaxed text-kcc-gray lg:text-base lg:leading-relaxed">
           <p>
-            바쁜 학업 생활 속에서 놓치고 있던 정보들과 소식들이 있나요? 시험, 커리어,
-            교내외 활동까지, 한 번에 정리해서 받아보세요.
+            시험, 커리어, 교내외 활동까지. 바쁜 학교생활 속 놓치기 쉬운 소식을 KCC만의
+            시선으로 쉽고 재미있게 정리해 드려요.
           </p>
           <p>
-            어디선가 들어본 것 같은데 잘 모르겠던 주제들, 혹은 궁금했지만 찾기 어려웠던
-            정보들을 KCC 뉴스레터에 담아 쉽고 재밌게 전해 드립니다.
+            이제 뉴스레터는 인스타그램에도{' '}
+            <strong className="font-bold text-kcc-theme">매주 일요일 9시</strong>에
+            업로드됩니다. 가볍게 넘겨보고, 필요한 정보는 저장해두세요.
           </p>
-          <p>
-            이메일 구독으로 KCC 월간 뉴스레터를 가장 빠르게 받아보고, 중요한 정보들을
-            놓치지 마세요.
-          </p>
-          <div className="flex justify-center pt-2 lg:justify-start">
+          <div className="flex flex-wrap justify-center gap-2 pt-2 lg:justify-start">
             <Link
-              className="inline-flex w-fit items-center rounded-full bg-kcc-theme px-5 py-2 text-xs font-bold text-white shadow-sm shadow-kcc-theme/40 ring-1 ring-black/5 transition-all duration-300 ease-out hover:bg-white hover:text-kcc-theme hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:ring-kcc-theme/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 active:scale-[0.98] lg:px-7 lg:py-3 lg:text-sm"
+              href={instagramLink}
               target="_blank"
               rel="noopener noreferrer"
-              href={subscribeNewsletterLink}
+              className="inline-flex items-center gap-2 rounded-full bg-kcc-theme px-5 py-2.5 text-xs font-bold text-white shadow-sm shadow-kcc-theme/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-kcc-theme-darker hover:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/25 active:translate-y-0 lg:px-6 lg:text-sm"
             >
-              뉴스레터 구독하기
+              <InstagramIcon />
+              인스타그램 팔로우
             </Link>
           </div>
         </div>
       }
     >
-      <section className="w-full space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.18em] text-kcc-theme/70">
-              Latest issue
-            </p>
-            <h2 className="mt-1 text-lg font-semibold text-kcc-theme">
-              2025년 8월 뉴스레터
-            </h2>
-          </div>
-
-          <div className="flex items-center gap-4 text-xs text-gray-500">
-            <div className="flex items-center gap-1">
-              <span>
-                {currentPage} / {TOTAL_PAGES}
+      <section className="w-full max-w-[780px]">
+        <div className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-[0_22px_70px_-34px_rgba(5,60,140,0.4)]">
+          <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3.5 sm:px-5">
+            <Link
+              href={instagramLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex min-w-0 items-center gap-3 rounded-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/15"
+              aria-label="utkccmedia 인스타그램 열기"
+            >
+              <span className="rounded-full bg-gradient-to-tr from-amber-400 via-pink-500 to-violet-600 p-[2px]">
+                <span className="block rounded-full bg-white p-[2px]">
+                  <Image
+                    src="/assets/images/newsletter/profile.png"
+                    alt="UTKCC Media 로고"
+                    width={42}
+                    height={42}
+                    className="h-10 w-10 rounded-full object-cover"
+                  />
+                </span>
               </span>
-            </div>
-            <div className="flex items-center gap-1">
-              <button
-                type="button"
-                onClick={goPrev}
-                className="inline-flex h-12 w-12 text-xl items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm transition hover:-translate-y-0.5 hover:bg-gray-50 hover:text-gray-800"
-              >
-                ‹
-              </button>
-              <button
-                type="button"
-                onClick={goNext}
-                className="inline-flex h-12 w-12 text-xl items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm transition hover:-translate-y-0.5 hover:bg-gray-50 hover:text-gray-800"
-              >
-                ›
-              </button>
+              <span className="min-w-0 text-left">
+                <span className="flex items-center gap-1.5 text-sm font-bold text-slate-900 group-hover:text-kcc-theme">
+                  utkccmedia
+                  <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-kcc-theme text-[8px] text-white">✓</span>
+                </span>
+                <span className="block truncate text-[11px] text-slate-500">KCC newsletter · Toronto</span>
+              </span>
+            </Link>
+          </div>
+
+          <div className="grid sm:grid-cols-[minmax(0,1.05fr)_minmax(240px,.95fr)]">
+            <Link
+              href={instagramLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative aspect-[1250/1550] overflow-hidden bg-[#f4f0ec] sm:aspect-auto sm:min-h-[430px]"
+              aria-label="July Week 3 뉴스레터 인스타그램에서 보기"
+            >
+              <Image
+                src="/assets/images/newsletter/july-week-3-cover.png"
+                alt="KCC Newsletter July Week 3 표지"
+                fill
+                sizes="(min-width: 1024px) 34vw, (min-width: 640px) 52vw, 100vw"
+                className="object-cover transition duration-700 group-hover:scale-[1.025]"
+                priority
+              />
+              <span className="absolute right-3 top-3 rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-white backdrop-blur-md">
+                1 / 7
+              </span>
+              <span className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/55 to-transparent px-4 pb-4 pt-14 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
+                인스타그램에서 이어보기
+                <ArrowUpRightIcon />
+              </span>
+            </Link>
+
+            <div className="flex min-h-[300px] flex-col p-5 sm:p-6">
+              <div className="flex items-center justify-between text-slate-900">
+                <div className="flex items-center gap-4">
+                  <InstagramIcon />
+                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none" stroke="currentColor" strokeWidth="1.7">
+                    <path d="m21 3-7.7 18-3.6-7.1L3 10.8 21 3Z" strokeLinejoin="round" />
+                    <path d="M9.7 13.9 21 3" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <BookmarkIcon />
+              </div>
+
+              <div className="mt-7 flex-1">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-kcc-theme">Latest post</p>
+                <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-slate-950 sm:text-3xl">
+                  July Week 3
+                </h2>
+                <ul className="mt-4 space-y-1 break-keep text-[13px] leading-5 text-slate-600">
+                  <li>✔️ 캐나다 기준금리 동결 소식</li>
+                  <li>✔️ Business Dress Code Guide</li>
+                  <li>✔️ KCC Member’s Summer Pick</li>
+                  <li>✔️ Member Spotlight</li>
+                </ul>
+                <p className="mt-4 break-keep text-[13px] leading-5 text-slate-600">
+                  이번 주에도 5분이면 읽을 수 있는 KCC Newsletter와 함께하세요!
+                </p>
+                <p className="mt-4 text-xs font-medium text-kcc-theme">#UTKCC #KCCNewsletter #UofT</p>
+              </div>
+
             </div>
           </div>
-        </div>
-
-        <div className="flex items-center justify-end text-xs text-gray-500">
-          <Link
-            href={fileUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-4 hover:text-gray-700"
-          >
-            전체 PDF로 보기
-          </Link>
-        </div>
-
-        <div className="w-full rounded-3xl border border-slate-200 bg-white shadow-md shadow-slate-200/70 overflow-auto">
-          <PdfViewer fileUrl={fileUrl} page={currentPage} />
         </div>
       </section>
     </PageIntro>

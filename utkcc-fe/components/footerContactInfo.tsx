@@ -6,6 +6,33 @@ import {
   erDirectorEmail,
 } from '@/data/change-annually-data';
 
+const socialLinks: {
+  label: string;
+  href: string;
+  icon: 'instagram' | 'youtube' | 'facebook' | 'linkedin';
+}[] = [
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/utkcc_/',
+    icon: 'instagram',
+  },
+  {
+    label: 'YouTube',
+    href: 'https://www.youtube.com/@utkcc3050',
+    icon: 'youtube',
+  },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/groups/utkcc/',
+    icon: 'facebook',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/utkcc/mycompany/',
+    icon: 'linkedin',
+  },
+];
+
 export default function FooterContactInfo() {
   return (
     <div className="bg-kcc-theme px-8 py-10 text-white lg:px-32 lg:py-8">
@@ -84,13 +111,70 @@ export default function FooterContactInfo() {
             </div>
           </div>
 
-          <div className="mt-4 text-white/85 lg:mt-4">
-            © 2026 University of Toronto Korean Commerce Community. All rights
-            reserved.
+          <div className="mt-4 flex flex-col gap-3 border-t border-white/10 pt-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="text-white/85">
+              © 2026 University of Toronto Korean Commerce Community. All rights
+              reserved.
+            </div>
+            <div className="flex items-center gap-1.5" aria-label="UTKCC social media">
+              {socialLinks.map(({ label, href, icon }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`UTKCC ${label}`}
+                  title={label}
+                  className="group inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/20 bg-white/[0.04] text-white/65 transition duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  <SocialIcon name={icon} />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </div>
+  );
+}
+
+function SocialIcon({
+  name,
+}: {
+  name: 'instagram' | 'youtube' | 'facebook' | 'linkedin';
+}) {
+  if (name === 'instagram') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.4" cy="6.7" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+
+  if (name === 'youtube') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none" stroke="currentColor" strokeWidth="1.8">
+        <rect x="2.8" y="5.5" width="18.4" height="13" rx="4" />
+        <path d="m10 9 5 3-5 3V9Z" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+
+  if (name === 'facebook') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M14.5 4h-2a3 3 0 0 0-3 3v3H7v3h2.5v7h3v-7H15l.5-3h-3V7.5c0-.6.4-1 1-1h1V4Z" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-3.5 w-3.5 fill-none" stroke="currentColor" strokeWidth="1.8">
+      <circle cx="6.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      <path d="M5 10v9M10 19v-9m0 4.1c.8-2.4 5.8-3.1 5.8 1.2V19M16 19v-4.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 

@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { METADATA_SAVES } from './layout';
+import { METADATA_SAVES } from '@/lib/metadata';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
