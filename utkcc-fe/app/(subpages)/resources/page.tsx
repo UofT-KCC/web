@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import PageIntro from '@/components/pageIntro';
 
 export const metadata: Metadata = {
@@ -106,8 +107,8 @@ export default function Resources() {
 
               <div className="mt-7 space-y-3">
                 <Feature number="80+" label="과목 및 교수진 리뷰" />
-                <Feature number="01" label="학생들이 직접 전하는 수강 후기" />
-                <Feature number="02" label="평가 방식과 시험 구성 인사이트" />
+                <Feature icon={<ReviewIcon />} label="학생들이 직접 전하는 수강 후기" />
+                <Feature icon={<ExamIcon />} label="평가 방식과 시험 구성 인사이트" />
               </div>
 
               <div className="mt-auto pt-7">
@@ -133,10 +134,60 @@ export default function Resources() {
   );
 }
 
-function Feature({ number, label }: { number: string; label: string }) {
+function ReviewIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M7 8h10" />
+      <path d="M7 12h6" />
+      <path d="M8 18H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-4l-4 3v-3Z" />
+    </svg>
+  );
+}
+
+function ExamIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M9 5h6" />
+      <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1Z" />
+      <path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+      <path d="m8 13 2 2 4-5" />
+      <path d="M8 18h8" />
+    </svg>
+  );
+}
+
+function Feature({
+  number,
+  icon,
+  label,
+}: {
+  number?: string;
+  icon?: ReactNode;
+  label: string;
+}) {
   return (
     <div className="flex items-center gap-3 border-b border-slate-100 pb-3 last:border-0 last:pb-0">
-      <span className="w-8 shrink-0 text-xs font-bold tabular-nums text-kcc-theme">{number}</span>
+      <span className="flex w-8 shrink-0 items-center text-xs font-bold tabular-nums text-kcc-theme">
+        {icon ?? number}
+      </span>
       <span className="text-xs font-medium text-slate-600">{label}</span>
     </div>
   );

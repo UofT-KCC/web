@@ -157,7 +157,7 @@ function getRoleClass(position: string) {
   if (normalizedPosition.includes('director')) {
     return 'font-bold text-black/80';
   }
-  if (normalizedPosition.includes('committee')) {
+  if (normalizedPosition.includes('manager')) {
     return 'font-bold text-kcc-gray';
   }
   if (normalizedPosition.includes('intern')) {

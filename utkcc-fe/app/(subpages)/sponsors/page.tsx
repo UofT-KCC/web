@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import PageIntro from '@/components/pageIntro';
 import { sponsorData } from '@/data/sponsors-data';
+import SponsorsMarquee from './sponsorsMarquee';
 
 export const metadata: Metadata = {
   title: 'Sponsors',
@@ -45,7 +46,7 @@ export default function Sponsors() {
             친구들과의 식사, 동아리 모임, 시험 끝난 뒤의 소확행까지 — 제휴 매장을 통해
             더 합리적인 가격으로 즐겨보세요.
           </p>
-          <p>카드에 마우스를 올리면 잠시 멈춰 자세히 확인할 수 있어요.</p>
+          <p>파트너 카드는 직접 가로로 넘겨볼 수 있고, 멈추면 자동으로 다시 움직입니다.</p>
         </div>
       }
     >
@@ -59,15 +60,12 @@ export default function Sponsors() {
               멤버십 파트너
             </h2>
           </div>
-          <p className="hidden text-[11px] text-slate-400 sm:block">Hover to pause</p>
         </div>
 
-        <div className="sponsor-marquee -mx-1 -my-2 overflow-hidden px-1 py-2">
-          <div className="sponsor-marquee-track flex w-max hover:[animation-play-state:paused]">
-            <SponsorGroup />
-            <SponsorGroup copy />
-          </div>
-        </div>
+        <SponsorsMarquee>
+          <SponsorGroup />
+          <SponsorGroup copy />
+        </SponsorsMarquee>
       </section>
     </PageIntro>
   );
@@ -83,7 +81,6 @@ function SponsorGroup({ copy = false }: { copy?: boolean }) {
         <SponsorCard
           key={`${copy ? 'copy' : 'original'}-${sponsor.name}`}
           {...sponsor}
-          index={index}
           priority={!copy && index < 2}
         />
       ))}
@@ -97,9 +94,8 @@ function SponsorCard({
   imageSrc,
   websiteUrl,
   locationUrl,
-  index,
   priority,
-}: (typeof sponsorData)[number] & { index: number; priority: boolean }) {
+}: (typeof sponsorData)[number] & { priority: boolean }) {
   return (
     <article className="group flex w-[240px] shrink-0 flex-col overflow-hidden rounded-[18px] bg-white shadow-[0_16px_42px_-30px_rgba(5,60,140,0.46)] ring-1 ring-slate-200/70 transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_22px_48px_-28px_rgba(5,60,140,0.38)] sm:w-[270px]">
       <Link
@@ -121,13 +117,7 @@ function SponsorCard({
 
       <div className="flex min-h-[128px] flex-1 flex-col border-t border-slate-100 px-4 pb-4 pt-3.5">
         <div className="flex-1">
-          <div className="flex items-baseline justify-between gap-3">
-            <h3 className="text-[15px] font-bold leading-tight tracking-tight text-slate-950">{name}</h3>
-            <span className="flex shrink-0 items-center gap-1.5 text-[9px] font-bold tabular-nums tracking-[0.16em] text-kcc-theme/45">
-              <span className="h-px w-2 bg-kcc-theme/20" aria-hidden="true" />
-              {String(index + 1).padStart(2, '0')}
-            </span>
-          </div>
+          <h3 className="text-[15px] font-bold leading-tight tracking-tight text-slate-950">{name}</h3>
           <p className="mt-1.5 line-clamp-2 text-[11px] leading-4 text-slate-500">{exp}</p>
         </div>
         <div className="mt-3 flex items-center gap-1.5">
