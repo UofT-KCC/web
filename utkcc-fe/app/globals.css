@@ -77,16 +77,6 @@
   }
 }
 
-@keyframes sponsor-marquee-left {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @keyframes course-map-stack-cycle {
   0%,
   27% {
@@ -140,8 +130,17 @@
 }
 
 .sponsor-marquee-track {
-  animation: sponsor-marquee-left 48s linear infinite;
-  will-change: transform;
+  transform: translateZ(0);
+}
+
+.sponsor-marquee {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+}
+
+.sponsor-marquee::-webkit-scrollbar {
+  display: none;
 }
 
 .menu-scrollbar-hidden {
@@ -162,15 +161,6 @@
 
   .events-slogan-rotator span:first-child {
     opacity: 1;
-  }
-
-  .sponsor-marquee {
-    overflow-x: auto;
-  }
-
-  .sponsor-marquee-track {
-    animation: none;
-    transform: none;
   }
 
   .sponsor-marquee-copy {

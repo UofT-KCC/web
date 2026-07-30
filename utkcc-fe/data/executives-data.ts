@@ -170,7 +170,7 @@ export const execData: {
   },
   {
     dept: 'academics',
-    position: 'committee',
+    position: 'manager',
     name: '김지민',
     imageSrc: '/assets/images/exec-headshots/김지민.jpg',
     program: 'Rotman Commerce - Finance & Economics',
@@ -178,7 +178,7 @@ export const execData: {
   },
   {
     dept: 'academics',
-    position: 'committee',
+    position: 'manager',
     name: '홍예윤',
     imageSrc: '/assets/images/exec-headshots/홍예윤.jpg',
     program: 'Chemistry & Immunology',
@@ -186,7 +186,7 @@ export const execData: {
   },
   {
     dept: 'academics',
-    position: 'committee',
+    position: 'manager',
     name: '이대건',
     imageSrc: '/assets/images/exec-headshots/이대건.jpg',
     program: 'Rotman Commerce',
@@ -194,7 +194,7 @@ export const execData: {
   },
   {
     dept: 'academics',
-    position: 'committee',
+    position: 'manager',
     name: '김강인',
     imageSrc: '/assets/images/exec-headshots/김강인.jpg',
     program: 'Economics',
@@ -214,7 +214,7 @@ export const execData: {
   },
   {
     dept: 'marketing - poster',
-    position: 'committee',
+    position: 'manager',
     name: '강다연',
     imageSrc: '/assets/images/exec-headshots/강다연.jpg',
     program: 'Economics',
@@ -222,7 +222,7 @@ export const execData: {
   },
   {
     dept: 'marketing - poster',
-    position: 'committee',
+    position: 'manager',
     name: '최호승',
     imageSrc: '/assets/images/exec-headshots/최호승.jpg',
     program: 'Kinesiology',
@@ -242,7 +242,7 @@ export const execData: {
   },
   {
     dept: 'marketing - video',
-    position: 'committee',
+    position: 'manager',
     name: '김예솔',
     imageSrc: '/assets/images/exec-headshots/김예솔.jpg',
     program: 'Economics',
@@ -250,7 +250,7 @@ export const execData: {
   },
   {
     dept: 'marketing - video',
-    position: 'committee',
+    position: 'manager',
     name: '정윤진',
     imageSrc: '/assets/images/exec-headshots/정윤진.jpg',
     program: 'Economics & Statistics',
@@ -258,7 +258,7 @@ export const execData: {
   },
   {
     dept: 'marketing - video',
-    position: 'committee',
+    position: 'manager',
     name: '주재은',
     imageSrc: '/assets/images/exec-headshots/주재은.jpg',
     program: 'Mathematics & Statistics',
@@ -278,7 +278,7 @@ export const execData: {
   },
   {
     dept: 'media',
-    position: 'committee',
+    position: 'manager',
     name: '배진주',
     imageSrc: '/assets/images/exec-headshots/배진주.jpg',
     program: 'Rotman Commerce - Accounting',
@@ -286,7 +286,7 @@ export const execData: {
   },
   {
     dept: 'media',
-    position: 'committee',
+    position: 'manager',
     name: '조희원',
     imageSrc: '/assets/images/exec-headshots/조희원.jpg',
     program: 'Mathematics & Economics',
@@ -306,7 +306,7 @@ export const execData: {
   },
   {
     dept: 'social',
-    position: 'committee',
+    position: 'manager',
     name: '이찬영',
     imageSrc: '/assets/images/exec-headshots/이찬영.jpg',
     program: 'Rotman Commerce - Finance & Economics',
@@ -314,7 +314,7 @@ export const execData: {
   },
   {
     dept: 'social',
-    position: 'committee',
+    position: 'manager',
     name: '김준현',
     imageSrc: '/assets/images/exec-headshots/김준현.jpg',
     program: 'Economics & Political Science',
@@ -322,7 +322,7 @@ export const execData: {
   },
   {
     dept: 'social',
-    position: 'committee',
+    position: 'manager',
     name: '김시현',
     imageSrc: '/assets/images/exec-headshots/김시현.jpg',
     program: 'Rotman Commerce - Management',
@@ -330,7 +330,7 @@ export const execData: {
   },
   {
     dept: 'social',
-    position: 'committee',
+    position: 'manager',
     name: '백선주',
     imageSrc: '/assets/images/exec-headshots/백선주.jpg',
     program: 'Architecture',
@@ -358,7 +358,7 @@ export const execData: {
   },
   {
     dept: 'corporate relations',
-    position: 'committee',
+    position: 'manager',
     name: '신하림',
     imageSrc: '/assets/images/exec-headshots/신하림.jpg',
     program: 'Linguistics',
@@ -366,7 +366,7 @@ export const execData: {
   },
   {
     dept: 'corporate relations',
-    position: 'committee',
+    position: 'manager',
     name: '김유민',
     imageSrc: '/assets/images/exec-headshots/김유민.jpg',
     program: 'Political Science, Statistics & Digital Humanities',
@@ -374,7 +374,7 @@ export const execData: {
   },
   {
     dept: 'corporate relations',
-    position: 'committee',
+    position: 'manager',
     name: '권유현',
     imageSrc: '/assets/images/exec-headshots/권유현.jpg',
     program: 'Rotman Commerce - Management',
@@ -382,7 +382,7 @@ export const execData: {
   },
   {
     dept: 'corporate relations',
-    position: 'committee',
+    position: 'manager',
     name: '조재영',
     imageSrc: '/assets/images/exec-headshots/조재영.jpg',
     program: 'Biological Chemistry',
@@ -402,7 +402,7 @@ export const execData: {
   },
   {
     dept: 'finance',
-    position: 'committee',
+    position: 'manager',
     name: '양지민',
     imageSrc: '/assets/images/exec-headshots/양지민.jpg',
     program: 'Finance & Economics',
@@ -410,7 +410,7 @@ export const execData: {
   },
   {
     dept: 'finance',
-    position: 'committee',
+    position: 'manager',
     name: '문서윤',
     imageSrc: '/assets/images/exec-headshots/문서윤.jpg',
     program: 'Rotman Commerce - Accounting',
@@ -430,7 +430,7 @@ export const execData: {
   },
   {
     dept: 'information technology',
-    position: 'committee',
+    position: 'manager',
     name: '신지호',
     imageSrc: '/assets/images/exec-headshots/신지호.jpg',
     program: 'Actuarial Science & Statistics',
