@@ -102,11 +102,11 @@ export default function Newsletter() {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative aspect-[1250/1550] overflow-hidden bg-[#f4f0ec] sm:aspect-auto sm:min-h-[430px]"
-              aria-label="August Week 5 뉴스레터 인스타그램에서 보기"
+              aria-label="September Week 1 뉴스레터 인스타그램에서 보기"
             >
               <Image
-                src="/assets/images/newsletter/august-week-5-cover.png"
-                alt="KCC Newsletter August Week 5 표지"
+                src="/assets/images/newsletter/september-week-1-cover.png"
+                alt="KCC Newsletter September Week 1 표지"
                 fill
                 sizes="(min-width: 1024px) 34vw, (min-width: 640px) 52vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-[1.025]"
@@ -137,12 +137,11 @@ export default function Newsletter() {
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-kcc-theme">Latest post</p>
                 <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-slate-950 sm:text-3xl">
                   KCC Newsletter:
-                  <span className="block">August Week 5</span>
+                  <span className="block">September Week 1</span>
                 </h2>
                 <ul className="mt-4 space-y-1 break-keep text-[13px] leading-5 text-slate-600">
-                  <li>✔️ Weekly News - 캐나다 경제 성장</li>
-                  <li>✔️ Biz Tip - Professional Email</li>
-                  <li>✔️ KCC News - Campus Tour</li>
+                  <li>✔️ Weekly News - 한국 투자</li>
+                  <li>✔️ UofT 1st Year Survival Guide</li>
                   <li>✔️ KCC Member Spotlight</li>
                 </ul>
                 <p className="mt-4 break-keep text-[13px] leading-5 text-slate-600">
