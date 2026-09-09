@@ -102,11 +102,6 @@ export default function Newsletter() {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative aspect-[1250/1550] overflow-hidden bg-[#f4f0ec] sm:aspect-auto sm:min-h-[430px]"
-              aria-label="September Week 1 뉴스레터 인스타그램에서 보기"
-            >
-              <Image
-                src="/assets/images/newsletter/september-week-1-cover.png"
-                alt="KCC Newsletter September Week 1 표지"
               aria-label="August Week 5 뉴스레터 인스타그램에서 보기"
             >
               <Image
