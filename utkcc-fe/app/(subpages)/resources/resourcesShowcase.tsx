@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import {
   studyPackageSeason,
-  studyPackagePeriods,
+  visiblePricing,
   regularPurchaseReminder,
   noteTemplateAddOn,
   individualCourseTiers,
@@ -133,11 +133,8 @@ function CourseMapPanel() {
             </h2>
           </div>
           <div className="shrink-0 rounded-2xl bg-kcc-theme/[0.07] px-5 py-4 text-center shadow-[0_14px_30px_-22px_rgba(5,60,140,.55)] ring-1 ring-inset ring-kcc-theme/15">
-            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-kcc-theme/60">Early bird</p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-kcc-theme/60">Price</p>
             <p className="mt-1 text-4xl font-bold leading-none tracking-[-0.06em] text-kcc-theme">$5</p>
-            <span className="mt-2 inline-flex rounded-full bg-white px-2.5 py-1 text-[8px] font-bold tracking-[0.08em] text-kcc-theme shadow-sm ring-1 ring-inset ring-kcc-theme/10">
-              1차 판매 중
-            </span>
           </div>
         </div>
 
@@ -414,7 +411,7 @@ function PackageCard({ tier }: { tier: PackageTier }) {
         </div>
 
         <div className="flex shrink-0 flex-wrap gap-2">
-          {tier.pricing.map(price => (
+          {visiblePricing(tier.pricing).map(price => (
             <div key={price.label} className="rounded-xl bg-kcc-theme/[0.06] px-3.5 py-2.5 text-center ring-1 ring-inset ring-kcc-theme/10">
               <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-kcc-theme/55">{price.label}</p>
               <p className="text-base font-bold text-kcc-theme">{price.price}</p>
@@ -454,7 +451,7 @@ function AddOnBanner() {
       </div>
 
       <div className="flex shrink-0 gap-2">
-        {noteTemplateAddOn.pricing.map(price => (
+        {visiblePricing(noteTemplateAddOn.pricing).map(price => (
           <div
             key={price.label}
             className="rounded-lg bg-kcc-theme/[0.06] px-3 py-1.5 text-center ring-1 ring-inset ring-kcc-theme/10"
