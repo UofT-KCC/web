@@ -107,6 +107,11 @@ export default function Newsletter() {
               <Image
                 src="/assets/images/newsletter/september-week-4-cover.png"
                 alt="KCC Newsletter September Week 4 표지"
+              aria-label="September Week 2 뉴스레터 인스타그램에서 보기"
+            >
+              <Image
+                src="/assets/images/newsletter/september-week-2-cover.png"
+                alt="KCC Newsletter September Week 2 표지"
                 fill
                 sizes="(min-width: 1024px) 34vw, (min-width: 640px) 52vw, 100vw"
                 className="object-cover transition duration-700 group-hover:scale-[1.025]"
@@ -143,6 +148,13 @@ export default function Newsletter() {
                   <li>Weekly News - 반도체 수출</li>
                   <li>4 Fall Spots in Toronto 🍂</li>
                   <li>KCC Member Spotlight</li>
+                  September Week 2
+                </h2>
+                <ul className="mt-4 space-y-1 break-keep text-[13px] leading-5 text-slate-600">
+                  <li>✔️ Weekly News - 트럼프 최저 금리</li>
+                  <li>✔️ Freshman Guide - Study Support</li>
+                  <li>✔️ KCC Intern Recruitment &amp; 번개</li>
+                  <li>✔️ KCC Member Spotlight</li>
                 </ul>
                 <p className="mt-4 break-keep text-[13px] leading-5 text-slate-600">
                   이번 주에도 5분이면 읽을 수 있는 KCC Newsletter와 함께하세요!
