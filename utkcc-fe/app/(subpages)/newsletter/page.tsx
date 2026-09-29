@@ -102,6 +102,11 @@ export default function Newsletter() {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative aspect-[1250/1550] overflow-hidden bg-[#f4f0ec] sm:aspect-auto sm:min-h-[430px]"
+              aria-label="September Week 4 뉴스레터 인스타그램에서 보기"
+            >
+              <Image
+                src="/assets/images/newsletter/september-week-4-cover.png"
+                alt="KCC Newsletter September Week 4 표지"
               aria-label="September Week 2 뉴스레터 인스타그램에서 보기"
             >
               <Image
@@ -136,6 +141,13 @@ export default function Newsletter() {
               <div className="mt-7 flex-1">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-kcc-theme">Latest post</p>
                 <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-slate-950 sm:text-3xl">
+                  KCC Newsletter:
+                  <span className="block">September Week 4</span>
+                </h2>
+                <ul className="mt-4 space-y-1 break-keep text-[13px] leading-5 text-slate-600">
+                  <li>Weekly News - 반도체 수출</li>
+                  <li>4 Fall Spots in Toronto 🍂</li>
+                  <li>KCC Member Spotlight</li>
                   September Week 2
                 </h2>
                 <ul className="mt-4 space-y-1 break-keep text-[13px] leading-5 text-slate-600">
