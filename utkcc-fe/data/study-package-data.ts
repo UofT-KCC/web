@@ -18,17 +18,33 @@ export interface PackageTier {
 /** 족보 시즌 */
 export const studyPackageSeason = '2026-2027';
 
-/** 얼리버드 / 정가 기간 */
+/** 얼리버드 / 정가 기간 (end은 해당 날짜 23:59:59까지 포함) */
 export const studyPackagePeriods = {
-  earlyBird: { label: 'Early Bird', range: 'Sep 14 - 25' },
-  regular: { label: 'Regular', range: 'Sep 26 - Nov 1' },
+  earlyBird: {
+    label: 'Early Bird',
+    range: 'Sep 14 - 25',
+    start: '2026-09-14',
+    end: '2026-09-25',
+  },
+  regular: {
+    label: 'Regular',
+    range: 'Sep 26 - Nov 1',
+    start: '2026-09-26',
+    end: '2026-11-01',
+  },
 };
+
+/** 지금이 얼리버드 기간인지 여부 (기간이 지나면 자동으로 정가로 전환됩니다) */
+export function isEarlyBirdActive(now: Date = new Date()): boolean {
+  const earlyBirdEnd = new Date(`${studyPackagePeriods.earlyBird.end}T23:59:59`);
+  return now.getTime() <= earlyBirdEnd.getTime();
+}
 
 /** 정가 기간 구매 시 안내 문구 */
 export const regularPurchaseReminder =
   'Regular Period 주문 후에는 DM으로 연락 부탁드립니다.';
 
-/** 노트 템플릿 추가 옵션 (얼리버드 한정) */
+/** 노트 템플릿 추가 옵션 */
 export const noteTemplateAddOn = {
   title: 'UTKCC Note Template',
   description:

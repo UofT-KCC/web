@@ -6,6 +6,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import {
   studyPackageSeason,
   studyPackagePeriods,
+  isEarlyBirdActive,
   regularPurchaseReminder,
   noteTemplateAddOn,
   individualCourseTiers,

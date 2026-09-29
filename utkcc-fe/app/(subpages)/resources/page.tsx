@@ -1,12 +1,19 @@
 import { Metadata } from 'next';
 import PageIntro from '@/components/pageIntro';
 import ResourcesShowcase from './resourcesShowcase';
+import { isEarlyBirdActive, studyPackageSeason } from '@/data/study-package-data';
 
 export const metadata: Metadata = {
   title: 'Resources',
 };
 
+export const revalidate = 3600;
+
 export default function Resources() {
+  const salesStatusText = isEarlyBirdActive()
+    ? `${studyPackageSeason} 얼리버드 판매가 진행 중입니다.`
+    : `${studyPackageSeason} 정가 판매가 진행 중입니다.`;
+
   return (
     <PageIntro
       pageName="resources"
@@ -27,9 +34,7 @@ export default function Resources() {
             UTKCC가 선배들의 실제 수강 경험과 시험 노하우를 담아 만든
             자료예요.
           </p>
-          <p className="font-bold text-kcc-theme">
-            2026–2027 얼리버드 판매가 진행 중입니다.
-          </p>
+          <p className="font-bold text-kcc-theme">{salesStatusText}</p>
         </div>
       }
     >
