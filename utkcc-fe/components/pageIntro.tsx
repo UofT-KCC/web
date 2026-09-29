@@ -4,12 +4,14 @@ export default function PageIntro({
   pageName,
   pageSlogan,
   pageExp,
+  childrenAlign = 'center',
 }: {
   children: React.ReactNode;
   className?: string;
   pageName: string;
   pageSlogan: string | React.ReactNode;
   pageExp: string | React.ReactNode;
+  childrenAlign?: 'center' | 'start';
 }) {
   return (
     <article
@@ -22,7 +24,9 @@ export default function PageIntro({
       </div>
       {/* section intro slogans */}
       <div className="text-black font-normal text-2xl my-6">{pageSlogan}</div>
-      <div className="max-w-full w-full h-fit flex items-center justify-center self-center mx-auto row-span-2 row-start-2">
+      <div
+        className={`max-w-full w-full h-fit flex items-center justify-center ${childrenAlign === 'start' ? 'self-start' : 'self-center'} mx-auto row-span-2 row-start-2`}
+      >
         {children}
       </div>
       <div className="break-keep hyphens-auto font-normal my-6 lg:mt-0 text-kcc-gray self-start">
