@@ -330,14 +330,14 @@ export const UTKCC_KB: KBEntry[] = [
   },
   {
     id: 'resources-study-package',
-    title_ko: 'Study Package',
+    title_ko: '족보 (Study Package)',
     title_en: 'Study Package',
     content_ko:
-      'Study Package는 선배들의 과제 팁, 연습문제, 강의 정리 등을 모아 시험 대비와 개념 복습에 활용할 수 있는 자료예요.',
+      '족보(Study Package)는 선배들의 과목별 핵심 정리와 시험 대비 자료를 모은 자료예요. Resources 페이지 상단의 코스맵 / 족보 탭에서 족보를 선택하면 과목별 개별 패키지와 학년별 로트만 커머스 번들 패키지의 얼리버드/정가 가격과 구성 과목을 확인할 수 있어요.',
     content_en:
-      'Study Package collects assignment tips, practice questions, and lecture notes from upper-year students for exam prep and review.',
+      'The Study Package (족보) collects course-by-course exam prep notes from upper-year students. On the Resources page, switch the Course Map / Study Package tab to Study Package to see individual course packages and year-based Rotman Commerce bundles with early bird/regular pricing.',
     url: '/resources',
-    tags: ['study package', 'exam', 'midterm', 'final', 'eco101', 'sta130', '시험', '중간', '기말', '족보'],
+    tags: ['study package', 'exam', 'midterm', 'final', 'eco101', 'sta130', 'rotman', '시험', '중간', '기말', '족보', '패키지'],
   },
 
   // ===== CONTACT =====
