@@ -40,6 +40,12 @@ export function isEarlyBirdActive(now: Date = new Date()): boolean {
   return now.getTime() <= earlyBirdEnd.getTime();
 }
 
+/** 얼리버드가 끝났으면 얼리버드 가격은 숨기고 나머지 가격만 보여줍니다 */
+export function visiblePricing(pricing: PriceTier[]): PriceTier[] {
+  if (isEarlyBirdActive()) return pricing;
+  return pricing.filter(price => price.label !== 'Early Bird');
+}
+
 /** 정가 기간 구매 시 안내 문구 */
 export const regularPurchaseReminder =
   'Regular Period 주문 후에는 DM으로 연락 부탁드립니다.';
