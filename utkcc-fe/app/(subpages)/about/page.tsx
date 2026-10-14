@@ -131,13 +131,13 @@ export default function About() {
               <figure
                 key={highlight}
                 className={`relative max-w-4xl pt-10 lg:pt-14 ${
-                  alignRight ? 'lg:ml-auto lg:text-right' : ''
+                  alignRight ? 'ml-auto text-right' : ''
                 }`}
               >
                 <span
                   aria-hidden="true"
                   className={`pointer-events-none absolute top-0 select-none text-[120px] font-bold leading-none text-[#dfe7f3] lg:-top-4 lg:text-[200px] ${
-                    alignRight ? 'left-0 lg:left-auto lg:right-0' : 'left-0'
+                    alignRight ? 'right-0' : 'left-0'
                   }`}
                 >
                   &ldquo;
@@ -147,12 +147,12 @@ export default function About() {
                   <span className="block text-kcc-theme">{highlight}</span>
                 </blockquote>
                 <figcaption
-                  className={`relative mt-5 flex items-center gap-3 break-keep text-sm text-slate-500 lg:mt-6 lg:text-base ${
-                    alignRight ? 'lg:justify-end' : ''
+                  className={`relative mt-5 flex items-center gap-2.5 break-keep text-[13px] text-slate-500 sm:gap-3 sm:text-sm lg:mt-6 lg:text-base ${
+                    alignRight ? 'flex-row-reverse' : ''
                   }`}
                 >
-                  <span className="h-0.5 w-8 shrink-0 rounded-full bg-kcc-theme" />
-                  {detail}
+                  <span className="h-0.5 w-5 shrink-0 rounded-full bg-kcc-theme sm:w-8" />
+                  <span>{detail}</span>
                 </figcaption>
               </figure>
             );

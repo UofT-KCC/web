@@ -18,6 +18,6 @@ const readingWeek = calendarEvents.find(event => event.id === 'reading-week')!;
 assert.ok(occursOn(readingWeek, '2026-10-26'));
 assert.ok(occursOn(readingWeek, '2026-10-30'));
 assert.ok(!occursOn(readingWeek, '2026-10-31'));
-assert.equal(calendarEvents.filter(event => !event.notice && occursOn(event, '2026-10-07')).length, 2);
+assert.equal(calendarEvents.filter(event => !event.notice && occursOn(event, '2026-10-12')).length, 2);
 assert.equal(new Set(calendarEvents.map(event => event.id)).size, calendarEvents.length);
 console.log('Calendar checks passed: month boundaries, leap years, date ranges, and overlapping events.');

@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
+import { joinMemberShipLink } from '@/data/change-annually-data';
 import { sponsorData } from '@/data/sponsors-data';
 import SponsorsDirectory from './sponsorsDirectory';
 import {
+  ArrowUpRightIcon,
   ChevronRightIcon,
   GiftIcon,
   MemberCardIcon,
@@ -97,6 +100,16 @@ export default function Sponsors() {
               );
             })}
           </ol>
+
+          <Link
+            href={joinMemberShipLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-4 flex items-center justify-between gap-3 rounded-lg bg-kcc-theme px-4 py-3 text-sm font-bold text-white transition hover:bg-kcc-theme-darker focus:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(5,60,140,0.25)]"
+          >
+            <span>멤버십 가입하기</span>
+            <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Link>
         </section>
       </header>
 

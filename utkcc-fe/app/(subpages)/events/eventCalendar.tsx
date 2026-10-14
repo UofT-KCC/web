@@ -93,7 +93,7 @@ function EventDetails({ event, onClose }: { event: CalendarEvent; onClose: () =>
       <div className={styles.dialogInner}>
         <button className={`${styles.iconButton} ${styles.close}`} onClick={() => dialog.current?.close()} aria-label="Close event details" title="Close"><Icon name="close-outline" /></button>
         {event.image && <figure className={styles.eventImage}>
-          <Image src={event.image} alt={event.imageAlt || event.title} width={900} height={540} sizes="(max-width: 640px) 100vw, 600px" />
+          <Image src={event.image} alt={event.imageAlt || event.title} width={900} height={540} sizes="(max-width: 640px) 100vw, 600px" style={{ objectPosition: event.imagePosition }} />
           {event.imageCaption && <figcaption>{event.imageCaption}</figcaption>}
         </figure>}
         <div className={styles.dialogContent}>
@@ -242,7 +242,7 @@ export default function EventCalendar() {
             <span>{dayEvents.length} {dayEvents.length === 1 ? 'event' : 'events'}</span></div>
           <div aria-live="polite">
             {dayEvents.length ? dayEvents.map(event => <button key={event.id} className={styles.agendaEvent} onClick={() => setActiveEvent(event)}>
-              {event.image && <div className={styles.agendaImage}><Image src={event.image} alt={event.imageAlt || event.title} width={520} height={320} sizes="(max-width: 767px) 90vw, 280px" /><span>UTKCC · {eventCategories[event.category].label}</span></div>}
+              {event.image && <div className={styles.agendaImage}><Image src={event.image} alt={event.imageAlt || event.title} width={520} height={320} sizes="(max-width: 767px) 90vw, 280px" style={{ objectPosition: event.imagePosition }} /><span>UTKCC · {eventCategories[event.category].label}</span></div>}
               <EventBadge category={event.category} /><strong>{event.title}</strong><span className={styles.agendaMeta}>{dateRange(event)}</span>
               <span className={styles.detailsLink}>Event details <Icon name="arrow-forward-outline" /></span>
             </button>) : <div className={styles.empty}><Icon name="sunny-outline" /><p>No events on this day.</p></div>}
