@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from 'react';
 import './navbar.css';
 import { handleScroll } from '@/lib/utils';
 import SmallLogoImage from '@/public/assets/images/logo-nav.png';
-import { recruitmentLink } from '@/data/change-annually-data';
+import { recruitmentLink, recruitmentOpen } from '@/data/change-annually-data';
 
 export default function NavBar({
   visibleThreshold,
@@ -125,12 +125,22 @@ export default function NavBar({
             >
               contact
             </Link>
-            <Link
-              href={recruitmentLink}
-              className="py-2 px-5 rounded-lg text-white bg-kcc-theme w-fit"
-            >
-              Join
-            </Link>
+            {recruitmentOpen ? (
+              <Link
+                href={recruitmentLink}
+                className="py-2 px-5 rounded-lg text-white bg-kcc-theme w-fit"
+              >
+                Join
+              </Link>
+            ) : (
+              <span
+                aria-disabled="true"
+                title="준비 중이에요"
+                className="py-2 px-5 rounded-lg text-white bg-kcc-theme w-fit cursor-not-allowed select-none opacity-50"
+              >
+                Join
+              </span>
+            )}
           </div>
         </div>
         {/* NAVBAR FOR LARGE (lg - xl) VIEWPORT, no menu button. join button added. */}
@@ -167,13 +177,23 @@ export default function NavBar({
             >
               contact
             </Link>
-            <Link
-              href={recruitmentLink}
-              target="_blank"
-              className="py-2 px-5 rounded-lg capitalize text-white bg-kcc-theme text-opacity-90 hover:text-opacity-100 hover:bg-kcc-theme-darker"
-            >
-              join
-            </Link>
+            {recruitmentOpen ? (
+              <Link
+                href={recruitmentLink}
+                target="_blank"
+                className="py-2 px-5 rounded-lg capitalize text-white bg-kcc-theme text-opacity-90 hover:text-opacity-100 hover:bg-kcc-theme-darker"
+              >
+                join
+              </Link>
+            ) : (
+              <span
+                aria-disabled="true"
+                title="준비 중이에요"
+                className="py-2 px-5 rounded-lg capitalize text-white bg-kcc-theme cursor-not-allowed select-none opacity-50"
+              >
+                join
+              </span>
+            )}
           </div>
         </div>
       </nav>

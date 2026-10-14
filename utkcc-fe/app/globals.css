@@ -65,6 +65,330 @@
   }
 }
 
+.events-gallery {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 14%,
+    black 86%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 14%,
+    black 86%,
+    transparent 100%
+  );
+}
+
+.events-gallery-column {
+  height: 100%;
+  min-width: 0;
+}
+
+.events-gallery-track {
+  animation: events-gallery-scroll 66s linear infinite;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.events-gallery-column-reverse .events-gallery-track {
+  animation-direction: reverse;
+  animation-duration: 77s;
+}
+
+.events-gallery-column-slow .events-gallery-track {
+  animation-duration: 86s;
+  animation-delay: -28s;
+}
+
+.events-gallery-tile :is(img, video) {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.events-gallery-tile:hover :is(img, video) {
+  transform: scale(1.05);
+  filter: saturate(1.1);
+}
+
+@keyframes events-gallery-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+/* Page transitions: see components/navigationProgress.tsx and the route group
+   templates. */
+.page-transition {
+  animation: page-enter 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* The About page's full-screen hero has its own opening animation. The
+   generic rise + blur would also blur and nudge the hero's bottom edge,
+   showing a strip of white page below the photo while it plays. */
+.page-transition:has(.about-hero) {
+  animation: none;
+}
+
+html[data-navigating='true'] .page-transition {
+  opacity: 0.45;
+  transform: translate3d(0, -6px, 0);
+}
+
+.navigation-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 60;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--main-theme-color),
+    rgb(80, 140, 230)
+  );
+  box-shadow: 0 0 10px rgba(5, 60, 140, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+html[data-navigating='true'] .navigation-progress {
+  opacity: 1;
+  transform: scaleX(0.85);
+  transition:
+    opacity 0.15s ease,
+    transform 2.4s cubic-bezier(0.1, 0.8, 0.2, 1);
+}
+
+html[data-navigating='done'] .navigation-progress {
+  opacity: 0;
+  transform: scaleX(1);
+  transition:
+    transform 0.25s ease-out,
+    opacity 0.3s ease 0.15s;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+    filter: blur(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+/* Sponsor coupons: two half-circle notches cut at the perforation line.
+   Phones: the stub is a strip along the bottom (--ticket-stub-h tall), so the
+   notches sit on the left and right edges. sm and up: the stub is
+   --ticket-stub wide on the right, so the notches sit on the top and bottom
+   edges. Both values match the stub size in sponsorsDirectory.tsx. */
+.sponsor-ticket {
+  --ticket-notch: 9px;
+  --ticket-stub-h: 56px;
+  --ticket-stub: 120px;
+  -webkit-mask:
+    radial-gradient(
+        circle var(--ticket-notch) at 0 calc(100% - var(--ticket-stub-h)),
+        transparent 98%,
+        #000
+      )
+      left / 51% 100% no-repeat,
+    radial-gradient(
+        circle var(--ticket-notch) at 100% calc(100% - var(--ticket-stub-h)),
+        transparent 98%,
+        #000
+      )
+      right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(
+        circle var(--ticket-notch) at 0 calc(100% - var(--ticket-stub-h)),
+        transparent 98%,
+        #000
+      )
+      left / 51% 100% no-repeat,
+    radial-gradient(
+        circle var(--ticket-notch) at 100% calc(100% - var(--ticket-stub-h)),
+        transparent 98%,
+        #000
+      )
+      right / 51% 100% no-repeat;
+}
+
+@media (min-width: 640px) {
+  .sponsor-ticket {
+    -webkit-mask:
+      radial-gradient(
+          circle var(--ticket-notch) at calc(100% - var(--ticket-stub)) 0,
+          transparent 98%,
+          #000
+        )
+        top / 100% 51% no-repeat,
+      radial-gradient(
+          circle var(--ticket-notch) at calc(100% - var(--ticket-stub)) 100%,
+          transparent 98%,
+          #000
+        )
+        bottom / 100% 51% no-repeat;
+    mask:
+      radial-gradient(
+          circle var(--ticket-notch) at calc(100% - var(--ticket-stub)) 0,
+          transparent 98%,
+          #000
+        )
+        top / 100% 51% no-repeat,
+      radial-gradient(
+          circle var(--ticket-notch) at calc(100% - var(--ticket-stub)) 100%,
+          transparent 98%,
+          #000
+        )
+        bottom / 100% 51% no-repeat;
+  }
+}
+
+.sponsor-ticket-frame {
+  perspective: 1400px;
+  filter: drop-shadow(0 0 0.5px rgba(15, 23, 42, 0.28))
+    drop-shadow(0 10px 18px rgba(5, 60, 140, 0.07));
+  transition:
+    transform 0.3s ease-out,
+    filter 0.3s ease-out;
+}
+
+.sponsor-ticket-frame:hover {
+  filter: drop-shadow(0 0 0.5px rgba(5, 60, 140, 0.45))
+    drop-shadow(0 18px 26px rgba(5, 60, 140, 0.12));
+}
+
+/* Sponsor ticket flip: the back face sits on top of the front, pre-rotated,
+   and the whole ticket turns over when data-flipped is true. */
+.sponsor-flip {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sponsor-flip[data-flipped='true'] {
+  transform: rotateY(180deg);
+}
+
+.sponsor-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.sponsor-face-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sponsor-flip {
+    transition: none;
+  }
+}
+
+/* About hero: the scene (photo + headline) opens from a centre slit and
+   zooms out from its top edge, then the headline comes into focus. */
+.about-hero {
+  animation: about-hero-open 1.3s cubic-bezier(0.65, 0, 0.35, 1) 0.1s both;
+}
+
+.about-hero-scene {
+  animation: about-hero-zoom 2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+.about-hero-line {
+  animation: about-hero-focus 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both;
+}
+
+.about-hero-caption {
+  animation: about-hero-fade 0.8s ease-out 1.3s both;
+}
+
+.about-hero-cue {
+  animation: scroll-cue-bob 1.8s ease-in-out 2s infinite;
+}
+
+@keyframes about-hero-open {
+  from {
+    clip-path: inset(0 46% round 8px);
+  }
+
+  to {
+    clip-path: inset(0 0 round 0);
+  }
+}
+
+@keyframes about-hero-zoom {
+  from {
+    transform: scale(1.18);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@keyframes about-hero-focus {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translate3d(0, 16px, 0);
+  }
+
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+@keyframes about-hero-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-cue-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-hero,
+  .about-hero-scene,
+  .about-hero-line,
+  .about-hero-caption,
+  .about-hero-cue {
+    animation: none;
+  }
+}
+
 @keyframes menu-panel-in {
   from {
     opacity: 0;
@@ -153,6 +477,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    animation: none;
+  }
+
+  html[data-navigating='true'] .page-transition {
+    transform: none;
+  }
+
   .events-slogan-rotator span {
     animation: none;
     opacity: 0;
@@ -165,6 +497,14 @@
 
   .sponsor-marquee-copy {
     display: none;
+  }
+
+  .events-gallery-track {
+    animation: none;
+  }
+
+  .events-gallery-tile :is(img, video) {
+    transition: none;
   }
 
   .course-map-sheet-stack {

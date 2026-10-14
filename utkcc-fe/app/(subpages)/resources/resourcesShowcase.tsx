@@ -51,7 +51,7 @@ export default function ResourcesShowcase() {
 
       <div
         key={view}
-        className="mt-8 animate-[menu-panel-in_260ms_cubic-bezier(0.22,1,0.36,1)] motion-reduce:animate-none"
+        className="mt-12 sm:mt-8 animate-[menu-panel-in_260ms_cubic-bezier(0.22,1,0.36,1)] motion-reduce:animate-none"
       >
         {view === 'course-map' ? <CourseMapPanel /> : <StudyPackagePanel />}
       </div>
@@ -88,9 +88,9 @@ function ViewToggleButton({
 function CourseMapPanel() {
   return (
     <div className="grid items-start gap-10 sm:grid-cols-[minmax(315px,1.08fr)_minmax(285px,.92fr)] sm:gap-12 lg:gap-16">
-      <div className="relative min-h-[440px] sm:min-h-[500px]">
+      <div className="relative pb-16 pt-6 sm:min-h-[500px] sm:py-0">
         <div className="absolute left-1/2 top-1/2 h-[88%] w-[88%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-kcc-theme/[0.055] blur-3xl" />
-        <div className="absolute left-1/2 top-1/2 aspect-[0.79] w-[94%] max-w-[390px] -translate-x-1/2 -translate-y-1/2">
+        <div className="relative mx-auto aspect-[0.79] w-[94%] max-w-[390px] sm:absolute sm:left-1/2 sm:top-1/2 sm:mx-0 sm:-translate-x-1/2 sm:-translate-y-1/2">
           <div className="course-map-sheet-stack course-map-sheet-1 absolute inset-0 overflow-hidden rounded-[3px] bg-white shadow-[0_25px_55px_-20px_rgba(3,40,100,.38)] ring-1 ring-black/10">
             <Image
               src="/assets/images/resources/course-map-cover.png"

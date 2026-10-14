@@ -6,24 +6,44 @@
  * 스폰서 및 제휴업체 정보.
  * 최대한 정확한 정보를 입력해주세요.
  */
+export const sponsorCategories = {
+  dining: '식사',
+  cafe: '카페 & 디저트',
+  bar: '바 & 포차',
+} as const;
+
+export type SponsorCategory = keyof typeof sponsorCategories;
+
 export const sponsorData: {
   name: string;
   exp: string;
+  category: SponsorCategory;
   imageSrc: string;
   websiteUrl: string;
   locationUrl: string;
+  /** 티켓 뒷면에 크게 표시되는 혜택 (예: '10%'). 비워두면 '혜택 정보 준비 중'으로 표시됩니다. */
+  discount?: string;
+  /** 혜택 조건 (예: '현금 또는 카드 결제 시') */
+  benefitNote?: string;
+  /** 매장 주소 */
+  address?: string;
 }[] = [
   // 19th sponsors
   {
     name: 'Kanari',
     exp: 'Contemporary Asian Bar',
+    category: 'bar',
     imageSrc: '/assets/images/sponsors/kanari.jpg',
     websiteUrl: 'https://www.instagram.com/kanari.toronto/',
     locationUrl: 'https://maps.app.goo.gl/FptEr6oN9tXtPhG19',
+    discount: '10%',
+    benefitNote: '현금 또는 카드 결제 시',
+    address: '491 Church St.',
   },
   {
     name: '우주분식',
     exp: 'Woojoo Bunsik - Korean Street Food',
+    category: 'dining',
     imageSrc: '/assets/images/sponsors/woojoobunsik.jpg',
     websiteUrl: 'https://www.instagram.com/woojoobunsik/',
     locationUrl: 'https://maps.app.goo.gl/rz4ZLsD5Sp99Sibc7',
@@ -31,6 +51,7 @@ export const sponsorData: {
   {
     name: 'Seoulicious',
     exp: 'Modern Korean Café - Soju & Cocktails',
+    category: 'cafe',
     imageSrc: '/assets/images/sponsors/seoulicious.jpeg',
     websiteUrl: 'https://www.instagram.com/seoulicious_toronto/',
     locationUrl: 'https://maps.app.goo.gl/nZRJNX3oJk8Y6ZeYA',
@@ -38,6 +59,7 @@ export const sponsorData: {
   {
     name: 'Seoul Gamjatang',
     exp: 'Authentic Korean Comfort Food',
+    category: 'dining',
     imageSrc: '/assets/images/sponsors/seoul-gamjatang.png',
     websiteUrl: 'https://www.instagram.com/seoulgamjatang_toronto/',
     locationUrl: 'https://maps.app.goo.gl/AP7KacWj8W27Boio6',
@@ -45,6 +67,7 @@ export const sponsorData: {
   {
     name: '우석포차',
     exp: 'Korean Street Bar - Late-Night Bites',
+    category: 'bar',
     imageSrc: '/assets/images/sponsors/wooseok.jpg',
     websiteUrl: 'https://www.instagram.com/woosuk_pocha/',
     locationUrl: 'https://maps.app.goo.gl/AKrbpnyiQw7jqx639',
@@ -52,6 +75,7 @@ export const sponsorData: {
   {
     name: 'Daon',
     exp: 'Contemporary Korean Café - Coffee & Dessert',
+    category: 'cafe',
     imageSrc: '/assets/images/sponsors/daon.jpg',
     websiteUrl: 'https://www.instagram.com/daon_cafe/',
     locationUrl: 'https://maps.app.goo.gl/8x4UBjdKi5dBVd6x6',
@@ -59,6 +83,7 @@ export const sponsorData: {
   {
     name: 'BBQ Chicken Spadina',
     exp: 'Real Crispy, Real Korean Fried Chicken',
+    category: 'dining',
     imageSrc: '/assets/images/sponsors/bbqspadina.jpg',
     websiteUrl: 'https://www.instagram.com/bbqchicken_utspadina/',
     locationUrl: 'https://maps.app.goo.gl/ybjaZDHLBZyPeops5',
@@ -66,6 +91,7 @@ export const sponsorData: {
   {
     name: 'Kream',
     exp: 'Modern Korean Dessert Bar',
+    category: 'cafe',
     imageSrc: '/assets/images/sponsors/kream.jpg',
     websiteUrl: 'https://www.instagram.com/kream_toronto/',
     locationUrl: 'https://maps.app.goo.gl/cmXYtYLb3ntjttdp7',
@@ -73,6 +99,7 @@ export const sponsorData: {
   {
     name: 'The Fry',
     exp: 'Korean Fried Chicken & Beer House',
+    category: 'dining',
     imageSrc: '/assets/images/sponsors/thefry.jpg',
     websiteUrl: 'https://www.instagram.com/thefry_canada/',
     locationUrl: 'https://maps.app.goo.gl/LEe9aqDjru6zJ4J48',
@@ -80,6 +107,7 @@ export const sponsorData: {
   {
     name: '한국관',
     exp: 'Traditional Korean Cuisine - BBQ & Stews',
+    category: 'dining',
     imageSrc: '/assets/images/sponsors/korean-village.jpg',
     websiteUrl: 'https://www.instagram.com/koreanvillageto/',
     locationUrl: 'https://maps.app.goo.gl/YD53hNBtkLVeWJ6J8',

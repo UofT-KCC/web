@@ -14,6 +14,8 @@ export const KCC_TH_NOW =
 export const joinMemberShipLink = 'https://forms.gle/VCSYDbiWNDYbw8rZ7';
 /** 인턴 및 임원 가입 링크 */
 export const recruitmentLink = 'https://bit.ly/utkcc_2023_recruitment';
+/** Join 버튼 활성화 여부 (false면 navbar의 Join 버튼이 '준비 중' 상태로 비활성화됨) */
+export const recruitmentOpen = false;
 /** 뉴스레터 구독 링크 */
 export const subscribeNewsletterLink =
   'https://docs.google.com/forms/d/17Mp8uJY-spJBrOzK0T8hNc5kFj-DtUQcugEfVmVdjnc/edit';
