@@ -1,0 +1,41 @@
+import Link from 'next/link';
+import PageIntro from '@/components/pageIntro';
+import AboutImage from './aboutImage';
+
+// Homepage teaser. "Learn More" goes to the full /about page.
+export default function AboutHomeIntro() {
+  return (
+    <PageIntro
+      pageName="about"
+      pageSlogan={
+        <span className="whitespace-pre text-3xl font-bold leading-tight after:content-['토론토_대학교_\A_한인_경영단체'] lg:mb-0 lg:text-7xl lg:after:content-['UTKCC']" />
+      }
+      pageExp={
+        <div className="text-sm leading-relaxed text-kcc-gray lg:text-base lg:leading-relaxed">
+          UTKCC는 2007년 설립된 토론토대학교 공식 한인 커뮤니티로, 비즈니스,
+          네트워킹, 그리고 대학 생활 전반에 관심 있는 한인 학생들이 함께
+          성장하는 공간입니다.
+          <span className="my-3 w-full block" />
+          매년 커리어 세미나, 전공 수업 튜토리얼과 같은 학술 프로그램뿐만 아니라
+          신입생 환영회, 할로윈 파티 등 다양한 소셜 이벤트를 통해 한인 학생들의
+          교류와 대학 생활을 더욱 풍성하게 만들고 있습니다.
+          <span className="my-3 w-full block" />
+          또한, UTKCC는 졸업생 네트워크와 외부 기관과의 협력을 통해 지역
+          사회와의 연결을 강화하고, 한인 학생 커뮤니티의 지속적인 성장을
+          이끌어가고 있습니다.
+          <Link
+            href="/about"
+            className="group mx-auto mt-5 flex w-fit items-center gap-1.5 rounded-full bg-gray-200 px-5 py-2 text-xs font-bold text-black shadow-sm ring-1 ring-black/5 transition-all duration-300 ease-out hover:bg-white hover:text-kcc-theme hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:ring-kcc-theme/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 active:scale-[0.98] lg:mx-0 lg:gap-2 lg:px-7 lg:py-2.5 lg:text-sm"
+          >
+            <span>Learn More</span>
+            <span className="text-sm leading-none transition-transform duration-300 ease-out group-hover:translate-x-0.5 lg:text-base">
+              →
+            </span>
+          </Link>
+        </div>
+      }
+    >
+      <AboutImage />
+    </PageIntro>
+  );
+}

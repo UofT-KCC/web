@@ -1,6 +1,5 @@
-import Image from 'next/image';
-import eventsImage from '@/public/assets/images/events-image.png';
 import Link from 'next/link';
+import EventsGallery from './eventsGallery';
 
 export default function EventsHomeIntro() {
   return (
@@ -23,12 +22,7 @@ export default function EventsHomeIntro() {
         </div>
       </div>
       <div className="row-span-2 row-start-2 mx-auto flex h-fit w-full max-w-full items-center justify-center self-center">
-        <Image
-          alt="events image"
-          className="h-auto w-fit rounded-lg object-contain lg:max-h-[60vh]"
-          placeholder="blur"
-          src={eventsImage}
-        />
+        <EventsGallery />
       </div>
       <div className="my-6 max-w-[480px] overflow-visible break-keep text-sm font-normal leading-relaxed text-kcc-gray hyphens-none self-start lg:mt-0 lg:text-base lg:leading-relaxed">
         UTKCC는 학업, 커리어, 그리고 친목이 균형 있게 어우러지는 다양한
@@ -42,7 +36,7 @@ export default function EventsHomeIntro() {
           href={`/events`}
           className="group mx-auto mt-5 flex w-fit items-center gap-1.5 rounded-full bg-gray-200 px-5 py-2 text-xs font-bold text-black shadow-sm ring-1 ring-black/5 transition-all duration-300 ease-out hover:bg-white hover:text-kcc-theme hover:shadow-[0_12px_30px_rgba(0,0,0,0.12)] hover:ring-kcc-theme/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 active:scale-[0.98] lg:mx-0 lg:gap-2 lg:px-7 lg:py-2.5 lg:text-sm"
         >
-          <span>Learn More</span>
+          <span>View Calendar</span>
           <span className="text-sm leading-none transition-transform duration-300 ease-out group-hover:translate-x-0.5 lg:text-base">
             →
           </span>

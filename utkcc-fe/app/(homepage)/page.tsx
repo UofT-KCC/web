@@ -1,7 +1,7 @@
 import Entry from './entry';
-import About from '../(subpages)/about/page';
+import AboutHomeIntro from '../(subpages)/about/aboutHomeIntro';
 import Executives from '../(subpages)/executives/page';
-import Sponsors from '../(subpages)/sponsors/page';
+import SponsorsHomeIntro from '../(subpages)/sponsors/sponsorsHomeIntro';
 import Resources from '../(subpages)/resources/page';
 import Newsletter from '../(subpages)/newsletter/page';
 import EventsHomeIntro from '../(subpages)/events/eventsHomeIntro';
@@ -14,13 +14,13 @@ export default function Home() {
       <div className="pl-safe-left pr-safe-right">
         <div className="px-4 lg:px-32 z-50 flex flex-col gap-y-[15vh] mb-[10vh]">
           {/* about intro */}
-          <About />
+          <AboutHomeIntro />
           {/* events intro */}
           <EventsHomeIntro />
           {/* exec intro */}
           <Executives />
           {/* sponsors intro */}
-          <Sponsors />
+          <SponsorsHomeIntro />
           {/* resources intro */}
           <Resources />
           {/* newsletter intro */}

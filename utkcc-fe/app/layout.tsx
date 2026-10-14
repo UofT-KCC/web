@@ -4,6 +4,7 @@ import Script from 'next/script';
 import FooterContactInfo from '@/components/footerContactInfo';
 import FooterVisibility from '@/components/footerVisibility';
 import ChatWidget from '@/components/ChatWidget';
+import NavigationProgress from '@/components/navigationProgress';
 import { METADATA_SAVES } from '@/lib/metadata';
 import './globals.css';
 
@@ -122,6 +123,7 @@ export default function RootLayout({
           src="https://unpkg.com/ionicons@7/dist/ionicons/ionicons.js"
           strategy="afterInteractive"
         />
+        <NavigationProgress />
         {children}
         <FooterVisibility>
           <FooterContactInfo />

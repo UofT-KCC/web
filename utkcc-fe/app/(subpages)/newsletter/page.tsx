@@ -66,13 +66,13 @@ export default function Newsletter() {
       }
     >
       <section className="w-full max-w-[780px]">
-        <div className="overflow-hidden rounded-[28px] border border-slate-200/90 bg-white shadow-[0_22px_70px_-34px_rgba(5,60,140,0.4)]">
+        <div className="overflow-hidden rounded-lg border border-slate-200/90 bg-white shadow-[0_22px_70px_-34px_rgba(5,60,140,0.4)]">
           <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3.5 sm:px-5">
             <Link
               href={instagramLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex min-w-0 items-center gap-3 rounded-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/15"
+              className="group flex min-w-0 items-center gap-3 rounded-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/15"
               aria-label="utkccmedia 인스타그램 열기"
             >
               <span className="rounded-full bg-gradient-to-tr from-amber-400 via-pink-500 to-violet-600 p-[2px]">
