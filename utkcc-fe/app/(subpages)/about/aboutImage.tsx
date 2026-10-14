@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import groupImage from '@/public/assets/images/about-group-photo.png';
+import groupImage from '@/public/assets/images/about/about-hero-group.jpg';
 
 export default function AboutImage() {
   const [isLightboxMounted, setIsLightboxMounted] = useState(false);
@@ -42,7 +42,7 @@ export default function AboutImage() {
 
   return (
     <>
-      <div className="relative w-full aspect-[4/3] overflow-hidden rounded-lg bg-gray-100 shadow-sm lg:hidden">
+      <div className="relative w-full aspect-[3/2] overflow-hidden rounded-lg bg-gray-100 shadow-sm lg:hidden">
         <Image
           alt="UTKCC group photo"
           className="object-cover object-center"
@@ -57,7 +57,7 @@ export default function AboutImage() {
         type="button"
         aria-label="Open UTKCC group photo"
         onClick={openLightbox}
-        className="group relative hidden w-full max-w-[920px] aspect-[4/3] lg:block lg:max-h-[520px] overflow-hidden rounded-lg bg-gray-100 text-left cursor-pointer shadow-sm transition-all duration-300 ease-out hover:shadow-[0_18px_45px_rgba(0,0,0,0.16)] focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30"
+        className="group relative hidden w-full max-w-[920px] aspect-[3/2] lg:block lg:max-h-[520px] overflow-hidden rounded-lg bg-gray-100 text-left cursor-pointer shadow-sm transition-all duration-300 ease-out hover:shadow-[0_18px_45px_rgba(0,0,0,0.16)] focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30"
       >
         <Image
           alt="UTKCC group photo"

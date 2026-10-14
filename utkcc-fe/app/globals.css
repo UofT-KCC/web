@@ -389,6 +389,86 @@ html[data-navigating='done'] .navigation-progress {
   }
 }
 
+/* 족보 booklet (resourcesShowcase.tsx). Closed, the book is shifted left by
+   a quarter so the cover (the right half) sits centred; open, the cover leaf
+   swings 180deg on its spine and the two-page spread is centred. */
+.study-book-inner {
+  perspective: 1800px;
+  transform: translateX(-25%);
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.study-book[data-open='true'] .study-book-inner {
+  transform: none;
+}
+
+.study-book-page {
+  box-shadow:
+    2px 0 0 #fff,
+    3px 0 0 #e2e8f0,
+    5px 0 0 #fff,
+    6px 0 0 #e2e8f0,
+    0 24px 50px -28px rgba(5, 60, 140, 0.45);
+}
+
+.study-book-leaf {
+  z-index: 2;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.study-book[data-open='false'] .study-book-leaf:hover {
+  transform: rotateY(-14deg);
+}
+
+.study-book[data-open='true'] .study-book-leaf {
+  transform: rotateY(-180deg);
+}
+
+.study-book-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 24px 50px -28px rgba(5, 60, 140, 0.45);
+}
+
+.study-book-back {
+  transform: rotateY(180deg);
+}
+
+/* Large screens: the frame is one page wide (3:4) and the book inside it is
+   two pages wide. Closed, the cover (right half) is shifted into the frame;
+   open, the whole spread scales to half so it fits the same column. */
+@media (min-width: 1024px) {
+  .study-book-frame {
+    position: relative;
+    aspect-ratio: 3 / 4;
+  }
+
+  .study-book-frame .study-book {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+  }
+
+  .study-book-frame .study-book-inner {
+    transform: translateX(-50%);
+    transform-origin: 0 50%;
+  }
+
+  .study-book-frame .study-book[data-open='true'] .study-book-inner {
+    transform: scale(0.5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .study-book-inner,
+  .study-book-leaf {
+    transition: none;
+  }
+}
+
 @keyframes menu-panel-in {
   from {
     opacity: 0;
@@ -431,7 +511,7 @@ html[data-navigating='done'] .navigation-progress {
 }
 
 .course-map-sheet-stack {
-  animation: course-map-stack-cycle 12s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation: course-map-stack-cycle 7.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   animation-fill-mode: both;
   backface-visibility: hidden;
   transform-origin: center center;
@@ -443,14 +523,14 @@ html[data-navigating='done'] .navigation-progress {
   z-index: 2;
   opacity: 0.86;
   transform: translate3d(30px, 13px, 0) rotate(3.2deg) scale(0.96);
-  animation-delay: -8s;
+  animation-delay: -5s;
 }
 
 .course-map-sheet-3 {
   z-index: 1;
   opacity: 0.68;
   transform: translate3d(-30px, 22px, 0) rotate(-3.2deg) scale(0.92);
-  animation-delay: -4s;
+  animation-delay: -2.5s;
 }
 
 .sponsor-marquee-track {

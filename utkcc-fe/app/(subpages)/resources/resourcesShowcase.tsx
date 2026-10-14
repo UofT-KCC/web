@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import {
   studyPackageSeason,
   visiblePricing,
@@ -127,25 +127,36 @@ function CourseMapPanel() {
       <div className="flex flex-col py-2 sm:min-h-[470px] sm:py-5">
         <div className="flex items-start justify-between gap-5">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-400">UTKCC</p>
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-400">
+              UTKCC
+            </p>
             <h2 className="mt-1 text-4xl font-bold leading-[0.88] tracking-[-0.055em] text-kcc-theme sm:text-5xl">
-              Course<br />Map
+              Course
+              <br />
+              Map
             </h2>
           </div>
           <div className="shrink-0 rounded-2xl bg-kcc-theme/[0.07] px-5 py-4 text-center shadow-[0_14px_30px_-22px_rgba(5,60,140,.55)] ring-1 ring-inset ring-kcc-theme/15">
-            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-kcc-theme/60">Price</p>
-            <p className="mt-1 text-4xl font-bold leading-none tracking-[-0.06em] text-kcc-theme">$5</p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-kcc-theme/60">
+              Price
+            </p>
+            <p className="mt-1 text-4xl font-bold leading-none tracking-[-0.06em] text-kcc-theme">
+              $5
+            </p>
           </div>
         </div>
 
         <p className="mt-7 max-w-sm break-keep text-[13px] leading-[1.75] text-slate-600">
-          선배들의 실제 수강 경험을 바탕으로 과목 난이도, 평가 방식, 교수진과 시험
-          정보를 한눈에 확인할 수 있어요.
+          선배들의 실제 수강 경험을 바탕으로 과목 난이도, 평가 방식, 교수진과
+          시험 정보를 한눈에 확인할 수 있어요.
         </p>
 
         <div className="mt-7 space-y-3">
           <Feature number="80+" label="과목 및 교수진 리뷰" />
-          <Feature icon={<ReviewIcon />} label="학생들이 직접 전하는 수강 후기" />
+          <Feature
+            icon={<ReviewIcon />}
+            label="학생들이 직접 전하는 수강 후기"
+          />
           <Feature icon={<ExamIcon />} label="평가 방식과 시험 구성 인사이트" />
         </div>
 
@@ -179,23 +190,23 @@ const studyPackageTierOptions = [
   { key: 'helper', label: '과제 도우미', tier: rsmAssignmentHelper },
 ];
 
-// TODO: swap in the real cover art once the files are added at
-// /public/assets/images/resources/study-package/<code>.png — see BookletCover below.
-const studyPackageCoverCodes = ['AST101', 'CSC108', 'ECO101', 'MAT133'];
-
 function StudyPackagePanel() {
-  const [selectedKey, setSelectedKey] = useState(studyPackageTierOptions[0].key);
+  const [selectedKey, setSelectedKey] = useState(
+    studyPackageTierOptions[0].key,
+  );
   const selected =
     studyPackageTierOptions.find(option => option.key === selectedKey) ??
     studyPackageTierOptions[0];
   const showAddOn = selectedKey === 'half' || selectedKey === 'year';
 
   return (
-    <div className="grid items-start gap-10 lg:grid-cols-[minmax(220px,0.78fr)_minmax(340px,1.22fr)] lg:gap-14">
-      <StudyPackageCoverStack />
+    <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1fr)] lg:items-center lg:gap-12">
+      <StudyPackageBook />
 
       <div>
-        <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-400">UTKCC</p>
+        <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-400">
+          UTKCC
+        </p>
         <h2 className="mt-1 text-3xl font-bold leading-[0.95] tracking-[-0.03em] text-kcc-theme sm:text-4xl">
           Study Package
         </h2>
@@ -260,116 +271,80 @@ function StudyPackagePanel() {
   );
 }
 
-const STACK_PEEK_PX = 18;
-const STACK_AUTO_ADVANCE_MS = 4500;
-
-function StudyPackageCoverStack() {
-  const [order, setOrder] = useState(
-    studyPackageCoverCodes.map((_, i) => i),
-  );
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const cycleToBack = () => {
-    setOrder(prev => [...prev.slice(1), prev[0]]);
-  };
-
-  const bringToFront = (depth: number) => {
-    if (depth === 0) {
-      cycleToBack();
-      return;
-    }
-    setOrder(prev => {
-      const next = [...prev];
-      const [picked] = next.splice(depth, 1);
-      next.unshift(picked);
-      return next;
-    });
-  };
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches;
-    if (prefersReducedMotion) return;
-
-    timerRef.current = setInterval(cycleToBack, STACK_AUTO_ADVANCE_MS);
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, []);
-
-  const restartAutoAdvance = () => {
-    if (!timerRef.current) return;
-    clearInterval(timerRef.current);
-    timerRef.current = setInterval(cycleToBack, STACK_AUTO_ADVANCE_MS);
-  };
-
-  const cardCount = studyPackageCoverCodes.length;
+// A booklet you can open: the cover swings open on its spine to reveal a
+// two-page spread of sample pages. Closed, the book slides over so the single
+// cover sits centred; open, the spread is centred. On large screens it sits
+// beside the package details: the closed cover fills its column and the book
+// eases to half size as it opens so the spread fits. Motion lives in
+// globals.css (.study-book*).
+function StudyPackageBook() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <div className="mx-auto w-full max-w-[240px]">
-      <div
-        className="relative w-full"
-        style={{
-          paddingBottom: `calc(100% / 0.7 + ${(cardCount - 1) * STACK_PEEK_PX}px)`,
-        }}
-      >
-        {order.map((coverIndex, depth) => (
-          <button
-            key={studyPackageCoverCodes[coverIndex]}
-            type="button"
-            onClick={() => {
-              bringToFront(depth);
-              restartAutoAdvance();
-            }}
-            aria-label={
-              depth === 0
-                ? `${studyPackageCoverCodes[coverIndex]} 표지, 다음 표지 보기`
-                : `${studyPackageCoverCodes[coverIndex]} 표지를 앞으로 가져오기`
-            }
-            className="absolute inset-x-0 top-0 aspect-[0.7] origin-top overflow-hidden rounded-[14px] text-left shadow-[0_20px_45px_-22px_rgba(3,40,100,.4)] ring-1 ring-black/10 transition-[transform,box-shadow,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none focus:outline-none focus-visible:ring-2 focus-visible:ring-kcc-theme"
-            style={{
-              transform: `translate3d(0, ${depth * STACK_PEEK_PX}px, 0) scale(${1 - depth * 0.02})`,
-              zIndex: cardCount - depth,
-              opacity: depth === 0 ? 1 : 1 - depth * 0.1,
-            }}
-          >
-            <BookletCover code={studyPackageCoverCodes[coverIndex]} />
-            {depth === 0 && (
-              <span className="pointer-events-none absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-black/25 px-2.5 py-1 text-[9px] font-bold tracking-wide text-white backdrop-blur-sm">
-                다음 보기
-                <ArrowUpRightIcon className="h-2.5 w-2.5 rotate-90" />
+    <div className="mx-auto w-full max-w-[540px] lg:max-w-[340px]">
+      {/* Large screens: the frame is one page wide and the book inside it two
+          pages wide (see .study-book-frame in globals.css). */}
+      <div className="study-book-frame">
+        <div
+          className="study-book relative aspect-[3/2] w-full"
+          data-open={open}
+        >
+          <div className="study-book-inner absolute inset-0">
+            {/* Right-hand page, under the cover. */}
+            <div className="study-book-page absolute inset-y-0 left-1/2 w-1/2 overflow-hidden rounded-r-lg bg-white">
+              <Image
+                src="/assets/images/resources/study-package/sample-video-essay.jpg"
+                alt="족보 샘플 페이지: Video Essay 예시"
+                fill
+                sizes="(min-width: 1024px) 270px, 50vw"
+                className="object-cover object-top"
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-black/15 to-transparent"
+              />
+            </div>
+
+            {/* The cover leaf: front is the cover, back is the left-hand page. */}
+            <button
+              type="button"
+              onClick={() => setOpen(value => !value)}
+              aria-pressed={open}
+              aria-label={open ? '족보 미리보기 닫기' : '족보 미리보기 열기'}
+              className="study-book-leaf absolute inset-y-0 left-1/2 w-1/2 text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(5,60,140,0.3)]"
+            >
+              <span className="study-book-face absolute inset-0 overflow-hidden rounded-r-lg">
+                <BookletCover />
               </span>
-            )}
-          </button>
-        ))}
+              <span className="study-book-face study-book-back absolute inset-0 overflow-hidden rounded-l-lg bg-white">
+                <Image
+                  src="/assets/images/resources/study-package/sample-aid-sheet.jpg"
+                  alt="족보 샘플 페이지: 시험 대비 요약 시트"
+                  fill
+                  sizes="(min-width: 1024px) 270px, 50vw"
+                  className="object-cover object-top"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-black/15 to-transparent"
+                />
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className="mt-4 flex items-center justify-center gap-1.5">
-        {studyPackageCoverCodes.map((code, i) => (
-          <button
-            key={code}
-            type="button"
-            aria-label={`${code} 표지 보기`}
-            onClick={() => {
-              bringToFront(order.indexOf(i));
-              restartAutoAdvance();
-            }}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              order[0] === i ? 'w-5 bg-kcc-theme' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
-            }`}
-          />
-        ))}
-      </div>
-
-      <p className="mt-3 text-center text-[11px] font-semibold tracking-[0.08em] text-slate-400">
+      <p className="mt-5 text-center text-[11px] font-semibold tracking-[0.08em] text-slate-400">
+        {open ? '다시 누르면 닫혀요' : '표지를 눌러 안을 미리 보세요'}
+      </p>
+      <p className="mt-1 text-center text-[11px] font-semibold tracking-[0.08em] text-slate-400">
         {studyPackageSeason} · UTKCC STUDY PACKAGE
       </p>
     </div>
   );
 }
 
-function BookletCover({ code }: { code: string }) {
+function BookletCover() {
   return (
     <div className="relative flex h-full w-full flex-col items-center justify-between bg-gradient-to-b from-kcc-theme to-kcc-theme-darker px-5 py-6 text-center text-white">
       <div className="pointer-events-none absolute inset-[9px] rounded-[4px] border border-white/25" />
@@ -389,7 +364,7 @@ function BookletCover({ code }: { code: string }) {
 
       <div className="relative flex flex-col items-center gap-2">
         <span className="inline-flex items-center justify-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold tracking-wide">
-          {code}
+          SAMPLE PREVIEW
         </span>
         <p className="max-w-[85%] text-[6.5px] font-medium leading-tight tracking-[0.02em] text-white/50">
           University of Toronto Korean Commerce Community
@@ -405,16 +380,27 @@ function PackageCard({ tier }: { tier: PackageTier }) {
       <div className="flex flex-wrap items-start justify-between gap-5">
         <div>
           {tier.badge && (
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-kcc-theme/60">{tier.badge}</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-kcc-theme/60">
+              {tier.badge}
+            </p>
           )}
-          <h3 className="mt-1 text-xl font-bold tracking-tight text-slate-900">{tier.title}</h3>
+          <h3 className="mt-1 text-xl font-bold tracking-tight text-slate-900">
+            {tier.title}
+          </h3>
         </div>
 
         <div className="flex shrink-0 flex-wrap gap-2">
           {visiblePricing(tier.pricing).map(price => (
-            <div key={price.label} className="rounded-xl bg-kcc-theme/[0.06] px-3.5 py-2.5 text-center ring-1 ring-inset ring-kcc-theme/10">
-              <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-kcc-theme/55">{price.label}</p>
-              <p className="text-base font-bold text-kcc-theme">{price.price}</p>
+            <div
+              key={price.label}
+              className="rounded-xl bg-kcc-theme/[0.06] px-3.5 py-2.5 text-center ring-1 ring-inset ring-kcc-theme/10"
+            >
+              <p className="text-[8px] font-bold uppercase tracking-[0.16em] text-kcc-theme/55">
+                {price.label}
+              </p>
+              <p className="text-base font-bold text-kcc-theme">
+                {price.price}
+              </p>
             </div>
           ))}
         </div>
@@ -422,14 +408,19 @@ function PackageCard({ tier }: { tier: PackageTier }) {
 
       <div className="mt-5 flex flex-wrap gap-1.5">
         {tier.courses.map(course => (
-          <span key={course} className="rounded-full bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-600 ring-1 ring-inset ring-slate-200/80">
+          <span
+            key={course}
+            className="rounded-full bg-slate-50 px-2.5 py-1 text-[11px] font-semibold text-slate-600 ring-1 ring-inset ring-slate-200/80"
+          >
             {course}
           </span>
         ))}
       </div>
 
       {tier.footnote && (
-        <p className="mt-5 border-t border-slate-100 pt-4 text-[11px] leading-relaxed text-slate-400">{tier.footnote}</p>
+        <p className="mt-5 border-t border-slate-100 pt-4 text-[11px] leading-relaxed text-slate-400">
+          {tier.footnote}
+        </p>
       )}
     </div>
   );
@@ -488,15 +479,34 @@ function Feature({
 
 function ArrowUpRightIcon({ className = 'h-4 w-4' }: { className?: string }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" className={`fill-none ${className}`} stroke="currentColor" strokeWidth="1.7">
-      <path d="M5 15 15 5M7 5h8v8" strokeLinecap="round" strokeLinejoin="round" />
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 20 20"
+      className={`fill-none ${className}`}
+      stroke="currentColor"
+      strokeWidth="1.7"
+    >
+      <path
+        d="M5 15 15 5M7 5h8v8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
 function ReviewIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M7 8h10" />
       <path d="M7 12h6" />
       <path d="M8 18H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-4l-4 3v-3Z" />
@@ -506,7 +516,16 @@ function ReviewIcon() {
 
 function ExamIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-4 w-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M9 5h6" />
       <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1Z" />
       <path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
@@ -515,4 +534,3 @@ function ExamIcon() {
     </svg>
   );
 }
-

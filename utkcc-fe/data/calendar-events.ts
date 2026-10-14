@@ -18,6 +18,8 @@ export interface CalendarEvent {
   highlights?: string[];
   image?: string;
   imageAlt?: string;
+  // CSS object-position for the cropped image (e.g. '50% 56%' to keep faces in frame).
+  imagePosition?: string;
   imageCaption?: string;
   registrationUrl?: string;
   // Long-running notices appear below the calendar instead of filling every cell.
@@ -40,18 +42,6 @@ export const calendarEvents: CalendarEvent[] = [
     imageAlt: 'UTKCC MT 단체 사진 — 공원에서 바시티 재킷을 입은 멤버들',
   },
   {
-    id: 'lg-coffee-chat', title: 'Coffee Chat w/ LG Electronics', date: '2026-10-07', category: 'social',
-    description: 'LG Electronics 현직자와 함께하는 커피챗입니다. 글로벌 기업에서 일한다는 것이 실제로 어떤 모습인지, 편안한 분위기에서 직접 묻고 들을 수 있는 자리예요.\n\n커리어를 시작하게 된 계기와 현재 하고 있는 업무, 회사 문화, 그리고 학생 때 준비해 두면 좋은 것들까지 궁금했던 이야기를 자유롭게 나눠 보세요. 진로를 아직 고민 중인 학생도, 이미 지원을 준비 중인 학생도 모두 환영합니다.\n\n참여 방법은 UTKCC 인스타그램(@utkcc_)을 통해 안내됩니다.',
-    highlights: [
-      '현직자에게 직접 듣는 커리어 이야기',
-      '업무와 회사 문화에 대한 자유로운 Q&A',
-      '학생 때 준비하면 좋은 경험과 역량',
-      '편안한 커피챗 형식의 소통',
-    ],
-    image: '/assets/images/events/professional-events.jpg',
-    imageAlt: 'Glass-fronted building, UTKCC social category image', imageCaption: 'Social category image · Event poster to follow',
-  },
-  {
     id: 'kpwa-mentorship', title: 'KPWA Mentorship Event', date: '2026-10-09', category: 'social',
     description: 'KPWA와 함께하는 멘토십 이벤트입니다. 다양한 분야에서 활동하고 있는 선배 직장인 멘토들과 만나, 진로와 커리어에 대해 깊이 있는 이야기를 나눌 수 있는 기회예요.\n\n학교 생활과 취업 준비, 첫 커리어를 시작하기까지의 과정처럼 혼자서는 답을 찾기 어려운 고민들을 멘토와 함께 이야기해 보세요. 단순한 정보 전달을 넘어, 앞으로도 이어질 수 있는 네트워크를 만드는 자리가 될 거예요.\n\n세부 프로그램과 참여 방법은 UTKCC 인스타그램(@utkcc_)을 통해 안내됩니다.',
     highlights: [
@@ -59,8 +49,9 @@ export const calendarEvents: CalendarEvent[] = [
       '취업 준비 과정에 대한 현실적인 조언',
       '관심 분야 선배들과의 네트워킹',
     ],
-    image: '/assets/images/events/professional-events.jpg',
-    imageAlt: 'Glass-fronted building, UTKCC social category image', imageCaption: 'Social category image · Event poster to follow',
+    image: '/assets/images/events/kpwa-mentorship.jpg',
+    imageAlt: 'KPWA 행사 포토월 앞에서 함께한 UTKCC 멤버들',
+    imagePosition: '50% 56%',
   },
   {
     id: 'thanksgiving', title: 'Thanksgiving', date: '2026-10-12', category: 'campus',

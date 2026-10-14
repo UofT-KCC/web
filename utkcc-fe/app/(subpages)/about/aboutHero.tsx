@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import groupPhoto from '@/public/assets/images/about/about-hero-group.jpg';
+import towerCutout from '@/public/assets/images/about/about-hero-tower.png';
 
 // Full-screen cover hero. It breaks out of the subpage layout's side margins
 // and top padding (pt-24 / lg:pt-32) so the photo runs edge to edge, from
@@ -11,35 +12,48 @@ import groupPhoto from '@/public/assets/images/about/about-hero-group.jpg';
 //
 // Large screens: the title wraps around University College's central tower,
 // "UTK" in the sky on its left and "CC" on its right, both tucked slightly
-// behind it. A second copy of the photo, clipped to the tower, sits above the
-// letters to hide the tucked edges. Everything is positioned in the photo's
+// behind it. A transparent cutout of the tower sits above the letters to hide
+// the tucked edges. Everything is positioned in the photo's
 // own pixel coordinates (mapped through object-cover / object-top), so the
 // tower always lands in the gap whatever the screen shape.
 //
 // Phones: the portrait crop puts the tower dead centre, so the title sits at
 // the bottom over a soft gradient instead.
 
-// Source photo size and the tower's edges where the letters cross it.
-const PHOTO = { width: 2400, height: 1600 };
-const TOWER = { left: 1189, right: 1418, bottom: 430 };
+// Source photo size, measured on the photo. If the photo changes, re-measure
+// these and regenerate the tower cutout.
+const PHOTO = { width: 2000, height: 1333 };
+// The tower's edges where the letters cross it (the title anchors to these).
+const TOWER = { left: 997, right: 1195 };
+// A transparent PNG of just the tower, cut pixel by pixel from the photo
+// (stone vs sky by colour, soft 1px edges). It sits over the letters so they
+// disappear exactly along the real stone edge. This is its box in the photo.
+const CUTOUT = { x: 975, y: 0, width: 240, height: 380 };
 // Title layout in photo pixels.
-const TITLE = { top: 205, label: 40, gap: 8, word: 190, tuck: 18 };
+const TITLE = { top: 171, label: 33, gap: 7, word: 158, tuck: 15 };
 
 type Layout = {
   scale: number;
   towerLeft: number;
   towerRight: number;
-  towerBottom: number;
+  cutout: { left: number; top: number; width: number; height: number };
 };
 
 function measure(width: number, height: number): Layout {
   const scale = Math.max(width / PHOTO.width, height / PHOTO.height);
   const offsetX = (width - PHOTO.width * scale) / 2; // object-position x: 50%
+  // Photo pixels to screen pixels (object-position y: top, so no y offset).
+  const x = (px: number) => offsetX + px * scale;
   return {
     scale,
-    towerLeft: offsetX + TOWER.left * scale,
-    towerRight: offsetX + TOWER.right * scale,
-    towerBottom: TOWER.bottom * scale, // object-position y: top
+    towerLeft: x(TOWER.left),
+    towerRight: x(TOWER.right),
+    cutout: {
+      left: x(CUTOUT.x),
+      top: CUTOUT.y * scale,
+      width: CUTOUT.width * scale,
+      height: CUTOUT.height * scale,
+    },
   };
 }
 
@@ -130,22 +144,15 @@ export default function AboutHero() {
               </p>
             </div>
 
-            {/* The tower, drawn again on top so the letters tuck behind it. */}
-            <div
+            {/* The tower cutout, on top so the letters tuck behind it. */}
+            <Image
+              src={towerCutout}
+              alt=""
               aria-hidden="true"
-              className="absolute inset-0"
-              style={{
-                clipPath: `polygon(${layout.towerLeft}px 0, ${layout.towerRight}px 0, ${layout.towerRight}px ${layout.towerBottom}px, ${layout.towerLeft}px ${layout.towerBottom}px)`,
-              }}
-            >
-              <Image
-                src={groupPhoto}
-                alt=""
-                fill
-                sizes="100vw"
-                className="object-cover object-top"
-              />
-            </div>
+              unoptimized
+              className="pointer-events-none absolute max-w-none select-none"
+              style={layout.cutout}
+            />
           </div>
         )}
 
