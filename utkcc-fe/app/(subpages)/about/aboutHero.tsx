@@ -99,6 +99,7 @@ export default function AboutHero() {
       <div className="about-hero-scene absolute inset-0 origin-top">
         <Image
           src={groupPhoto}
+          quality={90}
           alt="University College 앞에서 찍은 UTKCC 단체 사진"
           fill
           priority
