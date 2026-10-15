@@ -14,7 +14,7 @@ import towerCutout from '@/public/assets/images/about/about-hero-tower.png';
 // "UTK" in the sky on its left and "CC" on its right, both tucked slightly
 // behind it. A transparent cutout of the tower sits above the letters to hide
 // the tucked edges. Everything is positioned in the photo's
-// own pixel coordinates (mapped through object-cover / object-top), so the
+// own pixel coordinates (mapped through object-cover and the CROP_Y anchor), so the
 // tower always lands in the gap whatever the screen shape.
 //
 // Phones: the portrait crop puts the tower dead centre, so the title sits at
@@ -24,16 +24,20 @@ import towerCutout from '@/public/assets/images/about/about-hero-tower.png';
 // these and regenerate the tower cutout.
 const PHOTO = { width: 2000, height: 1333 };
 // The tower's edges where the letters cross it (the title anchors to these).
-const TOWER = { left: 997, right: 1195 };
+const TOWER = { left: 927, right: 1085 };
 // A transparent PNG of just the tower, cut pixel by pixel from the photo
 // (stone vs sky by colour, soft 1px edges). It sits over the letters so they
 // disappear exactly along the real stone edge. This is its box in the photo.
-const CUTOUT = { x: 975, y: 0, width: 240, height: 380 };
+const CUTOUT = { x: 905, y: 140, width: 200, height: 330 };
 // Title layout in photo pixels.
-const TITLE = { top: 171, label: 33, gap: 7, word: 158, tuck: 15 };
+const TITLE = { top: 215, label: 33, gap: 7, word: 152, tuck: 15 };
+// Vertical crop anchor (object-position y). On screens wider than the photo,
+// 0.35 trims some sky as well as grass instead of only cutting the bottom.
+const CROP_Y = 0.35;
 
 type Layout = {
   scale: number;
+  offsetY: number;
   towerLeft: number;
   towerRight: number;
   cutout: { left: number; top: number; width: number; height: number };
@@ -42,15 +46,17 @@ type Layout = {
 function measure(width: number, height: number): Layout {
   const scale = Math.max(width / PHOTO.width, height / PHOTO.height);
   const offsetX = (width - PHOTO.width * scale) / 2; // object-position x: 50%
-  // Photo pixels to screen pixels (object-position y: top, so no y offset).
+  const offsetY = (height - PHOTO.height * scale) * CROP_Y;
+  // Photo pixels to screen pixels.
   const x = (px: number) => offsetX + px * scale;
   return {
     scale,
+    offsetY,
     towerLeft: x(TOWER.left),
     towerRight: x(TOWER.right),
     cutout: {
       left: x(CUTOUT.x),
-      top: CUTOUT.y * scale,
+      top: offsetY + CUTOUT.y * scale,
       width: CUTOUT.width * scale,
       height: CUTOUT.height * scale,
     },
@@ -98,7 +104,8 @@ export default function AboutHero() {
           priority
           placeholder="blur"
           sizes="100vw"
-          className="object-cover object-top"
+          className="object-cover"
+          style={{ objectPosition: `50% ${CROP_Y * 100}%` }}
         />
 
         {/* Large screens: the title wraps around the tower. */}
@@ -108,7 +115,7 @@ export default function AboutHero() {
               className="absolute text-left"
               style={{
                 right: `calc(100% - ${layout.towerLeft + TITLE.tuck * layout.scale}px)`,
-                top: px(TITLE.top),
+                top: `${layout.offsetY + TITLE.top * layout.scale}px`,
               }}
             >
               <p
@@ -133,7 +140,7 @@ export default function AboutHero() {
               className="absolute"
               style={{
                 left: `${layout.towerRight - TITLE.tuck * layout.scale}px`,
-                top: px(TITLE.top + TITLE.label + TITLE.gap),
+                top: `${layout.offsetY + (TITLE.top + TITLE.label + TITLE.gap) * layout.scale}px`,
               }}
             >
               <p
