@@ -61,7 +61,7 @@ export default function FooterContactInfo() {
         <div className="border-t border-white/20 pt-4 text-[11px] leading-5 text-white/45 lg:pt-4 lg:text-xs lg:leading-5 lg:text-white/40">
           <div className="space-y-1 lg:space-y-0">
             <div>
-              Designed by{' '}
+              Original design by{' '}
               <Link
                 href="https://www.instagram.com/hyunjunyou"
                 target="_blank"
@@ -72,15 +72,15 @@ export default function FooterContactInfo() {
               .
             </div>
             <div>
-              Initially developed by{' '}
+              Originally developed by{' '}
               <Link
                 href="https://www.instagram.com/ryubsmile"
                 target="_blank"
                 className="transition-colors hover:text-white"
               >
                 Jaehyuk Ryu
-              </Link>
-              , and{' '}
+              </Link>{' '}
+              and{' '}
               <Link
                 href="https://www.instagram.com/justin.geon.kim/"
                 target="_blank"
@@ -91,7 +91,18 @@ export default function FooterContactInfo() {
               (UTKCC 17th).
             </div>
             <div>
-              Maintained and updated by UTKCC Programming Team:{' '}
+              Redesigned and rebuilt by{' '}
+              <Link
+                href="https://www.instagram.com/jamieryu._"
+                target="_blank"
+                className="transition-colors hover:text-white"
+              >
+                Jeehoon Ryu
+              </Link>{' '}
+              (UTKCC 20th).
+            </div>
+            <div>
+              Maintained by the UTKCC Programming Team:{' '}
               <Link
                 href="https://www.instagram.com/jamieryu._"
                 target="_blank"
@@ -106,6 +117,14 @@ export default function FooterContactInfo() {
                 className="transition-colors hover:text-white"
               >
                 Jiho Shin
+              </Link>
+              ,{' '}
+              <Link
+                href="https://www.instagram.com/yi.an2_/"
+                target="_blank"
+                className="transition-colors hover:text-white"
+              >
+                Yian Kim
               </Link>
               .
             </div>

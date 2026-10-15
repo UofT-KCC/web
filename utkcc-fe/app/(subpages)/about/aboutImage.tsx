@@ -20,7 +20,7 @@ export default function AboutImage() {
     if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
     closeTimerRef.current = window.setTimeout(
       () => setIsLightboxMounted(false),
-      220
+      220,
     );
   }, []);
 
@@ -49,6 +49,7 @@ export default function AboutImage() {
           fill
           sizes="100vw"
           src={groupImage}
+          quality={90}
         />
         <span className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-black/5" />
       </div>
@@ -65,6 +66,7 @@ export default function AboutImage() {
           fill
           sizes="(min-width: 1024px) 48vw, 100vw"
           src={groupImage}
+          quality={90}
         />
         <span className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/[0.06]" />
         <span className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-black/5 transition-all duration-300 group-hover:ring-kcc-theme/20" />
@@ -111,13 +113,14 @@ export default function AboutImage() {
                 ? 'translate-y-0 scale-100 opacity-100'
                 : 'translate-y-3 scale-[0.985] opacity-0'
             }`}
-            onClick={(event) => event.stopPropagation()}
+            onClick={event => event.stopPropagation()}
           >
             <Image
               alt="Expanded UTKCC group photo"
               className="h-auto max-h-[82vh] w-auto max-w-[92vw] rounded-lg"
               sizes="92vw"
               src={groupImage}
+              quality={90}
               priority
             />
           </div>
