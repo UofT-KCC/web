@@ -1,82 +1,105 @@
+'use client';
+
 import Image from 'next/image';
-import LogoImage from '@/public/assets/images/big-logo.png';
+import logoBody from '@/public/assets/images/intro/logo-body.png';
+import logoInner from '@/public/assets/images/intro/logo-inner.png';
+import logoOuter from '@/public/assets/images/intro/logo-outer.png';
 import './entry.css';
 
+const LOGO_SIZES = '(min-width: 1024px) 224px, (min-width: 640px) 192px, 160px';
+
 /**
- * 홈페이지 LCP (Largest Contentful Paint)를 띄우는 애니메이션.
+ * 홈페이지 첫 화면 (LCP).
+ *
+ * Plays once: the logo builds itself from its three pieces (split from
+ * big-logo.png, so stacked they are the original logo), then the UTKCC
+ * title and full club name come into focus, then the scroll cue appears.
  */
 export default function Entry() {
-  const animationName = 'upfold';
-
-  const Logo = (
-    <Image
-      src={LogoImage}
-      alt=""
-      fill={true}
-      sizes={'100%'}
-      priority={true}
-      className={`object-contain scale-[0.4] lg:scale-[0.25] ${animationName}-logo`}
-    />
-  );
-
-  const ScrollInstructor = (
-    <div
-      className={`absolute w-full bottom-[8dvh] opacity-60 text-center ${animationName}-logo`}
-    >
-      아래로 스크롤하세요.
-    </div>
-  );
-
-  const Text1 = (
-    <div className="font-normal text-xl text-center text-gray-600">
-      <p className={`${animationName}-text-1`}>
-        학업 성취와 커리어의 첫 시작점 <br />
-        모두 이 곳에서 시작하세요. <br />
-      </p>
-      <p className={`${animationName}-text-2`}>
-        이제껏 경험 못 했던 한인 경영동아리, <br />
-        <span className="text-kcc-theme">UTKCC</span>와 함께라면 당신의 <br />
-        유티는 분명 더 즐거울거예요.
-      </p>
-    </div>
-  );
-
-  const Text2 = (
-    <div className={`font-normal text-xl text-center ${animationName}-slogan`}>
-      Be Part of a
-      <br /> <span className="text-kcc-theme">Professional</span> Community.
-    </div>
-  );
-
-  const GroupName = (
-    <div className={`flex flex-col text-center ${animationName}-group-name`}>
-      <div className="font-bold text-4xl text-kcc-theme">UTKCC</div>
-      <div className="mt-4 font-normal text-gray-600">
-        University of Toronto <br /> Korean Commerce Community
-      </div>
-    </div>
-  );
-
-  const animationComponents = [Logo, ScrollInstructor, Text1, Text2, GroupName];
+  const scrollToAbout = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const target = document.getElementById('about');
+    if (!target) return;
+    event.preventDefault();
+    const reduce = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+    target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  };
 
   return (
     <>
-      <div className="h-[100lvh]"></div>
-      <div id="entry" className="w-screen h-[100dvh] absolute top-0 left-0">
-        <div className="relative w-full h-full">
-          {animationComponents.map((components, i) => (
-            <PlaceCenter key={i}>{components}</PlaceCenter>
-          ))}
+      <div className="h-[100lvh]" />
+      <section
+        id="entry"
+        className="absolute left-0 top-0 flex h-[100dvh] w-screen select-none flex-col items-center justify-center overflow-hidden px-6 text-center"
+      >
+        <div aria-hidden="true" className="intro-backdrop">
+          <div className="intro-blob intro-blob-a" />
+          <div className="intro-blob intro-blob-b" />
+          <div className="intro-fade-out" />
         </div>
-      </div>
-    </>
-  );
-}
 
-function PlaceCenter({ children }: { children: React.JSX.Element }) {
-  return (
-    <div className="absolute w-screen h-[100dvh] flex items-center justify-center">
-      {children}
-    </div>
+        <div className="relative h-40 w-40 sm:h-48 sm:w-48 lg:h-56 lg:w-56">
+          <Image
+            src={logoBody}
+            alt="UTKCC 로고"
+            fill
+            priority
+            sizes={LOGO_SIZES}
+            className="intro-logo-body object-contain"
+          />
+          <Image
+            src={logoOuter}
+            alt=""
+            fill
+            priority
+            sizes={LOGO_SIZES}
+            className="intro-logo-outer object-contain"
+          />
+          <Image
+            src={logoInner}
+            alt=""
+            fill
+            priority
+            sizes={LOGO_SIZES}
+            className="intro-logo-inner object-contain"
+          />
+        </div>
+
+        <h1
+          className="intro-line relative mt-6 text-7xl font-bold leading-none tracking-tight text-kcc-theme sm:mt-8 sm:text-8xl lg:text-9xl"
+          style={{ animationDelay: '1.6s' }}
+        >
+          UTKCC
+        </h1>
+
+        <p
+          className="intro-line relative mt-4 text-[15px] font-semibold leading-relaxed tracking-[0.04em] text-slate-500 sm:mt-5 sm:text-base lg:text-lg"
+          style={{ animationDelay: '1.85s' }}
+        >
+          <span className="block sm:inline">University of Toronto </span>
+          <span className="block sm:inline">Korean Commerce Community</span>
+        </p>
+
+        <a
+          href="#about"
+          onClick={scrollToAbout}
+          className="intro-cue absolute bottom-[7dvh] flex flex-col items-center gap-1 text-xs font-semibold text-slate-400 transition-colors hover:text-kcc-theme focus:outline-none focus-visible:text-kcc-theme"
+        >
+          아래로 스크롤하세요
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 20 20"
+            className="intro-cue-arrow h-5 w-5 fill-none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="m5 8 5 5 5-5" />
+          </svg>
+        </a>
+      </section>
+    </>
   );
 }
