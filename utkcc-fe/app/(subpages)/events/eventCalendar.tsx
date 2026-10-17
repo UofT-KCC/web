@@ -6,6 +6,7 @@ import { calendarEvents, CalendarEvent, eventCategories, EventCategory } from '@
 import { formatDate, monthDays, occursOn, shiftMonth } from './calendarDates';
 import styles from './eventCalendar.module.css';
 import EventsGallery from './eventsGallery';
+import InvitationArchive from './invitationArchive';
 
 function Icon({ name }: { name: string }) {
   return <ion-icon name={name} aria-hidden="true" />;
@@ -248,6 +249,9 @@ export default function EventCalendar() {
             </button>) : <div className={styles.empty}><Icon name="sunny-outline" /><p>No events on this day.</p></div>}
           </div>
         </aside>
+      </div>
+      <div className={styles.sectionBreak}>
+        <InvitationArchive />
       </div>
       {activeEvent && <EventDetails event={activeEvent} onClose={() => setActiveEvent(null)} />}
     </section>
