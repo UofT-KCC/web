@@ -195,11 +195,32 @@ html[data-navigating='done'] .navigation-progress {
    Phones: the stub is a strip along the bottom (--ticket-stub-h tall), so the
    notches sit on the left and right edges. sm and up: the stub is
    --ticket-stub wide on the right, so the notches sit on the top and bottom
-   edges. Both values match the stub size in sponsorsDirectory.tsx. */
+   edges. Both values match the stub size in sponsorsDirectory.tsx.
+
+   The outline is a border plus a ring drawn around each notch (the background
+   layers), and the shadow is a box-shadow on the unmasked .sponsor-face. No
+   filter: Safari drops or flickers filters inside the 3D flip, which left the
+   tickets with no edge on iPhones. */
 .sponsor-ticket {
   --ticket-notch: 9px;
   --ticket-stub-h: 56px;
   --ticket-stub: 120px;
+  --ticket-edge: rgba(15, 23, 42, 0.13);
+  --ticket-ring: transparent calc(var(--ticket-notch) - 0.5px),
+    var(--ticket-edge) calc(var(--ticket-notch) - 0.5px),
+    var(--ticket-edge) calc(var(--ticket-notch) + 1px),
+    transparent calc(var(--ticket-notch) + 1px);
+  border: 1px solid var(--ticket-edge);
+  background-image:
+    radial-gradient(
+      circle at 0 calc(100% - var(--ticket-stub-h)),
+      var(--ticket-ring)
+    ),
+    radial-gradient(
+      circle at 100% calc(100% - var(--ticket-stub-h)),
+      var(--ticket-ring)
+    );
+  background-origin: border-box;
   -webkit-mask:
     radial-gradient(
         circle var(--ticket-notch) at 0 calc(100% - var(--ticket-stub-h)),
@@ -230,6 +251,15 @@ html[data-navigating='done'] .navigation-progress {
 
 @media (min-width: 640px) {
   .sponsor-ticket {
+    background-image:
+      radial-gradient(
+        circle at calc(100% - var(--ticket-stub)) 0,
+        var(--ticket-ring)
+      ),
+      radial-gradient(
+        circle at calc(100% - var(--ticket-stub)) 100%,
+        var(--ticket-ring)
+      );
     -webkit-mask:
       radial-gradient(
           circle var(--ticket-notch) at calc(100% - var(--ticket-stub)) 0,
@@ -261,16 +291,24 @@ html[data-navigating='done'] .navigation-progress {
 
 .sponsor-ticket-frame {
   perspective: 1400px;
-  filter: drop-shadow(0 0 0.5px rgba(15, 23, 42, 0.28))
-    drop-shadow(0 10px 18px rgba(5, 60, 140, 0.07));
-  transition:
-    transform 0.3s ease-out,
-    filter 0.3s ease-out;
+  transition: transform 0.3s ease-out;
 }
 
-.sponsor-ticket-frame:hover {
-  filter: drop-shadow(0 0 0.5px rgba(5, 60, 140, 0.45))
-    drop-shadow(0 18px 26px rgba(5, 60, 140, 0.12));
+.sponsor-face {
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 18px -6px rgba(5, 60, 140, 0.1);
+  transition: box-shadow 0.3s ease-out;
+}
+
+/* Mouse only: on phones a tap leaves :hover stuck on the ticket. */
+@media (hover: hover) {
+  .sponsor-ticket-frame:hover .sponsor-ticket {
+    --ticket-edge: rgba(5, 60, 140, 0.35);
+  }
+
+  .sponsor-ticket-frame:hover .sponsor-face {
+    box-shadow: 0 18px 26px -8px rgba(5, 60, 140, 0.16);
+  }
 }
 
 /* Sponsor ticket flip: the back face sits on top of the front, pre-rotated,
