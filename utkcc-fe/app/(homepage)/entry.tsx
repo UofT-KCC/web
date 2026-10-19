@@ -67,14 +67,14 @@ export default function Entry() {
         </div>
 
         <h1
-          className="intro-line relative mt-6 text-7xl font-bold leading-none tracking-tight text-kcc-theme sm:mt-8 sm:text-8xl lg:text-9xl"
+          className="intro-line relative mt-6 text-6xl font-bold leading-none tracking-tight text-kcc-theme sm:mt-7 sm:text-7xl lg:text-8xl"
           style={{ animationDelay: '1.6s' }}
         >
           UTKCC
         </h1>
 
         <p
-          className="intro-line relative mt-4 text-[15px] font-semibold leading-relaxed tracking-[0.04em] text-slate-500 sm:mt-5 sm:text-base lg:text-lg"
+          className="intro-line relative mt-3 text-sm font-semibold leading-relaxed tracking-[0.04em] text-slate-500 sm:mt-4 sm:text-[15px] lg:text-base"
           style={{ animationDelay: '1.85s' }}
         >
           <span className="block sm:inline">University of Toronto </span>
@@ -84,7 +84,7 @@ export default function Entry() {
         <a
           href="#about"
           onClick={scrollToAbout}
-          className="intro-cue absolute bottom-[7dvh] flex flex-col items-center gap-1 text-xs font-semibold text-slate-400 transition-colors hover:text-kcc-theme focus:outline-none focus-visible:text-kcc-theme"
+          className="intro-cue absolute bottom-[7dvh] flex flex-col items-center gap-1 text-sm font-semibold text-slate-400 transition-colors hover:text-kcc-theme focus:outline-none focus-visible:text-kcc-theme"
         >
           아래로 스크롤하세요
           <svg

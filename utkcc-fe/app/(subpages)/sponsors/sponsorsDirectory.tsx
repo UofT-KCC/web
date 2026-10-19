@@ -83,7 +83,7 @@ export default function SponsorsDirectory() {
         </div>
       </div>
 
-      <div key={filter} className="mt-6 grid gap-4 sm:gap-5 lg:grid-cols-2">
+      <div key={filter} className="mt-6 grid gap-4 sm:gap-5 xl:grid-cols-2">
         {visible.map((sponsor, index) => (
           <SponsorDetailCard
             key={sponsor.name}
@@ -99,8 +99,8 @@ export default function SponsorsDirectory() {
 
 // Rendered as a perforated coupon: the main section holds the partner's
 // details, the stub on the right holds the links. The notches are cut with a
-// CSS mask (.sponsor-ticket in globals.css) and the outline comes from
-// drop-shadows on the wrapper so it follows the notch curves.
+// CSS mask (.sponsor-ticket in globals.css), which also draws the outline
+// around them; the shadow sits on each unmasked face (.sponsor-face).
 function SponsorDetailCard({
   sponsor,
   delay,
@@ -140,7 +140,7 @@ function SponsorDetailCard({
 
   return (
     <div
-      className="sponsor-ticket-frame min-w-0 animate-[menu-panel-in_520ms_cubic-bezier(0.22,1,0.36,1)_backwards] hover:-translate-y-0.5 motion-reduce:animate-none"
+      className="sponsor-ticket-frame min-w-0 animate-[menu-panel-in_520ms_cubic-bezier(0.22,1,0.36,1)_backwards] motion-reduce:animate-none [@media(hover:hover)]:hover:-translate-y-0.5"
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="sponsor-flip" data-flipped={flipped}>
@@ -149,70 +149,72 @@ function SponsorDetailCard({
         <div
           ref={frontRef}
           onClick={flipFromClick}
-          className="sponsor-face sponsor-ticket group flex min-w-0 cursor-pointer flex-col rounded-lg bg-white sm:flex-row"
+          className="sponsor-face group cursor-pointer"
         >
-          <div className="flex min-w-0 flex-1 items-center gap-4 p-3.5 sm:gap-5 sm:p-3">
-            <div className="relative aspect-square w-[88px] shrink-0 overflow-hidden rounded-lg bg-[#f7f8fa] ring-1 ring-black/5 sm:w-28">
-              <Image
-                src={imageSrc}
-                alt={`${name} 로고`}
-                fill
-                sizes="(min-width: 640px) 112px, 88px"
-                priority={priority}
-                className="object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
-              />
-            </div>
-
-            <div className="min-w-0 flex-1">
-              <p className="flex items-center gap-1.5 text-xs font-bold text-slate-400 sm:text-[11px]">
-                <span
-                  className={`h-1.5 w-1.5 rounded-full ${categoryDots[category]}`}
+          <div className="sponsor-ticket flex h-full min-w-0 flex-col rounded-lg bg-white sm:flex-row">
+            <div className="flex min-w-0 flex-1 items-center gap-4 p-3.5 sm:gap-5 sm:p-3">
+              <div className="relative aspect-square w-[88px] shrink-0 overflow-hidden rounded-lg bg-[#f7f8fa] ring-1 ring-black/5 sm:w-28">
+                <Image
+                  src={imageSrc}
+                  alt={`${name} 로고`}
+                  fill
+                  sizes="(min-width: 640px) 112px, 88px"
+                  priority={priority}
+                  className="object-cover transition duration-500 ease-out group-hover:scale-[1.04]"
                 />
-                {sponsorCategories[category]}
-              </p>
-              <h3 className="mt-1 text-lg font-bold leading-tight tracking-tight text-slate-950 sm:truncate sm:text-xl">
-                {name}
-              </h3>
-              <p className="mt-1 text-sm leading-snug text-slate-500 sm:mt-0.5 sm:line-clamp-1 sm:text-[13px]">
-                {exp}
-              </p>
-              <button
-                type="button"
-                onClick={() => setFlipped(true)}
-                aria-label={`${name} 멤버십 혜택 보기`}
-                className="mt-2 inline-flex items-center gap-1 rounded-full text-[11px] font-bold text-kcc-theme transition-colors hover:text-kcc-theme-darker focus:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(5,60,140,0.2)]"
-              >
-                <FlipIcon />
-                혜택 보기
-              </button>
-            </div>
-          </div>
+              </div>
 
-          <div className="relative flex h-14 shrink-0 items-center justify-between px-4 sm:h-auto sm:w-[120px] sm:flex-col sm:justify-center sm:gap-2.5 sm:px-0">
-            <span
-              aria-hidden="true"
-              className="absolute inset-x-3 top-0 border-t-[1.5px] border-dashed border-slate-200 sm:inset-x-auto sm:inset-y-3 sm:left-0 sm:border-l-[1.5px] sm:border-t-0"
-            />
-            <MemberLabel />
-            <div className="flex gap-2 sm:gap-1.5">
-              <TicketLink
-                href={websiteUrl}
-                label={`${name} ${isInstagram ? '인스타그램' : '웹사이트'} 열기`}
-                text={isInstagram ? 'Instagram' : '웹사이트'}
-              >
-                {isInstagram ? (
-                  <InstagramIcon className="h-4 w-4" />
-                ) : (
-                  <ArrowUpRightIcon className="h-4 w-4" />
-                )}
-              </TicketLink>
-              <TicketLink
-                href={locationUrl}
-                label={`${name} 위치 보기`}
-                text="지도"
-              >
-                <PinIcon className="h-4 w-4" />
-              </TicketLink>
+              <div className="min-w-0 flex-1">
+                <p className="flex items-center gap-1.5 text-xs font-bold text-slate-400 sm:text-[11px]">
+                  <span
+                    className={`h-1.5 w-1.5 rounded-full ${categoryDots[category]}`}
+                  />
+                  {sponsorCategories[category]}
+                </p>
+                <h3 className="mt-1 text-lg font-bold leading-tight tracking-tight text-slate-950 sm:truncate sm:text-xl">
+                  {name}
+                </h3>
+                <p className="mt-1 text-sm leading-snug text-slate-500 sm:mt-0.5 sm:line-clamp-1 sm:text-[13px]">
+                  {exp}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setFlipped(true)}
+                  aria-label={`${name} 멤버십 혜택 보기`}
+                  className="mt-2 inline-flex items-center gap-1 rounded-full text-[11px] font-bold text-kcc-theme transition-colors hover:text-kcc-theme-darker focus:outline-none focus-visible:ring-4 focus-visible:ring-[rgba(5,60,140,0.2)]"
+                >
+                  <FlipIcon />
+                  혜택 보기
+                </button>
+              </div>
+            </div>
+
+            <div className="relative flex h-14 shrink-0 items-center justify-between px-4 sm:h-auto sm:w-[120px] sm:flex-col sm:justify-center sm:gap-2.5 sm:px-0">
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-3 top-0 border-t-[1.5px] border-dashed border-slate-200 sm:inset-x-auto sm:inset-y-3 sm:left-0 sm:border-l-[1.5px] sm:border-t-0"
+              />
+              <MemberLabel />
+              <div className="flex gap-2 sm:gap-1.5">
+                <TicketLink
+                  href={websiteUrl}
+                  label={`${name} ${isInstagram ? '인스타그램' : '웹사이트'} 열기`}
+                  text={isInstagram ? 'Instagram' : '웹사이트'}
+                >
+                  {isInstagram ? (
+                    <InstagramIcon className="h-4 w-4" />
+                  ) : (
+                    <ArrowUpRightIcon className="h-4 w-4" />
+                  )}
+                </TicketLink>
+                <TicketLink
+                  href={locationUrl}
+                  label={`${name} 위치 보기`}
+                  text="지도"
+                >
+                  <PinIcon className="h-4 w-4" />
+                </TicketLink>
+              </div>
             </div>
           </div>
         </div>
@@ -221,71 +223,73 @@ function SponsorDetailCard({
         <div
           ref={backRef}
           onClick={flipFromClick}
-          className="sponsor-face sponsor-face-back sponsor-ticket flex cursor-pointer flex-col rounded-lg bg-kcc-theme text-white sm:flex-row"
+          className="sponsor-face sponsor-face-back cursor-pointer"
         >
-          <div className="flex min-w-0 flex-1 items-center gap-5 px-5 py-3.5 sm:gap-6 sm:px-6">
-            {discount ? (
-              <>
-                <p className="shrink-0 leading-none">
-                  <span className="block text-5xl font-bold tracking-tight sm:text-6xl">
-                    {discount}
-                  </span>
-                  <span className="mt-1 block text-sm font-bold tracking-[0.3em] text-white/70">
-                    OFF
-                  </span>
-                </p>
-                <div className="min-w-0 border-l border-white/20 pl-5 sm:pl-6">
+          <div className="sponsor-ticket flex h-full flex-col rounded-lg bg-kcc-theme text-white sm:flex-row">
+            <div className="flex min-w-0 flex-1 items-center gap-5 px-5 py-3.5 sm:gap-6 sm:px-6">
+              {discount ? (
+                <>
+                  <p className="shrink-0 leading-none">
+                    <span className="block text-5xl font-bold tracking-tight sm:text-6xl">
+                      {discount}
+                    </span>
+                    <span className="mt-1 block text-sm font-bold tracking-[0.3em] text-white/70">
+                      OFF
+                    </span>
+                  </p>
+                  <div className="min-w-0 border-l border-white/20 pl-5 sm:pl-6">
+                    <p className="text-[11px] font-bold tracking-[0.16em] text-white/60">
+                      {name.toUpperCase()}
+                    </p>
+                    {benefitNote && (
+                      <p className="mt-1 break-keep text-sm font-bold sm:text-[15px]">
+                        {benefitNote}
+                      </p>
+                    )}
+                    {address && (
+                      <Link
+                        href={locationUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-1.5 inline-flex items-center gap-1 text-xs text-white/75 underline-offset-4 hover:text-white hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+                      >
+                        <PinIcon className="h-3.5 w-3.5" />
+                        {address}
+                      </Link>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <div className="min-w-0">
                   <p className="text-[11px] font-bold tracking-[0.16em] text-white/60">
                     {name.toUpperCase()}
                   </p>
-                  {benefitNote && (
-                    <p className="mt-1 break-keep text-sm font-bold sm:text-[15px]">
-                      {benefitNote}
-                    </p>
-                  )}
-                  {address && (
-                    <Link
-                      href={locationUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1.5 inline-flex items-center gap-1 text-xs text-white/75 underline-offset-4 hover:text-white hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-                    >
-                      <PinIcon className="h-3.5 w-3.5" />
-                      {address}
-                    </Link>
-                  )}
+                  <p className="mt-1 text-lg font-bold sm:text-xl">
+                    혜택 정보 준비 중
+                  </p>
+                  <p className="mt-1 break-keep text-xs text-white/70">
+                    곧 업데이트될 예정이에요
+                  </p>
                 </div>
-              </>
-            ) : (
-              <div className="min-w-0">
-                <p className="text-[11px] font-bold tracking-[0.16em] text-white/60">
-                  {name.toUpperCase()}
-                </p>
-                <p className="mt-1 text-lg font-bold sm:text-xl">
-                  혜택 정보 준비 중
-                </p>
-                <p className="mt-1 break-keep text-xs text-white/70">
-                  곧 업데이트될 예정이에요
-                </p>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
 
-          <div className="relative flex h-14 shrink-0 items-center justify-between px-4 sm:h-auto sm:w-[120px] sm:flex-col sm:justify-center sm:gap-3 sm:px-0">
-            <span
-              aria-hidden="true"
-              className="absolute inset-x-3 top-0 border-t-[1.5px] border-dashed border-white/25 sm:inset-x-auto sm:inset-y-3 sm:left-0 sm:border-l-[1.5px] sm:border-t-0"
-            />
-            <MemberLabel inverted />
-            <button
-              type="button"
-              onClick={() => setFlipped(false)}
-              aria-label={`${name} 티켓 앞면으로 돌아가기`}
-              className="inline-flex h-9 items-center gap-1.5 whitespace-nowrap rounded-full bg-white/15 px-3.5 text-xs font-bold text-white transition hover:bg-white hover:text-kcc-theme focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
-            >
-              <FlipIcon />
-              돌아가기
-            </button>
+            <div className="relative flex h-14 shrink-0 items-center justify-between px-4 sm:h-auto sm:w-[120px] sm:flex-col sm:justify-center sm:gap-3 sm:px-0">
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-3 top-0 border-t-[1.5px] border-dashed border-white/25 sm:inset-x-auto sm:inset-y-3 sm:left-0 sm:border-l-[1.5px] sm:border-t-0"
+              />
+              <MemberLabel inverted />
+              <button
+                type="button"
+                onClick={() => setFlipped(false)}
+                aria-label={`${name} 티켓 앞면으로 돌아가기`}
+                className="inline-flex h-9 items-center gap-1.5 whitespace-nowrap rounded-full bg-white/15 px-3.5 text-xs font-bold text-white transition hover:bg-white hover:text-kcc-theme focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40"
+              >
+                <FlipIcon />
+                돌아가기
+              </button>
+            </div>
           </div>
         </div>
       </div>
