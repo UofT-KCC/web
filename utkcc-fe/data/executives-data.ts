@@ -371,14 +371,6 @@ export const execData: {
   {
     dept: 'social',
     position: 'manager',
-    name: '김준현',
-    imageSrc: '/assets/images/exec-headshots/김준현.jpg',
-    program: 'Economics & Political Science',
-    intro: [],
-  },
-  {
-    dept: 'social',
-    position: 'manager',
     name: '김시현',
     imageSrc: '/assets/images/exec-headshots/김시현.jpg',
     program: 'Rotman Commerce - Management',
@@ -553,7 +545,7 @@ export const execData: {
     position: 'intern',
     name: '김이안',
     imageSrc: '/assets/images/exec-headshots/김이안.jpg',
-    program: '',
+    program: 'Mathematics & Physical Sciences',
     intro: [],
   },
 ];
