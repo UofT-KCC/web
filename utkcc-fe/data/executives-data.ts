@@ -200,6 +200,38 @@ export const execData: {
     program: 'Economics',
     intro: [],
   },
+  {
+    dept: 'academics',
+    position: 'intern',
+    name: '정준혁',
+    imageSrc: '',
+    program: 'Rotman Commerce',
+    intro: [],
+  },
+  {
+    dept: 'academics',
+    position: 'intern',
+    name: '임수현',
+    imageSrc: '/assets/images/exec-headshots/임수현.jpg',
+    program: 'Rotman Commerce',
+    intro: [],
+  },
+  {
+    dept: 'academics',
+    position: 'intern',
+    name: '권라율',
+    imageSrc: '/assets/images/exec-headshots/권라율.jpg',
+    program: 'Rotman Commerce',
+    intro: [],
+  },
+  {
+    dept: 'academics',
+    position: 'intern',
+    name: '허동진',
+    imageSrc: '/assets/images/exec-headshots/허동진.jpg',
+    program: 'Rotman Commerce',
+    intro: [],
+  },
 
   // =======================
   // MARKETING - POSTER
@@ -226,6 +258,22 @@ export const execData: {
     name: '최호승',
     imageSrc: '/assets/images/exec-headshots/최호승.jpg',
     program: 'Kinesiology',
+    intro: [],
+  },
+  {
+    dept: 'marketing - poster',
+    position: 'intern',
+    name: '박주원',
+    imageSrc: '/assets/images/exec-headshots/박주원.jpg',
+    program: 'Humanities',
+    intro: [],
+  },
+  {
+    dept: 'marketing - poster',
+    position: 'intern',
+    name: '임기현',
+    imageSrc: '/assets/images/exec-headshots/임기현.jpg',
+    program: 'Statistics & Economics',
     intro: [],
   },
 
@@ -292,6 +340,14 @@ export const execData: {
     program: 'Mathematics & Economics',
     intro: [],
   },
+  {
+    dept: 'media',
+    position: 'intern',
+    name: '김규아',
+    imageSrc: '/assets/images/exec-headshots/김규아.jpg',
+    program: '',
+    intro: [],
+  },
 
   // =======================
   // SOCIAL
@@ -315,14 +371,6 @@ export const execData: {
   {
     dept: 'social',
     position: 'manager',
-    name: '김준현',
-    imageSrc: '/assets/images/exec-headshots/김준현.jpg',
-    program: 'Economics & Political Science',
-    intro: [],
-  },
-  {
-    dept: 'social',
-    position: 'manager',
     name: '김시현',
     imageSrc: '/assets/images/exec-headshots/김시현.jpg',
     program: 'Rotman Commerce - Management',
@@ -334,6 +382,38 @@ export const execData: {
     name: '백선주',
     imageSrc: '/assets/images/exec-headshots/백선주.jpg',
     program: 'Architecture',
+    intro: [],
+  },
+  {
+    dept: 'social',
+    position: 'intern',
+    name: '황다비',
+    imageSrc: '/assets/images/exec-headshots/황다비.jpg',
+    program: 'Rotman Commerce',
+    intro: [],
+  },
+  {
+    dept: 'social',
+    position: 'intern',
+    name: '김동훈',
+    imageSrc: '/assets/images/exec-headshots/김동훈.jpg',
+    program: 'Rotman Commerce',
+    intro: [],
+  },
+  {
+    dept: 'social',
+    position: 'intern',
+    name: '이지후',
+    imageSrc: '/assets/images/exec-headshots/이지후.jpg',
+    program: 'Rotman Commerce',
+    intro: [],
+  },
+  {
+    dept: 'social',
+    position: 'intern',
+    name: '정인채',
+    imageSrc: '',
+    program: 'Rotman Commerce',
     intro: [],
   },
 
@@ -388,6 +468,30 @@ export const execData: {
     program: 'Biological Chemistry',
     intro: [],
   },
+  {
+    dept: 'corporate relations',
+    position: 'intern',
+    name: '유유진',
+    imageSrc: '/assets/images/exec-headshots/유유진.jpg',
+    program: 'Rotman Commerce',
+    intro: [],
+  },
+  {
+    dept: 'corporate relations',
+    position: 'intern',
+    name: '권진현',
+    imageSrc: '/assets/images/exec-headshots/권진현.jpg',
+    program: 'Economics & Statistics',
+    intro: [],
+  },
+  {
+    dept: 'corporate relations',
+    position: 'intern',
+    name: '김민지',
+    imageSrc: '/assets/images/exec-headshots/김민지.jpg',
+    program: 'Rotman Commerce',
+    intro: [],
+  },
 
   // =======================
   // FINANCE
@@ -434,6 +538,14 @@ export const execData: {
     name: '신지호',
     imageSrc: '/assets/images/exec-headshots/신지호.jpg',
     program: 'Actuarial Science & Statistics',
+    intro: [],
+  },
+  {
+    dept: 'information technology',
+    position: 'intern',
+    name: '김이안',
+    imageSrc: '/assets/images/exec-headshots/김이안.jpg',
+    program: 'Mathematics & Physical Sciences',
     intro: [],
   },
 ];
