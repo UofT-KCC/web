@@ -1,624 +1,336 @@
-# The Official UTKCC Website
+<div align="center">
 
-This repository contains the source code for the UTKCC official website, created by the Programming Department of the 17th UTKCC.
+# UTKCC Website
 
-## Authors
+**The official website of the University of Toronto Korean Commerce Community**
 
-- 🎨 [Hyunjun You](https://www.instagram.com/hyunjun2003) — Designer.
-- 🧑‍💻 [@ryubsmile](https://github.com/ryubsmile) — Programming Director.
-- 🧩 [@caelankim](https://github.com/caelankim) — Programming Committee.
-- 💻 [@mijnap1](https://github.com/mijnap1) — Programming Intern.
+[utkcc.org](https://www.utkcc.org)
 
-## Documentation (Attention Maintainers-)
+![Next.js](https://img.shields.io/badge/Next.js-13-black?logo=next.js)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000?logo=vercel)
 
-This documentation is intended for non-coders who wish to maintain the website with minimal coding.
+</div>
 
-The website does not use any external databases or APIs. Instead, it fetches data from the TypeScript files in the source code, which are located in the `utkcc-fe/data` (texts) and `utkcc-fe/public/assets` (images) folders.
+---
 
-Once you navigate to the folder, you will find several files with the `.ts` extension. You may open these files and make changes only to the ones marked with "수정 O" at the top or in the data explanation.
+## Contents
 
-### Updating Emails in the Footer
+- [About](#about)
+- [Team](#team)
+- [Quick Start](#quick-start)
+- [Maintainer Guide](#maintainer-guide)
+  - [Yearly checklist](#yearly-checklist)
+  - [Executives](#executives)
+  - [Sponsors](#sponsors)
+  - [Events](#events)
+  - [Contact emails & form links](#contact-emails--form-links)
+  - [Other data files](#other-data-files)
+- [Environment Variables](#environment-variables)
+- [Deployment](#deployment)
 
-Refer to `utkcc-fe/data/change-annually-data.ts`.
+---
 
-Here are some examples:
+## About
 
-```typescript
-...
+This repository holds the source code for the UTKCC website. The site was first built by the Programming Department of the 17th UTKCC and is now maintained by the **20기 Information Technology Department**.
 
-/** KCC Email */
-export const kccEmail = 'koreancommerce@gmail.com';
-/** President's Email */
-export const presEmail = 'danielkim6778@gmail.com';
-/** Vice President's Email */
-export const vicePresEmail = 'laurenkang11@gmail.com';
-/** Sponsor-Related Email (ER Director) */
-export const erDirectorEmail = 'jungyoon.uoft@gmail.com';
+The site has **no database**. Everything you see comes from two places:
 
-...
+| What | Where |
+|---|---|
+| Text and data | `utkcc-fe/data/*.ts` |
+| Images, PDFs, videos | `utkcc-fe/public/assets/` |
+
+> [!TIP]
+> Most updates only touch files marked **`수정 O`** at the top. Those are written so non-coders can edit them safely.
+
+---
+
+## Team
+
+### Built by (17기)
+
+| | |
+|---|---|
+| 🎨 Designer | [Hyunjun You](https://www.instagram.com/hyunjun2003) |
+| 🧑‍💻 Programming Director | [@ryubsmile](https://github.com/ryubsmile) |
+| 🧩 Programming Committee | [@caelankim](https://github.com/caelankim) |
+| 💻 Programming Intern | [@mijnap1](https://github.com/mijnap1) |
+
+### Maintained by (20기 IT)
+
+| | |
+|---|---|
+| 🧑‍💻 Director | 류지훈 (Jamie Ryu) · [@mijnap1](https://github.com/mijnap1) |
+| 🧩 Manager | 신지호 · [@sjiho1005](https://github.com/sjiho1005) |
+| 💻 Intern | 김이안 |
+
+---
+
+## Quick Start
+
+```bash
+git clone https://github.com/UofT-KCC/web.git
+cd web/utkcc-fe
+npm install
 ```
 
-Change the text within the single quotation marks to update the emails. For example:
+Create `utkcc-fe/.env.local`:
 
-```typescript
-export const presEmail = "jeff.ryu@mail.utoronto.ca";
-```
-
-### Updating Subscription and Recruitment-Related Form Links
-
-Refer to the same file as above, `utkcc-fe/data/change-annually-data.ts`.
-
-### Updating Event Data
-
-Check the file in `utkcc-fe/data/events-data.ts`.
-
-The data is stored in a constant variable called `eventData`. Each event is stored in the following manner:
-
-```typescript
-{
-    info: {
-      type: 'academic',
-      slogan: ['학생의 본분을', '잊지 않기 위하여'],
-      explanation:
-        '대학 공부는 처음이라 버겁게 느껴진다면 UTKCC와 함께 공부해요. 코스를 수강했던 선배들에게만 들을 수 있는 팁과 문제풀이 방식을 코스 튜토리얼을 통해 배워갈 수 있습니다.',
-    },
-    bgImage: '/assets/images/events/academic-events.jpeg',
-},
-```
-
-- Changing the text: Make changes directly in the current file.
-- Changing the image: Replace the image and update the relative location in the bgImage attribute.
-
-### Updating Sponsors Information - **Important**
-
-WARNING: Updating the sponsor information must be done _every September_. \
-Please read the instructions below and follow them.
-
-Open the following typescript file in the source code: `utkcc-fe/data/sponsors-data.ts`.
-
-Information of sponsors of UTKCC will be stored in the variable `sponsorsData`, in the following structure:
-
-```typescript
-{
-    name: '18feet',
-    exp: '𝟏𝟖𝐟𝐞𝐞𝐭 𝐄𝐬𝐩𝐫𝐞𝐬𝐬𝐨 𝐁𝐚𝐫 & 𝐂𝐡𝐞𝐨𝐧𝐠',
-    imageSrc: '/assets/images/sponsors/18feet.jpeg',
-    websiteUrl: 'https://www.instagram.com/18feet.ca/',
-    locationUrl: 'https://goo.gl/maps/QKjbG7Xc8nK61tU86',
-},
-```
-
-- All contents must be in lowercase.
-
-  1. `name`: This will be displayed on the menubar.
-  2. `exp`: Short for explanation, provide a brief description of the sponsor and its activities.
-  3. `imageSrc`: Location of the image in the source code public directory. Please use the extension `.webp` or `.avif` to reduce file size if possible.
-  4. `websiteUrl` and `locationUrl`: Self-explanatory; paste the URL of the website/Instagram and a location URL (Google Maps location URL is preferred).
-
-- Updating the image: add the image under folder `utkcc-fe/public/asses/images/sponsors`.
-- Adding another sponsor: add the image under folder `utkcc-fe/public/asses/images/sponsors`, and add another object at the very bottom of the array `sponsorsData`.
-- Removing an existing sponsor: Remove the entire block of text enclosed in curly braces {} that contains the information. Also, delete the image file in `utkcc-fe/public/asses/images/sponsors`.
-
-### Updating Executives Information - **Important**
-
-WARNING: Updating the executivers information must be done _every April and October_.\
-Please follow the instructions below.
-
-Open the TypeScript file in the source code: `utkcc-fe/data/executives-data.ts`.
-
-Information of executive members of UTKCC will be stored in the variable `execData`, in the following structure:
-
-```typescript
-// 19th Executives Information (2025–2026)
-  // =======================
-  // PRESIDENT
-  // =======================
-  {
-    dept: 'president',
-    position: 'president',
-    name: 'Minseo Kim',
-    imageSrc: '/assets/images/exec-headshots/Minseo_Kim.webp',
-    program: 'RC - Finance & Econ'
-  },
-  {
-    dept: 'president',
-    position: 'vice president',
-    name: 'Minseo Kang',
-    imageSrc: '/assets/images/exec-headshots/Minseok_Kang.webp',
-    program: 'Econ & IHRH'
-  },
-  // =======================
-  // ACADEMICS
-  // =======================
-  {
-    dept: 'Academics',
-    position: 'co-director',
-    name: 'Soram Kim',
-    imageSrc: '/assets/images/exec-headshots/Soram_Kim.webp',
-    program: 'RC - Accounting'
-  },
-  {
-    dept: 'director',
-    position: 'co-director',
-    name: 'Jinmin Choi',
-    imageSrc: '/assets/images/exec-headshots/Jinmin_Choi.webp',
-    program: 'RC - Finance & Econ'
-  },
-  {
-    dept: 'academics',
-    position: 'committee',
-    name: 'Young Mo Lee',
-    imageSrc: '/assets/images/exec-headshots/Young_Mo_Lee.webp',
-    program: 'RC - Accounting'
-  },
-  {
-    dept: 'academics',
-    position: 'committee',
-    name: 'Ben Koo',
-    imageSrc: '/assets/images/exec-headshots/Ben_Koo.webp',
-    program: 'RC - Management'
-  },
-  {
-    dept: 'academics',
-    position: 'committee',
-    name: 'Gaeun Lee',
-    imageSrc: '/assets/images/exec-headshots/Gaeun_Lee.webp',
-    program: 'Rotman Commerce'
-  },
-  {
-    dept: 'academics',
-    position: 'committee',
-    name: 'Hyunseo Choi',
-    imageSrc: '/assets/images/exec-headshots/Hyunseo_Choi.webp',
-    program: 'Rotman Commerce'
-  },
-  {
-    dept: 'academics',
-    position: 'intern',
-    name: 'Yeyun Hong',
-    imageSrc: '/assets/images/exec-headshots/Yeyun_Hong.webp',
-    program: 'MathPhysSci - Chem & Econ'
-  },
-  {
-    dept: 'academics',
-    position: 'intern',
-    name: 'Sihyun Kim (Sunny)',
-    imageSrc: '/assets/images/exec-headshots/Sihyun_Kim.webp',
-    program: 'Rotman Commerce'
-  },
-  {
-    dept: 'academics',
-    position: 'intern',
-    name: 'Hyejeong Ju',
-    imageSrc: '/assets/images/exec-headshots/Hyejeong_Ju.webp',
-    program: 'Rotman Commerce'
-  },
-  {
-    dept: 'academics',
-    position: 'intern',
-    name: 'Jimin Kim',
-    imageSrc: '/assets/images/exec-headshots/Jinmin_Kim.webp',
-    program: 'Rotman Commerce'
-  },
-  // =======================
-  // MARKETING - VIDEO
-  // =======================
-  {
-  dept: 'marketing-video',
-  position: 'director',
-  name: 'Hasuh Shin',
-  imageSrc: '/assets/images/exec-headshots/Hasuh_Shin.webp',
-  program: 'Architecture',
-  linkedin: ''
-  },
-  {
-  dept: 'marketing-video',
-  position: 'committee',
-  name: 'Jinseo Kim',
-  imageSrc: '/assets/images/exec-headshots/Jinseo_Kim.webp',
-  program: 'RC - Finance & Econ',
-  linkedin: ''
-  },
-  {
-  dept: 'marketing-video',
-  position: 'intern',
-  name: 'Yesol Kim',
-  imageSrc: '/assets/images/exec-headshots/Yesol_Kim.webp',
-  program: 'Social Sciences',
-  linkedin: ''
-  },
-  {
-  dept: 'marketing-video',
-  position: 'intern',
-  name: 'Chloe Jung',
-  imageSrc: '/assets/images/exec-headshots/Chloe_Jung.webp',
-  program: 'Social Sciences',
-  linkedin: ''
-  }
-  // =======================
-  // MARKETING - POSTER
-  // =======================
-  {
-  dept: 'marketing-poster',
-  position: 'director',
-  name: 'Yeeun Jo',
-  imageSrc: '/assets/images/exec-headshots/Yeeun_Jo.webp',
-  program: 'Math & Environmental Studies',
-  linkedin: ''
-  },
-  {
-  dept: 'marketing-poster',
-  position: 'committee',
-  name: 'Doyeon Kim',
-  imageSrc: '/assets/images/exec-headshots/Doyeon_Kim.webp',
-  program: 'IRHR',
-  linkedin: ''
-  },
-  {
-  dept: 'marketing-poster',
-  position: 'intern',
-  name: 'Claire Kang',
-  imageSrc: '/assets/images/exec-headshots/Claire_Kang.webp',
-  program: 'Visual Studies',
-  linkedin: ''
-  },
-  {
-  dept: 'marketing-poster',
-  position: 'intern',
-  name: 'Minkyung Park',
-  imageSrc: '/assets/images/exec-headshots/Minkyung_Park.webp',
-  program: 'Social Sciences',
-  linkedin: ''
-  },
-  {
-  dept: 'marketing-poster',
-  position: 'intern',
-  name: 'Sooa Hong',
-  imageSrc: '/assets/images/exec-headshots/Sooa_Hong.webp',
-  program: 'Rotman Commerce',
-  linkedin: ''
-  },
-  // =======================
-  // MEDIA
-  // =======================
-  {
-  dept: 'media',
-  position: 'director',
-  name: 'Chowon Kang',
-  imageSrc: '/assets/images/exec-headshots/Chowon_Kang.webp',
-  program: 'Political Science',
-  linkedin: ''
-  },
-  {
-  dept: 'media',
-  position: 'committee',
-  name: 'Yeonji Lee',
-  imageSrc: '/assets/images/exec-headshots/Yeonji_Lee.webp',
-  program: 'Life Sciences',
-  linkedin: ''
-  },
-  {
-  dept: 'media',
-  position: 'intern',
-  name: 'Eunice Moon',
-  imageSrc: '/assets/images/exec-headshots/Eunice_Moon.webp',
-  program: 'Rotman Commerce',
-  linkedin: ''
-  },
-  {
-  dept: 'media',
-  position: 'intern',
-  name: 'Yugyeong (Ella) Cho',
-  imageSrc: '/assets/images/exec-headshots/Yugyeong_Cho.webp',
-  program: 'Life Sciences',
-  linkedin: ''
-  },
-  {
-  dept: 'media',
-  position: 'intern',
-  name: 'Seohoo Hwang',
-  imageSrc: '/assets/images/exec-headshots/Seohoo_Hwang.webp',
-  program: 'Rotman Commerce',
-  linkedin: ''
-  },
-  {
-  dept: 'media',
-  position: 'intern',
-  name: 'Jiho Shin',
-  imageSrc: '/assets/images/exec-headshots/Jiho_Shin.webp',
-  program: 'Physical & Mathematical Sciences',
-  linkedin: ''
-  }
-  // =======================
-  // FINANCE
-  // =======================
-  {
-    dept: 'finance',
-    position: 'director',
-    name: 'Seungmin Lim',
-    imageSrc: '/assets/images/exec-headshots/Seungmin_Lim.webp',
-    program: 'RC - Finance & Econ'
-  },
-  {
-    dept: 'finance',
-    position: 'committee',
-    name: 'Elliot Lim',
-    imageSrc: '/assets/images/exec-headshots/Elliot_Lim.webp',
-    program: 'RC - Finance & Econ'
-  },
-  {
-    dept: 'finance',
-    position: 'intern',
-    name: 'Chaehyun Kim',
-    imageSrc: '/assets/images/exec-headshots/Chaehyun_Kim.webp',
-    program: 'RC - Finance & Econ'
-  },
-  {
-    dept: 'finance',
-    position: 'intern',
-    name: 'Jimin Yang',
-    imageSrc: '/assets/images/exec-headshots/Jimin_Yang.webp',
-    program: 'Economics and IR'
-  },
-  // =======================
-  // SOCIAL
-  // =======================
-  {
-  dept: 'social',
-  position: 'director',
-  name: 'Jiwon Song',
-  imageSrc: '/assets/images/exec-headshots/Jiwon_Song.webp',
-  program: 'Rotman Commerce',
-  linkedin: ''
-  },
-  {
-  dept: 'social',
-  position: 'committee',
-  name: 'Jisu Park',
-  imageSrc: '/assets/images/exec-headshots/Jisu_Park.webp',
-  program: 'Architectural Studies',
-  linkedin: ''
-  },
-  {
-  dept: 'social',
-  position: 'committee',
-  name: 'Seohui (Alice) Kim',
-  imageSrc: '/assets/images/exec-headshots/Seohui_Kim.webp',
-  program: 'Economics',
-  linkedin: ''
-  },
-  {
-  dept: 'social',
-  position: 'committee',
-  name: 'Erica Yoon',
-  imageSrc: '/assets/images/exec-headshots/Erica_Yoon.webp',
-  program: 'Kinesiology and Physical Education',
-  linkedin: ''
-  },
-  {
-  dept: 'social',
-  position: 'intern',
-  name: 'Julia Yang',
-  imageSrc: '/assets/images/exec-headshots/Julia_Yang.webp',
-  program: 'Social Sciences',
-  linkedin: ''
-  },
-  {
-  dept: 'social',
-  position: 'intern',
-  name: 'DaeGeon Lee',
-  imageSrc: '/assets/images/exec-headshots/DaeGeon_Lee.webp',
-  program: 'Rotman Commerce',
-  linkedin: ''
-  },
-  {
-  dept: 'social',
-  position: 'intern',
-  name: 'Minjun Kim',
-  imageSrc: '/assets/images/exec-headshots/Minjun_Kim.webp',
-  program: 'Kinesiology',
-  linkedin: ''
-  },
-  {
-  dept: 'social',
-  position: 'intern',
-  name: 'Noorey Shin',
-  imageSrc: '/assets/images/exec-headshots/Noorey_Shin.webp',
-  program: 'Linguistics',
-  linkedin: ''
-  },
-  {
-  dept: 'social',
-  position: 'intern',
-  name: 'Chan Young Lee',
-  imageSrc: '/assets/images/exec-headshots/Chan-Young_Lee.webp',
-  program: 'Rotman Commerce',
-  linkedin: ''
-  },
-  // =======================
-  // FINANCE
-  // =======================
-  {
-  dept: 'finance',
-  position: 'director',
-  name: 'Seungmi Lim',
-  imageSrc: '/assets/images/exec-headshots/Seungmi_Lim.webp',
-  program: 'RC - Finance & Econ',
-  linkedin: ''
-  },
-  {
-  dept: 'finance',
-  position: 'committee',
-  name: 'Jaemin Jun',
-  imageSrc: '/assets/images/exec-headshots/Jaemin_Jun.webp',
-  program: 'RC - Accounting',
-  linkedin: ''
-  },
-  {
-  dept: 'finance',
-  position: 'committee',
-  name: 'Elliot Lim',
-  imageSrc: '/assets/images/exec-headshots/Elliot_Lim.webp',
-  program: 'RC - Finance & Econ',
-  linkedin: ''
-  },
-  {
-  dept: 'finance',
-  position: 'intern',
-  name: 'Chahyun Kim',
-  imageSrc: '/assets/images/exec-headshots/Chahyun_Kim.webp',
-  program: 'Rotman Commerce',
-  linkedin: ''
-  },
-  {
-  dept: 'finance',
-  position: 'intern',
-  name: 'Jimin Yang',
-  imageSrc: '/assets/images/exec-headshots/Jimin_Yang.webp',
-  program: 'Economics & IRHR',
-  linkedin: ''
-  }
-  // =======================
-  // EXTERNAL RELATIONS
-  // =======================
-  {
-  dept: 'external_relations',
-  position: 'director',
-  name: 'Jung Yoon Choi',
-  imageSrc: '/assets/images/exec-headshots/Jung_Yoon_Choi.webp',
-  program: 'Political Science & Environmental Studies',
-  linkedin: ''
-  },
-  {
-  dept: 'external_relations',
-  position: 'committee',
-  name: 'Jungmin Shin',
-  imageSrc: '/assets/images/exec-headshots/Jungmin_Shin.webp',
-  program: 'Statistics & Math',
-  linkedin: ''
-  },
-  {
-  dept: 'external_relations',
-  position: 'committee',
-  name: 'Hyunjun You',
-  imageSrc: '/assets/images/exec-headshots/Hyunjun_You.webp',
-  program: 'RC - Finance & Econ',
-  linkedin: ''
-  },
-  {
-  dept: 'external_relations',
-  position: 'intern',
-  name: 'Brian Jin',
-  imageSrc: '/assets/images/exec-headshots/Brian_Jin.webp',
-  program: 'Rotman Commerce',
-  linkedin: ''
-  },
-  {
-  dept: 'external_relations',
-  position: 'intern',
-  name: 'Min So Kim',
-  imageSrc: '/assets/images/exec-headshots/Min_So_Kim.webp',
-  program: 'Life Sciences',
-  linkedin: ''
-  },
-  {
-  dept: 'external_relations',
-  position: 'intern',
-  name: 'Joonhyun Kim',
-  imageSrc: '/assets/images/exec-headshots/Joonhyun_Kim.webp',
-  program: 'Economics & Political Science',
-  linkedin: ''
-  },
-  // =======================
-  // PROGRAMMING
-  // =======================
-  {
-  dept: 'programming',
-  position: 'director',
-  name: 'Jaehyuk Ryu',
-  imageSrc: '/assets/images/exec-headshots/Jaehyuk_Ryu.webp',
-  program: 'Computer Science & Statistics',
-  linkedin: 'https://www.linkedin.com/in/jaehyuk-ryu/'
-  },
-  {
-  dept: 'programming',
-  position: 'committee',
-  name: 'Caelan Kim',
-  imageSrc: '/assets/images/exec-headshots/Caelan_Kim.webp',
-  program: 'Computer Science & Statistics',
-  linkedin: ''
-  },
-  {
-  dept: 'programming',
-  position: 'intern',
-  name: 'Jeehoon (Jamie) Ryu',
-  imageSrc: '/assets/images/exec-headshots/Jeehoon_Ryu.webp',
-  program: 'Math & Physical Sciences',
-  linkedin: 'https://www.linkedin.com/in/jamie-ryu-901310359/'
-  }
-```
-
-- All contents must be in lowercase.
-
-  1. `dept`: The department the member is in, among the elements in `deptList`.
-  2. `position`: The member's position
-  3. `name`: Name.
-  4. `imageSrc`: Location of the image in the source code public directory. Please use the extension `.webp` or `.avif` to reduce file size if possible.
-  5. `program`: The member's program of study.
-  6. `intro`: Include this only if the member is the president or the vice-president; otherwise, leave it as `[]`.
-
-- Adding Photos:
-
-  1. The headshot of each executive is located in `public/assets/images/exec-headshots`.
-  2. The format of each picture is in `{name}.webp` with the file size less than 100kb, for optimization purposes.
-  3. For better aesthetics and unity of design, each picture must be cut in 1:1 square ratio of around 700px \* 700px.
-  4. The face of each executive must fit inside the center of the 3\*3 grid when trimming.
-
-### Updating the Website Itself - **Danger Zone**
-
-If the maintainer needs to change quotes or content in other areas, such as the introduction of UTKCC, please search for the corresponding text in `utkcc-fe/app/` files that end with `.tsx`.
-
-WARNING: This is a risky action for non-coders. In case of deployment failure, the website will automatically revert to the latest working version. Please consult @ryubsmile for assistance.
-
-## Tech Stack
-
-**Client:** React, NextJS, TailwindCSS, Typescript
-
-**Server:** NextJS, Typescript
-
-## Installation, for Local Development.
-
-1.  Clone the repository.
-2.  Navigate to `utkcc-fe` folder.
-3.  Run `npm install`.
-4.  Under the same folder, create a file named `.env.local`, and write the following:
-
-```
+```env
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ```
 
-5.  Run `npm run dev`. (exit, or close dev mode using `∧c`).
-6.  Commit to a new branch and make a Pull Request.
-7.  Check the PR, and merge into main.
+Then start the dev server and open <http://localhost:3000>:
+
+```bash
+npm run dev
+```
+
+| Command | What it does |
+|---|---|
+| `npm run dev` | Start the local dev server |
+| `npm run build` | Build for production (run this before opening a PR) |
+| `npm run lint` | Check the code for problems |
+
+**Workflow:** make a new branch → commit → open a Pull Request → merge into `main`.
+
+---
+
+## Maintainer Guide
+
+### Yearly checklist
+
+| When | What to update | File |
+|---|---|---|
+| **April & October** | Executives and headshots | `data/executives-data.ts` |
+| **September** | Sponsors | `data/sponsors-data.ts` |
+| **Each new term** | President / VP emails, recruitment and form links | `data/change-annually-data.ts` |
+| **Each semester** | Calendar, study package, invitation archive | see [Other data files](#other-data-files) |
+
+> [!NOTE]
+> The current 기수 (e.g. "20기") is **calculated automatically** from the date in `change-annually-data.ts`. You don't need to change it.
+
+---
+
+### Executives
+
+> [!IMPORTANT]
+> Update this **every April and October**.
+
+**File:** `utkcc-fe/data/executives-data.ts`
+
+#### 1. Departments (`deptList`)
+
+These control the tabs on the Executives page. Every `dept` value below must match one of them **exactly**.
+
+```typescript
+export const deptList: string[] = [
+  'presidents',
+  'academics',
+  'corporate relations',
+  'finance',
+  'information technology',
+  'marketing - poster',
+  'marketing - video',
+  'media',
+  'social',
+];
+```
+
+Each department's description (shown on the left of the page) lives in `deptDescriptions` in the same file.
+
+#### 2. Members (`execData`)
+
+Each member is one block like this:
+
+```typescript
+{
+  dept: 'information technology',
+  position: 'director',
+  name: '류지훈',
+  imageSrc: '/assets/images/exec-headshots/류지훈.jpg',
+  program: 'Computer Science & Mathematics',
+  intro: [],
+},
+```
+
+| Field | What to put |
+|---|---|
+| `dept` | One of the values in `deptList` |
+| `position` | `'president'`, `'vice president'`, `'director'`, `'manager'` or `'intern'` |
+| `name` | Korean name, e.g. `'유현준'` |
+| `imageSrc` | Path to the headshot. Use `''` if there's no photo yet; a grey placeholder is shown instead |
+| `program` | Program of study, e.g. `'Rotman Commerce - Finance & Economics'` |
+| `intro` | Leave as `[]` (only the president / VP may have intro paragraphs) |
+
+- **Order:** members show up in the same order as in the file, so list them as president → director → manager → intern within each department.
+- **Adding someone:** copy a block, paste it under their department, and edit the values.
+- **Removing someone:** delete their whole `{ ... },` block.
+
+#### 3. Headshots
+
+Put photos in `utkcc-fe/public/assets/images/exec-headshots/`, named after the person (e.g. `유현준.jpg`).
+
+| Rule | |
+|---|---|
+| Shape | Square, **1:1** |
+| Size | About **700–900 px**, ideally **under 100 KB** |
+| Format | `.webp` preferred, `.jpg` is fine |
+| Framing | Face centered; photo fills the whole square, with **no white or blank edges** |
+
+> [!TIP]
+> If you replace a photo but keep the same filename, your local dev server may still show the old one. Delete `utkcc-fe/.next/cache/images` and refresh. The live site updates on the next deploy.
+
+#### Current team (20기, 2026–2027)
+
+**President** 유현준 · **Vice President** 이가은
+
+| Department | Directors | Managers | Interns |
+|---|---|---|---|
+| Academics | 구본석, 주혜정 | 김지민, 홍예윤, 이대건, 김강인 | 정준혁, 임수현, 권라율, 허동진 |
+| Corporate Relations | 임준서, 진하윤 | 신하림, 김유민, 권유현, 조재영 | 유유진, 권진현, 김민지 |
+| Finance | 전재민 | 양지민, 문서윤 | — |
+| Information Technology | 류지훈 | 신지호 | 김이안 |
+| Marketing (Poster) | 박민경 | 강다연, 최호승 | 박주원, 임기현 |
+| Marketing (Video) | 신하서 | 김예솔, 정윤진, 주재은 | — |
+| Media | 이연지 | 배진주, 조희원 | 김규아 |
+| Social | 김서희 | 이찬영, 김시현, 백선주 | 황다비, 김동훈, 이지후, 정인채 |
+
+---
+
+### Sponsors
+
+> [!IMPORTANT]
+> Update this **every September**.
+
+**File:** `utkcc-fe/data/sponsors-data.ts`
+
+```typescript
+{
+  name: 'Kanari',
+  exp: 'Contemporary Asian Bar',
+  category: 'bar',
+  imageSrc: '/assets/images/sponsors/kanari.jpg',
+  websiteUrl: 'https://www.instagram.com/kanari.toronto/',
+  locationUrl: 'https://maps.app.goo.gl/JW9fVsgP96V41shR8',
+  discount: '10%',
+  benefitNote: '현금 또는 카드 결제 시',
+  address: '491 Church St.',
+},
+```
+
+| Field | What to put |
+|---|---|
+| `name` | Sponsor name (shown on the ticket and the menu) |
+| `exp` | One-line description |
+| `category` | `'dining'`, `'cafe'` or `'bar'` |
+| `imageSrc` | Image in `public/assets/images/sponsors/` |
+| `websiteUrl` | Website or Instagram link |
+| `locationUrl` | Google Maps link |
+| `discount` | *(optional)* Big benefit on the back of the ticket, e.g. `'10%'` |
+| `benefitNote` | *(optional)* Benefit conditions |
+| `address` | *(optional)* Store address |
+
+- **Adding:** put the image in `public/assets/images/sponsors/`, then add a block to `sponsorData`.
+- **Removing:** delete the block **and** its image file.
+
+---
+
+### Events
+
+**File:** `utkcc-fe/data/events-data.ts`
+
+Each event category (academic, professional, social) on the Events page is one block:
+
+```typescript
+{
+  info: {
+    type: 'academic',
+    slogan: ['학생의 본분을', '잊지 않기 위하여'],
+    explanation: '대학 공부가 처음이라 버겁게 느껴진다면 ...',
+  },
+  bgImage: '/assets/images/events/academic-events.jpeg',
+},
+```
+
+- **Text:** edit `slogan` and `explanation` directly.
+- **Image:** add the new image to `public/assets/images/events/` and update `bgImage`.
+
+---
+
+### Contact emails & form links
+
+**File:** `utkcc-fe/data/change-annually-data.ts`
+
+| Variable | Used for |
+|---|---|
+| `kccEmail` | Main UTKCC email |
+| `presEmail` / `vicePresEmail` | President / VP emails in the footer |
+| `erDirectorEmail` | Sponsor-related email |
+| `joinMemberShipLink` | Membership sign-up form |
+| `recruitmentLink` | Intern / exec recruitment form |
+| `recruitmentOpen` | `true` turns on the **Join** button; `false` shows it as "준비 중" |
+| `subscribeNewsletterLink` | Newsletter sign-up form |
+
+Only change the text **inside the quotes**:
+
+```typescript
+export const presEmail = 'hj.you@mail.utoronto.ca';
+```
+
+---
+
+### Other data files
+
+| File | What it controls |
+|---|---|
+| `calendar-events.ts` | Events calendar entries |
+| `invitation-archive.ts` | "지난 행사 초대장" on the Events page (newest first; 16:10 thumbnails) |
+| `study-package-data.ts` | 족보 (study package) season, prices and courses |
+| `kb.ts` | Knowledge base used by the site's chat assistant |
+
+---
+
+### Changing the site itself
+
+> [!WARNING]
+> **Danger zone.** To change other text (e.g. the About page), search for it in the `.tsx` files under `utkcc-fe/app/`. Run `npm run build` before opening a PR. If a deploy fails, Vercel keeps the last working version live.
+
+---
 
 ## Environment Variables
 
-To run this project, you will need to update the following environment variables in your `.env` file, located under the `utkcc-web/utkcc-fe` folder:
+Put these in `utkcc-fe/.env.local` for local development, and in the Vercel project settings for production.
 
-```
-NEXT_PUBLIC_BASE_URL=https://utkcc-web.vercel.app
-```
+| Variable | Required | Description |
+|---|---|---|
+| `NEXT_PUBLIC_BASE_URL` | Local only | Base URL of the site, `http://localhost:3000` locally. In production it falls back to Vercel's URL, then `https://utkcc.org` |
+| `OPENAI_API_KEY` | For chat | Enables AI answers in the chat assistant |
+| `CHAT_AI_ENABLED` | — | Set to `false` to turn AI answers off |
+| `CHAT_AI_MODEL` | — | Model override |
+| `CHAT_AI_MAX_OUTPUT_TOKENS` | — | Max answer length (default `420`) |
+| `CHAT_AI_MONTHLY_BUDGET_CAD` | — | Monthly spending cap in CAD (default `9.5`) |
+| `CHAT_AI_MONTHLY_REQUEST_LIMIT` | — | Monthly request cap (default `3500`) |
 
-> In this environment variable, you will need to add the base URL of the website, i.e. the home directory.
+> [!CAUTION]
+> Never commit `.env` files or API keys.
+
+---
 
 ## Deployment
 
-The deployment of this project will be done automatically via Vercel once a commit has been pushed to the `main` branch.
+The site deploys **automatically on Vercel** whenever a commit lands on `main`. No manual steps are needed.
 
-## Appendix
+---
 
-For coders and programmers in future UTKCC: we, the creators, kindly ask you to maintain and update this website for the benefit of your institution. Thank you!
+<div align="center">
 
-## :)
+**To future UTKCC developers:** please keep this site alive and up to date for the community. Thank you! 💙
 
-Written by @ryubsmile .
+<sub>Originally written by <a href="https://github.com/ryubsmile">@ryubsmile</a> · Updated by the 20기 IT Department</sub>
+
+</div>
