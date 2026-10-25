@@ -40,7 +40,7 @@ export const handleScroll = (
 };
 
 const IS_SERVER = typeof window === 'undefined';
-const DEFAULT_BASE_URL = 'https://utkcc.org';
+const DEFAULT_BASE_URL = 'https://utkcc.com';
 
 function normalizeBaseURL(url?: string) {
   if (!url) return DEFAULT_BASE_URL;
