@@ -335,6 +335,6 @@ The site deploys **automatically on Vercel** whenever a commit lands on `main`. 
 
 **To future UTKCC developers:** please keep this site alive and up to date for the community. Thank you! 💙
 
-<sub>Originally written by <a href="https://github.com/ryubsmile">@ryubsmile</a> · Updated by the 20기 IT Department</sub>
+<sub>Originally written by <a href="https://github.com/ryubsmile">@ryubsmile</a> · Updated by <a href="https://github.com/mijnap1">@mijnap1</a></sub>
 
 </div>
