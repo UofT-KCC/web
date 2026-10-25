@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://www.utkcc.com">
-  <img src=".github/assets/readme-banner.svg" alt="UTKCC — University of Toronto Korean Commerce Community" width="100%">
+  <img src=".github/assets/readme-hero.webp" alt="The utkcc.com homepage intro: the UTKCC logo assembles above the words University of Toronto Korean Commerce Community" width="100%">
 </a>
 
 # UTKCC Website
@@ -23,6 +23,7 @@
 ## Contents
 
 - [About](#about)
+- [A Look Inside](#a-look-inside)
 - [Team](#team)
 - [Quick Start](#quick-start)
 - [Maintainer Guide](#maintainer-guide)
@@ -50,6 +51,20 @@ The site has **no database**. Everything you see comes from two places:
 
 > [!TIP]
 > Most updates only touch files marked **`수정 O`** at the top. Those are written so non-coders can edit them safely.
+
+---
+
+## A Look Inside
+
+<div align="center">
+
+<a href="https://www.utkcc.com">
+  <img src=".github/assets/readme-tour.webp" alt="A tour of utkcc.com: the About, Events, Executives, Sponsors, Resources, and Newsletter pages" width="100%">
+</a>
+
+<sub>About · Events · Executives · Sponsors · Resources · Newsletter</sub>
+
+</div>
 
 ---
 
