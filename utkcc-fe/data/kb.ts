@@ -180,9 +180,9 @@ export const UTKCC_KB: KBEntry[] = [
     title_ko: '신입생 세미나 날씨와 연락처',
     title_en: 'Freshman seminar weather and contact',
     content_ko:
-      '웹사이트 날씨는 Seoul 선택 시 서울 날씨, Toronto 선택 시 토론토 날씨를 사용해요. 실시간 날씨가 안 될 때 기본값은 서울 24°C Partly Cloudy, 토론토 23°C Partly Cloudy예요. 공식 연락 채널은 웹사이트 https://www.utkcc.org/ 와 인스타그램 https://www.instagram.com/utkcc_/ (@utkcc_)이고, 담당 팀은 UTKCC Execs예요.',
+      '웹사이트 날씨는 Seoul 선택 시 서울 날씨, Toronto 선택 시 토론토 날씨를 사용해요. 실시간 날씨가 안 될 때 기본값은 서울 24°C Partly Cloudy, 토론토 23°C Partly Cloudy예요. 공식 연락 채널은 웹사이트 https://www.utkcc.com/ 와 인스타그램 https://www.instagram.com/utkcc_/ (@utkcc_)이고, 담당 팀은 UTKCC Execs예요.',
     content_en:
-      'The website uses Seoul weather for the Seoul selection and Toronto weather for the Toronto selection. If live weather is unavailable, the fallback is 24°C Partly Cloudy for Seoul and 23°C Partly Cloudy for Toronto. Official channels are https://www.utkcc.org/ and Instagram https://www.instagram.com/utkcc_/ (@utkcc_), and the team is UTKCC Execs.',
+      'The website uses Seoul weather for the Seoul selection and Toronto weather for the Toronto selection. If live weather is unavailable, the fallback is 24°C Partly Cloudy for Seoul and 23°C Partly Cloudy for Toronto. Official channels are https://www.utkcc.com/ and Instagram https://www.instagram.com/utkcc_/ (@utkcc_), and the team is UTKCC Execs.',
     url: 'https://www.instagram.com/utkcc_/',
     tags: ['freshman seminar 2026', 'weather', 'contact', 'instagram', 'utkcc execs', 'seoul', 'toronto', '날씨', '연락', '인스타', '서울', '토론토'],
   },

@@ -1,10 +1,14 @@
 <div align="center">
 
+<a href="https://www.utkcc.com">
+  <img src=".github/assets/readme-banner.svg" alt="UTKCC — University of Toronto Korean Commerce Community" width="100%">
+</a>
+
 # UTKCC Website
 
 **The official website of the University of Toronto Korean Commerce Community**
 
-[utkcc.org](https://www.utkcc.org)
+[**🌐 utkcc.com**](https://www.utkcc.com)
 
 ![Next.js](https://img.shields.io/badge/Next.js-13-black?logo=next.js)
 ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
@@ -308,7 +312,7 @@ Put these in `utkcc-fe/.env.local` for local development, and in the Vercel proj
 
 | Variable | Required | Description |
 |---|---|---|
-| `NEXT_PUBLIC_BASE_URL` | Local only | Base URL of the site, `http://localhost:3000` locally. In production it falls back to Vercel's URL, then `https://utkcc.org` |
+| `NEXT_PUBLIC_BASE_URL` | Local only | Base URL of the site, `http://localhost:3000` locally. In production it falls back to Vercel's URL, then `https://utkcc.com` |
 | `OPENAI_API_KEY` | For chat | Enables AI answers in the chat assistant |
 | `CHAT_AI_ENABLED` | — | Set to `false` to turn AI answers off |
 | `CHAT_AI_MODEL` | — | Model override |
