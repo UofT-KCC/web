@@ -345,7 +345,7 @@ export const execData: {
     position: 'intern',
     name: '김규아',
     imageSrc: '/assets/images/exec-headshots/김규아.jpg',
-    program: '',
+    program: 'Rotman Commerce',
     intro: [],
   },
 
