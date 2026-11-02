@@ -203,14 +203,6 @@ export const execData: {
   {
     dept: 'academics',
     position: 'intern',
-    name: '정준혁',
-    imageSrc: '',
-    program: 'Rotman Commerce',
-    intro: [],
-  },
-  {
-    dept: 'academics',
-    position: 'intern',
     name: '임수현',
     imageSrc: '/assets/images/exec-headshots/임수현.jpg',
     program: 'Rotman Commerce',

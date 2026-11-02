@@ -210,7 +210,7 @@ Put photos in `utkcc-fe/public/assets/images/exec-headshots/`, named after the p
 
 | Department | Directors | Managers | Interns |
 |---|---|---|---|
-| Academics | 구본석, 주혜정 | 김지민, 홍예윤, 이대건, 김강인 | 정준혁, 임수현, 권라율, 허동진 |
+| Academics | 구본석, 주혜정 | 김지민, 홍예윤, 이대건, 김강인 | 임수현, 권라율, 허동진 |
 | Corporate Relations | 임준서, 진하윤 | 신하림, 김유민, 권유현, 조재영 | 유유진, 권진현, 김민지 |
 | Finance | 전재민 | 양지민, 문서윤 | — |
 | Information Technology | 류지훈 | 신지호 | 김이안 |
