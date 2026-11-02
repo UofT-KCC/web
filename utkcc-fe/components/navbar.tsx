@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import './navbar.css';
-import { handleScroll } from '@/lib/utils';
 import SmallLogoImage from '@/public/assets/images/logo-nav.png';
 import { recruitmentLink, recruitmentOpen } from '@/data/change-annually-data';
 
@@ -88,15 +87,11 @@ export default function NavBar({
     return () => observer.disconnect();
   }, []);
 
-  // Mobile menu links: home, the homepage sections, then the contact page.
+  // Mobile menu links: home, each subpage, then the contact page.
   const mobileLinks = [
-    { label: 'home', href: '/', scroll: false },
-    ...subpagesList.map(name => ({
-      label: name,
-      href: `#${name}`,
-      scroll: true,
-    })),
-    { label: 'contact', href: '/contact', scroll: false },
+    { label: 'home', href: '/' },
+    ...subpagesList.map(name => ({ label: name, href: `/${name}` })),
+    { label: 'contact', href: '/contact' },
   ];
 
   const isCurrent = (label: string) =>
@@ -138,7 +133,7 @@ export default function NavBar({
           <div aria-hidden="true" className="mobile-nav-glow" />
 
           <ul className="relative mt-6 flex flex-col">
-            {mobileLinks.map(({ label, href, scroll }, i) => (
+            {mobileLinks.map(({ label, href }, i) => (
               <li
                 key={label}
                 className="mobile-nav-item"
@@ -151,11 +146,10 @@ export default function NavBar({
                       ? 'text-kcc-theme'
                       : 'text-slate-900 active:text-kcc-theme'
                   }`}
-                  onClick={e => {
-                    // Unlock before scrolling so the page can move to the section.
+                  onClick={() => {
+                    // Unlock page scroll so the next page isn't stuck.
                     document.documentElement.style.overflow = '';
                     setNavActive(false);
-                    if (scroll) handleScroll(e);
                   }}
                 >
                   {label}
