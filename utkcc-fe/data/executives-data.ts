@@ -276,7 +276,7 @@ export const execData: {
     dept: 'marketing - video',
     position: 'director',
     name: '신하서',
-    imageSrc: '/assets/images/exec-headshots/신하서.webp',
+    imageSrc: '/assets/images/exec-headshots/신하서.jpg',
     program: 'Architecture',
     intro: [],
   },
