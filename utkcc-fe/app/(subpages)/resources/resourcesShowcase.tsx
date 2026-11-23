@@ -18,11 +18,15 @@ const courseMapOrderForm = 'https://forms.gle/Pfpnsi2QbAFQoBNN9';
 const studyPackageInquiryLink =
   'https://docs.google.com/forms/d/e/1FAIpQLSflNDJzGPK2-ODnNtDWMNevMpBqjLEHBjbrqG1NkWqOCH9hjA/viewform';
 
-type ResourceView = 'course-map' | 'study-package';
+export type ResourceView = 'course-map' | 'study-package';
 
-export default function ResourcesShowcase() {
-  const [view, setView] = useState<ResourceView>('course-map');
-
+export default function ResourcesShowcase({
+  view,
+  onViewChange: setView,
+}: {
+  view: ResourceView;
+  onViewChange: (view: ResourceView) => void;
+}) {
   return (
     <section
       className="w-full max-w-[1040px] py-4 sm:-mt-6 lg:-mt-[79px]"
