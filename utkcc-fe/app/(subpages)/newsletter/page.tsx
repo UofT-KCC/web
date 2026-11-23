@@ -4,9 +4,23 @@ import PageIntro from '@/components/pageIntro';
 
 const instagramLink = 'https://www.instagram.com/utkccmedia/';
 
-function InstagramIcon() {
+// Update this object each week when a new issue goes up.
+const latestIssue = {
+  title: '이번 주 경제 이슈, 무슨 일이?',
+  cover: '/assets/images/newsletter/november-week-4-cover.jpg',
+  slideCount: 11,
+  caption: [
+    '이번 주 캐나다 경제에는 어떤 변화가 있었을까요? 🇨🇦',
+    '📈 미국 증시를 앞서던 캐나다 주식시장, 최근 상승세가 흔들리고 있습니다. 원자재 가격 하락이 새로운 변수로 떠올랐습니다.',
+    '💵 한편 캐나다 달러는 미국 달러 대비 19개월 만에 최저 수준을 기록했습니다.',
+    '이번 주 UTKCC 경제뉴스에서 확인해 보세요! 💙',
+  ],
+  hashtags: ['#UTKCC', '#UTKCCMedia', '#경제뉴스', '#이번주경제이슈'],
+};
+
+function InstagramIcon({ className = 'h-4 w-4' }: { className?: string }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-none" stroke="currentColor" strokeWidth="1.8">
+    <svg aria-hidden="true" viewBox="0 0 24 24" className={`${className} fill-none`} stroke="currentColor" strokeWidth="1.8">
       <rect x="3" y="3" width="18" height="18" rx="5" />
       <circle cx="12" cy="12" r="4" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
@@ -14,19 +28,36 @@ function InstagramIcon() {
   );
 }
 
-function ArrowUpRightIcon() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" className="h-4 w-4 fill-none" stroke="currentColor" strokeWidth="1.7">
-      <path d="M5 15 15 5M7 5h8v8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
+const actionIcons = [
+  // heart
+  <path key="heart" d="M12 20s-7.5-4.6-9.2-9.4C1.6 7.2 3.9 4 7.2 4c2 0 3.4 1.1 4.8 2.9C13.4 5.1 14.8 4 16.8 4c3.3 0 5.6 3.2 4.4 6.6C19.5 15.4 12 20 12 20Z" strokeLinejoin="round" />,
+  // comment
+  <path key="comment" d="M20.5 11.5a8.5 8.5 0 0 1-12.3 7.6L3.5 20.5l1.4-4.6A8.5 8.5 0 1 1 20.5 11.5Z" strokeLinejoin="round" />,
+  // share
+  <g key="share">
+    <path d="m21 3-7.7 18-3.6-7.1L3 10.8 21 3Z" strokeLinejoin="round" />
+    <path d="M9.7 13.9 21 3" strokeLinecap="round" />
+  </g>,
+];
 
-function BookmarkIcon() {
+function PostHeader({ className }: { className: string }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none" stroke="currentColor" strokeWidth="1.7">
-      <path d="M6.5 4.5h11v16L12 17l-5.5 3.5v-16Z" strokeLinejoin="round" />
-    </svg>
+    <Link
+      href={instagramLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`group items-center gap-3 border-black/[0.06] px-4 py-3 focus:outline-none focus-visible:bg-black/[0.03] ${className}`}
+    >
+      <Image
+        src="/assets/images/newsletter/profile.png"
+        alt=""
+        width={32}
+        height={32}
+        className="h-8 w-8 shrink-0 rounded-full object-cover"
+      />
+      <span className="text-[13px] font-semibold text-slate-900 group-hover:text-slate-600">utkccmedia</span>
+      <span className="ml-auto text-[13px] font-semibold text-[#0095f6]">팔로우</span>
+    </Link>
   );
 }
 
@@ -43,11 +74,11 @@ export default function Newsletter() {
       pageExp={
         <div className="max-w-2xl space-y-4 text-sm leading-relaxed text-kcc-gray lg:text-base lg:leading-relaxed">
           <p>
-            시험, 커리어, 교내외 활동까지. 바쁜 학교생활 속 놓치기 쉬운 소식을 KCC만의
+            캐나다 증시부터 환율까지. 우리 생활과 맞닿은 이번 주 경제 소식을 KCC만의
             시선으로 쉽고 재미있게 정리해 드려요.
           </p>
           <p>
-            이제 뉴스레터는 인스타그램에도{' '}
+            뉴스레터는 인스타그램에{' '}
             <strong className="font-bold text-kcc-theme">매주 일요일 9시</strong>에
             업로드됩니다. 가볍게 넘겨보고, 필요한 정보는 저장해두세요.
           </p>
@@ -66,93 +97,72 @@ export default function Newsletter() {
       }
     >
       <section className="w-full max-w-[780px]">
-        <div className="overflow-hidden rounded-lg border border-slate-200/90 bg-white shadow-[0_22px_70px_-34px_rgba(5,60,140,0.4)]">
-          <div className="flex items-center justify-between border-b border-slate-100 px-4 py-3.5 sm:px-5">
-            <Link
-              href={instagramLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex min-w-0 items-center gap-3 rounded-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/15"
-              aria-label="utkccmedia 인스타그램 열기"
-            >
-              <span className="rounded-full bg-gradient-to-tr from-amber-400 via-pink-500 to-violet-600 p-[2px]">
-                <span className="block rounded-full bg-white p-[2px]">
-                  <Image
-                    src="/assets/images/newsletter/profile.png"
-                    alt="UTKCC Media 로고"
-                    width={42}
-                    height={42}
-                    className="h-10 w-10 rounded-full object-cover"
-                  />
-                </span>
-              </span>
-              <span className="min-w-0 text-left">
-                <span className="flex items-center gap-1.5 text-sm font-bold text-slate-900 group-hover:text-kcc-theme">
-                  utkccmedia
-                  <span className="inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-kcc-theme text-[8px] text-white">✓</span>
-                </span>
-                <span className="block truncate text-[11px] text-slate-500">KCC newsletter · Toronto</span>
-              </span>
-            </Link>
-          </div>
+        <article className="grid overflow-hidden rounded-xl border border-black/[0.06] bg-white/60 backdrop-blur-sm sm:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+          <PostHeader className="flex border-b sm:hidden" />
 
-          <div className="grid sm:grid-cols-[minmax(0,1.05fr)_minmax(240px,.95fr)]">
-            <Link
-              href={instagramLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative aspect-[1250/1550] overflow-hidden bg-[#f4f0ec] sm:aspect-auto sm:min-h-[430px]"
-              aria-label="September Week 4 뉴스레터 인스타그램에서 보기"
-            >
-              <Image
-                src="/assets/images/newsletter/september-week-4-cover.png"
-                alt="KCC Newsletter September Week 4 표지"
-                fill
-                sizes="(min-width: 1024px) 34vw, (min-width: 640px) 52vw, 100vw"
-                className="object-cover transition duration-700 group-hover:scale-[1.025]"
-                priority
-              />
-              <span className="absolute right-3 top-3 rounded-full bg-black/55 px-2.5 py-1 text-[10px] font-semibold tracking-wide text-white backdrop-blur-md">
-                1 / 7
-              </span>
-              <span className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/55 to-transparent px-4 pb-4 pt-14 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
-                인스타그램에서 이어보기
-                <ArrowUpRightIcon />
-              </span>
-            </Link>
+          {/* cover */}
+          <Link
+            href={instagramLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative block aspect-[4/5] overflow-hidden focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-[#8acaf2]"
+            aria-label={`${latestIssue.title} — 인스타그램에서 보기`}
+          >
+            <Image
+              src={latestIssue.cover}
+              alt={`UTKCC 뉴스레터 표지: ${latestIssue.title}`}
+              fill
+              sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover transition duration-700 group-hover:scale-[1.02]"
+              priority
+            />
+            {/* carousel dots */}
+            <span className="absolute inset-x-0 bottom-3 flex justify-center gap-1" aria-hidden="true">
+              {Array.from({ length: latestIssue.slideCount }).map((_, i) => (
+                <span key={i} className={`h-1.5 w-1.5 rounded-full ${i === 0 ? 'bg-white' : 'bg-white/45'}`} />
+              ))}
+            </span>
+          </Link>
 
-            <div className="flex min-h-[300px] flex-col p-5 sm:p-6">
-              <div className="flex items-center justify-between text-slate-900">
-                <div className="flex items-center gap-4">
-                  <InstagramIcon />
-                  <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none" stroke="currentColor" strokeWidth="1.7">
-                    <path d="m21 3-7.7 18-3.6-7.1L3 10.8 21 3Z" strokeLinejoin="round" />
-                    <path d="M9.7 13.9 21 3" strokeLinecap="round" />
-                  </svg>
-                </div>
-                <BookmarkIcon />
-              </div>
+          {/* post side */}
+          <div className="flex min-w-0 flex-col text-left">
+            <PostHeader className="hidden border-b sm:flex" />
 
-              <div className="mt-7 flex-1">
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-kcc-theme">Latest post</p>
-                <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-slate-950 sm:text-3xl">
-                  KCC Newsletter:
-                  <span className="block">September Week 4</span>
-                </h2>
-                <ul className="mt-4 space-y-1 break-keep text-[13px] leading-5 text-slate-600">
-                  <li>Weekly News - 반도체 수출</li>
-                  <li>4 Fall Spots in Toronto 🍂</li>
-                  <li>KCC Member Spotlight</li>
-                </ul>
-                <p className="mt-4 break-keep text-[13px] leading-5 text-slate-600">
-                  이번 주에도 5분이면 읽을 수 있는 KCC Newsletter와 함께하세요!
+            <div className="flex-1 space-y-3 overflow-hidden px-4 py-4 text-[13px] leading-[1.55] text-slate-800 sm:max-h-[330px] sm:overflow-y-auto lg:max-h-none">
+              <p className="break-keep">
+                <span className="mr-1.5 font-semibold text-slate-900">utkccmedia</span>
+                💸 {latestIssue.title}
+              </p>
+              {latestIssue.caption.map((line) => (
+                <p key={line} className="break-keep">
+                  {line}
                 </p>
-                <p className="mt-4 text-xs font-medium text-kcc-theme">#UTKCC #KCCNewsletter #UofT</p>
-              </div>
+              ))}
+              <p className="text-[#00376b]">{latestIssue.hashtags.join(' ')}</p>
+            </div>
 
+            <div className="border-t border-black/[0.06] px-4 pb-4 pt-3">
+              <div className="flex items-center gap-4 text-slate-900">
+                {actionIcons.map((icon, i) => (
+                  <svg key={i} aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 fill-none" stroke="currentColor" strokeWidth="1.8">
+                    {icon}
+                  </svg>
+                ))}
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="ml-auto h-6 w-6 fill-none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M6.5 4.5h11v16L12 17l-5.5 3.5v-16Z" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <Link
+                href={instagramLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-block text-[12px] font-semibold text-slate-500 hover:text-slate-800"
+              >
+                인스타그램에서 전체 보기
+              </Link>
             </div>
           </div>
-        </div>
+        </article>
       </section>
     </PageIntro>
   );
