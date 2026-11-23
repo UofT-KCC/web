@@ -6,7 +6,7 @@ import {
   erDirectorEmail,
 } from '@/data/change-annually-data';
 
-const socialLinks: {
+export const socialLinks: {
   label: string;
   href: string;
   icon: 'instagram' | 'youtube' | 'facebook' | 'linkedin';
@@ -157,7 +157,7 @@ export default function FooterContactInfo() {
   );
 }
 
-function SocialIcon({
+export function SocialIcon({
   name,
 }: {
   name: 'instagram' | 'youtube' | 'facebook' | 'linkedin';
