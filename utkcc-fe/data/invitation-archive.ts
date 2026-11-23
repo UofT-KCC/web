@@ -25,6 +25,18 @@ export interface InvitationSite {
 
 export const invitationSites: InvitationSite[] = [
   {
+    id: '20-career-seminar',
+    edition: '20th',
+    title: 'Career Seminar 2026',
+    theme: 'Crossroad · 갈림길에서',
+    date: '2026-11-21',
+    description:
+      '선배님들이 마주했던 선택의 순간을 갈림길로 풀어낸 초대장이에요. 네 개의 갈림길에서 길을 고르면 나만의 커리어 유형이 나오고, Zoom 탑승권으로 바로 입장할 수 있었어요.',
+    url: 'https://20-career-seminar-peach.vercel.app/',
+    image: '/assets/images/events/invitations/20-career-seminar.jpg',
+    imageAlt: '하늘 배경 위 봉투에서 두 갈래로 갈라지는 길이 그려진 Crossroad 커리어 세미나 초대장',
+  },
+  {
     id: '20-freshman-seminar',
     edition: '20th',
     title: 'Freshman Seminar 2026',

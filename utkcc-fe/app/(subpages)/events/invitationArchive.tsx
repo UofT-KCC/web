@@ -22,7 +22,7 @@ export default function InvitationArchive() {
         둘러보세요.
       </p>
 
-      <ul className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
+      <ul className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:mt-10 lg:gap-x-10 lg:gap-y-14">
         {invitationSites.map(site => (
           <li key={site.id}>
             <a
