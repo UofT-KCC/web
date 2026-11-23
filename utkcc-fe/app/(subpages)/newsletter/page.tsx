@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import PageIntro from '@/components/pageIntro';
+import PostCaption from './postCaption';
 
 const instagramLink = 'https://www.instagram.com/utkccmedia/';
 
@@ -58,6 +59,21 @@ function PostHeader({ className }: { className: string }) {
       <span className="text-[13px] font-semibold text-slate-900 group-hover:text-slate-600">utkccmedia</span>
       <span className="ml-auto text-[13px] font-semibold text-[#0095f6]">팔로우</span>
     </Link>
+  );
+}
+
+function PostActions({ className = '' }: { className?: string }) {
+  return (
+    <div className={`items-center gap-4 text-slate-900 ${className}`}>
+      {actionIcons.map((icon, i) => (
+        <svg key={i} aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 fill-none" stroke="currentColor" strokeWidth="1.8">
+          {icon}
+        </svg>
+      ))}
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="ml-auto h-6 w-6 fill-none" stroke="currentColor" strokeWidth="1.8">
+        <path d="M6.5 4.5h11v16L12 17l-5.5 3.5v-16Z" strokeLinejoin="round" />
+      </svg>
+    </div>
   );
 }
 
@@ -128,35 +144,24 @@ export default function Newsletter() {
           <div className="flex min-w-0 flex-col text-left">
             <PostHeader className="hidden border-b sm:flex" />
 
-            <div className="flex-1 space-y-3 overflow-hidden px-4 py-4 text-[13px] leading-[1.55] text-slate-800 sm:max-h-[330px] sm:overflow-y-auto lg:max-h-none">
-              <p className="break-keep">
-                <span className="mr-1.5 font-semibold text-slate-900">utkccmedia</span>
-                💸 {latestIssue.title}
-              </p>
-              {latestIssue.caption.map((line) => (
-                <p key={line} className="break-keep">
-                  {line}
-                </p>
-              ))}
-              <p className="text-[#00376b]">{latestIssue.hashtags.join(' ')}</p>
+            {/* phones: icons sit right under the photo, like the Instagram app */}
+            <PostActions className="flex px-4 pt-3 sm:hidden" />
+
+            <div className="flex-1 px-4 pb-1 pt-2.5 sm:max-h-[330px] sm:overflow-y-auto sm:py-4 lg:max-h-none">
+              <PostCaption
+                title={latestIssue.title}
+                lines={latestIssue.caption}
+                hashtags={latestIssue.hashtags}
+              />
             </div>
 
-            <div className="border-t border-black/[0.06] px-4 pb-4 pt-3">
-              <div className="flex items-center gap-4 text-slate-900">
-                {actionIcons.map((icon, i) => (
-                  <svg key={i} aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 fill-none" stroke="currentColor" strokeWidth="1.8">
-                    {icon}
-                  </svg>
-                ))}
-                <svg aria-hidden="true" viewBox="0 0 24 24" className="ml-auto h-6 w-6 fill-none" stroke="currentColor" strokeWidth="1.8">
-                  <path d="M6.5 4.5h11v16L12 17l-5.5 3.5v-16Z" strokeLinejoin="round" />
-                </svg>
-              </div>
+            <div className="px-4 pb-4 pt-2 sm:border-t sm:border-black/[0.06] sm:pt-3">
+              <PostActions className="hidden sm:flex" />
               <Link
                 href={instagramLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-block text-[12px] font-semibold text-slate-500 hover:text-slate-800"
+                className="inline-block text-[12px] font-semibold text-slate-500 hover:text-slate-800 sm:mt-3"
               >
                 인스타그램에서 전체 보기
               </Link>
