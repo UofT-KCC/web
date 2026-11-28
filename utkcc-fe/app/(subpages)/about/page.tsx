@@ -105,7 +105,7 @@ export default function About() {
           </div>
         }
       >
-        <div className="max-w-2xl space-y-5 break-keep text-[15px] leading-[1.9] text-slate-600 lg:text-base">
+        <div className="max-w-2xl space-y-5 break-keep text-base leading-[1.9] text-slate-600 lg:text-lg">
           <p>
             토론토 대학교의 UTKCC는 {KCC_START_YEAR}년에 Commerce 및 Economics
             전공 학생들을 중심으로 설립되어, 현재 {KCC_TH_NOW}기를 맞이한 학교
@@ -123,42 +123,43 @@ export default function About() {
         </div>
       </Section>
 
-      <Section label="Motto" title="우리가 지향하는 것">
-        <div className="space-y-14 lg:space-y-20">
-          {mottos.map(({ lead, highlight, detail }, i) => {
-            const alignRight = i % 2 === 1;
-            return (
-              <figure
-                key={highlight}
-                className={`relative max-w-4xl pt-10 lg:pt-14 ${
-                  alignRight ? 'ml-auto text-right' : ''
-                }`}
-              >
+      <section aria-label="Motto" className="mt-16 lg:mt-24">
+        {/* One row per motto: the statement on the left, its Korean line on
+            the right, divided by hairlines. */}
+        <div className="border-b border-slate-200">
+          {mottos.map(({ lead, highlight, detail }) => (
+            <figure
+              key={highlight}
+              className="grid gap-4 border-t border-slate-200 py-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,300px)] lg:items-end lg:gap-12 lg:py-12"
+            >
+              {/* On desktop the opening quote hangs into the margin so the
+                  words stay aligned with the heading and the hairlines; phones
+                  have no margin to spare, so there it sits inline. */}
+              <blockquote className="relative text-[32px] font-bold leading-[1.08] tracking-tight text-slate-950 lg:text-6xl">
                 <span
                   aria-hidden="true"
-                  className={`pointer-events-none absolute top-0 select-none text-[120px] font-bold leading-none text-[#dfe7f3] lg:-top-4 lg:text-[200px] ${
-                    alignRight ? 'right-0' : 'left-0'
-                  }`}
+                  className="mr-1 text-[rgba(5,60,140,0.25)] lg:absolute lg:right-full lg:top-0 lg:mr-0 lg:pr-2"
                 >
                   &ldquo;
                 </span>
-                <blockquote className="relative text-[32px] font-bold leading-[1.08] tracking-tight text-slate-950 lg:text-6xl">
-                  {lead}{' '}
-                  <span className="block text-kcc-theme">{highlight}</span>
-                </blockquote>
-                <figcaption
-                  className={`relative mt-5 flex items-center gap-2.5 break-keep text-[13px] text-slate-500 sm:gap-3 sm:text-sm lg:mt-6 lg:text-base ${
-                    alignRight ? 'flex-row-reverse' : ''
-                  }`}
-                >
-                  <span className="h-0.5 w-5 shrink-0 rounded-full bg-kcc-theme sm:w-8" />
-                  <span>{detail}</span>
-                </figcaption>
-              </figure>
-            );
-          })}
+                {lead}{' '}
+                <span className="block text-kcc-theme">
+                  {highlight}
+                  <span
+                    aria-hidden="true"
+                    className="text-[rgba(5,60,140,0.25)]"
+                  >
+                    &rdquo;
+                  </span>
+                </span>
+              </blockquote>
+              <figcaption className="break-keep text-[13px] leading-relaxed text-slate-500 sm:text-sm lg:pb-2 lg:text-base">
+                {detail}
+              </figcaption>
+            </figure>
+          ))}
         </div>
-      </Section>
+      </section>
 
       <Section label="What We Do" title="UTKCC가 하는 일">
         <div className="grid gap-4 md:grid-cols-3">
@@ -209,10 +210,10 @@ function Section({
 }) {
   const body = (
     <div>
-      <p className="text-[11px] font-bold tracking-[0.18em] text-slate-400">
+      <p className="text-[11px] font-bold tracking-[0.18em] text-slate-400 lg:text-sm">
         {label.toUpperCase()}
       </p>
-      <h2 className="mb-6 mt-2 text-2xl font-bold tracking-tight text-slate-950 lg:mb-8 lg:text-4xl">
+      <h2 className="mb-6 mt-2 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl lg:mb-10 lg:text-5xl">
         {title}
       </h2>
       {children}
