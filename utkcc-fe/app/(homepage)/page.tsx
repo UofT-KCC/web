@@ -1,6 +1,6 @@
 import Entry from './entry';
 import AboutHomeIntro from '../(subpages)/about/aboutHomeIntro';
-import Executives from '../(subpages)/executives/page';
+import ExecutivesHomeIntro from '../(subpages)/executives/executivesHomeIntro';
 import SponsorsHomeIntro from '../(subpages)/sponsors/sponsorsHomeIntro';
 import Resources from '../(subpages)/resources/page';
 import Newsletter from '../(subpages)/newsletter/page';
@@ -18,7 +18,7 @@ export default function Home() {
           {/* events intro */}
           <EventsHomeIntro />
           {/* exec intro */}
-          <Executives />
+          <ExecutivesHomeIntro />
           {/* sponsors intro */}
           <SponsorsHomeIntro />
           {/* resources intro */}

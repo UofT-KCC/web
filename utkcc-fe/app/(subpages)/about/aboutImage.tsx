@@ -82,31 +82,8 @@ export default function AboutImage() {
           aria-label="Expanded UTKCC group photo"
           onClick={closeLightbox}
         >
-          <button
-            type="button"
-            aria-label="Back to about page"
-            onClick={closeLightbox}
-            className={`absolute left-4 top-4 lg:left-8 lg:top-8 flex h-10 items-center gap-2 rounded-full bg-white/80 px-4 text-sm font-bold text-kcc-theme shadow-[0_10px_30px_rgba(0,0,0,0.12)] ring-1 ring-black/10 backdrop-blur-md transition-all duration-300 ease-out hover:bg-kcc-theme hover:text-white hover:shadow-[0_14px_36px_rgba(5,60,140,0.22)] focus:outline-none focus-visible:ring-4 focus-visible:ring-kcc-theme/30 active:scale-[0.98] ${
-              isLightboxVisible
-                ? 'translate-y-0 opacity-100'
-                : '-translate-y-2 opacity-0'
-            }`}
-          >
-            <svg
-              aria-hidden="true"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2.25"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M19 12H5" />
-              <path d="m12 19-7-7 7-7" />
-            </svg>
-            Back
-          </button>
+          {/* No close button: clicking around the photo or pressing Escape
+              closes it. */}
           <div
             className={`rounded-lg shadow-[0_28px_70px_rgba(0,0,0,0.22)] ring-1 ring-black/10 transition-all duration-300 ease-out ${
               isLightboxVisible

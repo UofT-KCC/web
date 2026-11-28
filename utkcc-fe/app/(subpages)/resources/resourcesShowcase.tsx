@@ -129,7 +129,9 @@ function CourseMapPanel() {
       </div>
 
       <div className="flex flex-col py-2 sm:min-h-[470px] sm:py-5">
-        <div className="flex items-start justify-between gap-5">
+        {/* Title and price share one header row, each with the same small
+            label on top, so "$5" sits on the same line as "Course". */}
+        <div className="flex items-start justify-between gap-6">
           <div>
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-400">
               UTKCC
@@ -140,11 +142,11 @@ function CourseMapPanel() {
               Map
             </h2>
           </div>
-          <div className="shrink-0 rounded-2xl bg-kcc-theme/[0.07] px-5 py-4 text-center shadow-[0_14px_30px_-22px_rgba(5,60,140,.55)] ring-1 ring-inset ring-kcc-theme/15">
-            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-kcc-theme/60">
+          <div className="shrink-0 text-right">
+            <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-400">
               Price
             </p>
-            <p className="mt-1 text-4xl font-bold leading-none tracking-[-0.06em] text-kcc-theme">
+            <p className="mt-1 text-4xl font-bold leading-[0.88] tracking-[-0.055em] text-kcc-theme sm:text-5xl">
               $5
             </p>
           </div>
@@ -155,16 +157,16 @@ function CourseMapPanel() {
           시험 정보를 한눈에 확인할 수 있어요.
         </p>
 
-        <div className="mt-7 space-y-3">
-          <Feature number="80+" label="과목 및 교수진 리뷰" />
-          <Feature
-            icon={<ReviewIcon />}
-            label="학생들이 직접 전하는 수강 후기"
-          />
-          <Feature icon={<ExamIcon />} label="평가 방식과 시험 구성 인사이트" />
-        </div>
+        <ul className="mt-7 space-y-3">
+          <Feature>
+            <strong className="font-bold text-kcc-theme">80+</strong> 과목 및
+            교수진 리뷰
+          </Feature>
+          <Feature>학생들이 직접 전하는 수강 후기</Feature>
+          <Feature>평가 방식과 시험 구성 인사이트</Feature>
+        </ul>
 
-        <div className="mt-auto pt-7">
+        <div className="mt-auto pt-8">
           <Link
             href={courseMapOrderForm}
             target="_blank"
@@ -462,22 +464,30 @@ function AddOnBanner() {
   );
 }
 
-function Feature({
-  number,
-  icon,
-  label,
-}: {
-  number?: string;
-  icon?: ReactNode;
-  label: string;
-}) {
+function Feature({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-center gap-3 border-b border-slate-100 pb-3 last:border-0 last:pb-0">
-      <span className="flex w-8 shrink-0 items-center text-xs font-bold tabular-nums text-kcc-theme">
-        {icon ?? number}
-      </span>
-      <span className="text-xs font-medium text-slate-600">{label}</span>
-    </div>
+    <li className="flex items-center gap-3 border-b border-slate-100 pb-3 text-[13px] font-medium text-slate-600 last:border-0 last:pb-0">
+      <CheckIcon />
+      <span>{children}</span>
+    </li>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 20 20"
+      className="h-4 w-4 shrink-0 fill-none text-kcc-theme"
+      stroke="currentColor"
+      strokeWidth="2"
+    >
+      <path
+        d="m4.5 10.5 3.5 3.5 7.5-8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 }
 
@@ -495,46 +505,6 @@ function ArrowUpRightIcon({ className = 'h-4 w-4' }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </svg>
-  );
-}
-
-function ReviewIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.9"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M7 8h10" />
-      <path d="M7 12h6" />
-      <path d="M8 18H6a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3h-4l-4 3v-3Z" />
-    </svg>
-  );
-}
-
-function ExamIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.9"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M9 5h6" />
-      <path d="M9 3h6a1 1 0 0 1 1 1v2H8V4a1 1 0 0 1 1-1Z" />
-      <path d="M8 5H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
-      <path d="m8 13 2 2 4-5" />
-      <path d="M8 18h8" />
     </svg>
   );
 }
